@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'IcoMoon-Free';
+    src: url('../fonts/IcoMoon-Free.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'opensansbold';
+    src: url('../fonts/opensans-bold-webfont.eot');
+    src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-bold-webfont.woff') format('woff'),
+         url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'opensanslight';
+    src: url('../fonts/opensans-light-webfont.eot');
+    src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-light-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-light-webfont.woff') format('woff'),
+         url('../fonts/opensans-light-webfont.ttf') format('truetype'),
+         url('../fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arrows';
+    src: url('../fonts/arrows-webfont.eot');
+    src: url('../fonts/arrows-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arrows-webfont.woff2') format('woff2'),
+         url('../fonts/arrows-webfont.woff') format('woff'),
+         url('../fonts/arrows-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'western';
+    src: url('../fonts/go_2_old_western-webfont.eot');
+    src: url('../fonts/go_2_old_western-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/go_2_old_western-webfont.woff2') format('woff2'),
+         url('../fonts/go_2_old_western-webfont.woff') format('woff'),
+         url('../fonts/go_2_old_western-webfont.ttf') format('truetype'),
+         url('../fonts/go_2_old_western-webfont.svg#go_2_old_westernregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
