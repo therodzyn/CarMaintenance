@@ -99,15 +99,17 @@ $(function() {
 
 	};
 
-	$.scrollify({
-        section : ".panel",
-        easing: "jswing",
-		scrollSpeed: 1500,
-		offset : 0,
-		scrollbars: true,
-		before:function() {},
-		after:function() {}
-    });
+	if($(window).width() > 720) {
+		$.scrollify({
+	        section : ".panel",
+	        easing: "jswing",
+			scrollSpeed: 1500,
+			offset : 0,
+			scrollbars: true,
+			before:function() {},
+			after:function() {}
+	    });
+	}
 
     $(window).on("resize", handleResize);
     $(".arrow").on("click", handleArrow);

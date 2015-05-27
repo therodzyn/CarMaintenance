@@ -1,5 +1,16 @@
 @media all and (max-width: 1366px) {
 
+	body {
+		font-size: 0.42em;
+	}
 
+	.right-box form input:not([type="submit"]) {
+		font-size: 18px;
+	}
+
+	.box {
+		padding: 2%;
+		height: 45%;
+	}
 
 }

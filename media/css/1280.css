@@ -1,0 +1,15 @@
+@media all and (max-width: 1280px) {
+
+	body {
+		font-size: 0.39em;
+	}
+
+	.main-box {
+		width: 85%;
+	}
+
+	.flex-container {
+		width: 85%;
+	}
+
+}

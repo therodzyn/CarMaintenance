@@ -175,8 +175,15 @@ header h1 span {
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 
-	width: 50%;
 	padding: 1%;
+}
+
+.left-box {
+	width: 55%;
+}
+
+.right-box {
+	width: 45%;
 }
 
 .left-box h2 {
@@ -259,7 +266,7 @@ span.li {
 	width: 70%;
 	font-family: 'Open Sans';
 	font-weight: normal;
-	font-size: 2.5em;
+	font-size: 25px;
 	border: 0;
 	background: rgba(255, 255, 255, 0.3);
 	padding: 2%;
@@ -329,7 +336,7 @@ span.li {
 	-o-border-radius: 50%;
 	border-radius: 50%;
 
-	margin-bottom: 2%;
+	margin-bottom: 35px;
 	cursor: pointer;
 
 	-webkit-animation: arrow-anim 2s infinite;
@@ -341,7 +348,7 @@ span.li {
 
 .arrow p {
 	font-family: 'arrows';
-	font-size: 5em;
+	font-size: 50px;
 	color: #A60404;
 	width: 100%;
 	height: 100%;
