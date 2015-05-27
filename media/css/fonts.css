@@ -17,13 +17,13 @@
 }
 
 @font-face {
-    font-family: 'western';
-    src: url('../fonts/go_2_old_western-webfont.eot');
-    src: url('../fonts/go_2_old_western-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/go_2_old_western-webfont.woff2') format('woff2'),
-         url('../fonts/go_2_old_western-webfont.woff') format('woff'),
-         url('../fonts/go_2_old_western-webfont.ttf') format('truetype'),
-         url('../fonts/go_2_old_western-webfont.svg#go_2_old_westernregular') format('svg');
+    font-family: 'edmund';
+    src: url('../fonts/edmunds_distressed-webfont.eot');
+    src: url('../fonts/edmunds_distressed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/edmunds_distressed-webfont.woff2') format('woff2'),
+         url('../fonts/edmunds_distressed-webfont.woff') format('woff'),
+         url('../fonts/edmunds_distressed-webfont.ttf') format('truetype'),
+         url('../fonts/edmunds_distressed-webfont.svg#edmundsdistressed') format('svg');
     font-weight: normal;
     font-style: normal;
 }
