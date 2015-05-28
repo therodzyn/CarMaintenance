@@ -1,7 +1,13 @@
 $(function() {
 
-	$(".second-panel, .third-panel").height($(window).height());
+	// ustawienie wysokości
 	$(".content").height($(window).height() - $("header").height());
+	// nie ustawiaj wysokości dla drugiego panela dla telefonu
+	if(window.devicePixelRatio < 2) {
+		$(".second-panel, .third-panel").height($(window).height());
+	} else {
+		$(".third-panel").height($(window).height());
+	}
 
 	var handleResize = function(e) {
 		e.preventDefault();
@@ -10,17 +16,24 @@ $(function() {
 	};
 
 	var handleArrow = function(e) {
-		e.preventDefault();
 
-		var link = $(this).attr("href");
-		$.scrollify("move", link);
+		// jeżeli mobilne to nie używaj scrollify, po prostu przelinkuj
+		if(window.devicePixelRatio === 1) {
+			e.preventDefault();
+			var link = $(this).attr("href");
+			$.scrollify("move", link);
+		} else {
+			var firstPanel = $(".first-panel");
+			var link = firstPanel.data("section-name");
+			firstPanel.attr("id", link);
+		}
 
 		// Btn UTWÓRZ KONTO na ostatniej stronie
-		if(link == "#first") {
+		// ustaw panel rejestracji, jeśli był wcześniej wybrany panel logowania
+		if(link == "#first" || link == "first") {
 
-			if($(".login-form").css("display") != "none") {
+			if($(".login-form").css("display") !== "none") {
 
-				console.log("jest");
 				var rightBox = $(".right-box");
 				rightBox.children("h2").html("<span>Zarejestruj się</span> już teraz:");
 				rightBox.children("p").html("Masz już konto? <a class='sign-in-link'>Zaloguj się</a>");
@@ -36,8 +49,9 @@ $(function() {
 				});
 
 			}
-
-			$(".email-reg-input").focus();
+			if(window.devicePixelRatio === 1) {
+				$(".email-reg-input").focus();
+			}
 		}
 	};
 
@@ -71,10 +85,11 @@ $(function() {
 
 		var showForm = {};
 		var hideForm = {};
+		// sprawdź, który panel aktualnie jest widoczny
 		if(this.className == "sign-in-link") {
 			showForm = $(".login-form");
 			hideForm = $(".registry-form");
-			rightBox.children("h2").text("Zaloguj się:");
+			rightBox.children("h2").html("<span>Zaloguj się</span>:");
 			rightBox.children("p").html("Nie masz jeszcze konta? <a class='sign-up-link'>Zarejestuj się</a>");
 		} else {
 			showForm = $(".registry-form");
@@ -95,11 +110,14 @@ $(function() {
 
 		rightBox.fadeIn(300);
 
-		showForm.children("input:first-child").focus();
-
+		if(window.devicePixelRatio === 1) {
+			showForm.children("input:first-child").focus();
+		}
 	};
 
-	if($(window).width() > 720) {
+	// uruchom scrollify na komputerze
+	if(window.devicePixelRatio === 1) {
+
 		$.scrollify({
 	        section : ".panel",
 	        easing: "jswing",
@@ -109,11 +127,20 @@ $(function() {
 			before:function() {},
 			after:function() {}
 	    });
+
 	}
 
-    $(window).on("resize", handleResize);
-    $(".arrow").on("click", handleArrow);
+	// zdarzenie zmiany rozmiarów przeglądarki
+	if(window.devicePixelRatio === 1) {
+		$(window).on("resize", handleResize);
+	}
+	// zdarzenia kliknięcia i hovera strzałki
+	if($(window).width() > 900) {
+		$(".arrow").on("click", handleArrow);
+		$(".arrow").hover(mouseIn, mouseOut);
+	}
+	// zdarzenia kliknięcia na UTWÓRZ KONTO z ostatniego panelu
     $(".back-registry").on("click", handleArrow);
-    $(".arrow").hover(mouseIn, mouseOut);
+    // zdarzenie kliknięcia na link Zaloguj się lub Zarejestruj się
     $(".right-box").on("click", "p > a", handleFormLink);
 })

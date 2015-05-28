@@ -1,0 +1,32 @@
+@media all and (-webkit-min-device-pixel-ratio: 1.7) {
+
+	.left-box > ul >li {
+		font-size: 2.3em;
+	}
+
+	.right-box h2 {
+		font-size: 3em;
+	}
+
+	.right-box form input:not([type="submit"]) {
+		width: 90%;
+		font-size: 18px;
+		padding: 5px;
+	}
+
+	.right-box form input[type="submit"] {
+		width: 50%;
+		font-size: 2.2em;
+	}
+
+	.registry-info {
+		font-size: 4em;
+		font-family: "Open Sans";
+		font-weight: normal;
+	}
+
+	.last-box > a {
+		font-size: 3em;
+	}
+
+}
