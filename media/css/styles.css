@@ -210,7 +210,7 @@ span.li {
 }
 
 .left-box > ul >li {
-	padding: 5px 0;
+	padding: 10px 0;
 }
 
 .left-box > ul >li > span:last-child {
@@ -261,6 +261,13 @@ span.li {
 	align-items: center;
 }
 
+.warning {
+	padding: 0.1% 0 0.5% 0;
+	font-size: 1.9em;
+	color: #A60404;
+	font-family: "Open Sans Bold";
+}
+
 .right-box form input {
 	display: block;
 	color: #fff;
@@ -295,16 +302,10 @@ span.li {
 	transition: all 0.3s;
 }
 
-.right-box form input[type="submit"]:hover, .last-box > a:hover {
-	border: 3px solid #fff;
-	background: #1b6bff;
-	color: #fff;
-}
-
 .right-box > p {
 	width: 100%;
 	text-align: center;
-	padding: 3% 0;
+	padding: 3% 0 0 0;
 }
 
 .right-box > p > a {

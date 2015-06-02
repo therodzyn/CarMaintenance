@@ -12,13 +12,6 @@
 		<link rel="stylesheet" href="media/css/fonts.css">
 		<link rel="stylesheet" href="media/css/reset.css">
 		<link rel="stylesheet" href="media/css/styles.css">
-<!-- 	<link rel="stylesheet" href="media/css/1680.css">
-		<link rel="stylesheet" href="media/css/1366.css">
-		<link rel="stylesheet" href="media/css/1280.css">
-		<link rel="stylesheet" href="media/css/1024.css">
-		<link rel="stylesheet" href="media/css/900.css">
-		<link rel="stylesheet" href="media/css/520.css">
-		<link rel="stylesheet" href="media/css/pxratio-1.7.css"> -->
 		<link rel="stylesheet" href="media/css/media-queries-main.css">
 	</head>
 
@@ -51,7 +44,7 @@
 								<li><span class="li">Q</span> <span>Dodawaj</span> swoje samochody do wirtualnego garażu.</li>
 								<li><span class="li">Q</span> Przypomnimy Ci o następnym <span>przeglądzie</span>.</li>
 								<li><span class="li">Q</span> Przypomnimy Ci o zapłaceniu <span>ubezpieczenia</span>.</li>
-								<li><span class="li">Q</span> Przypomnimy Ci o <span>wymienie</span> oleju, filtrów i podzespołów.</li>
+								<li><span class="li">Q</span> Przypomnimy Ci o <span>wymianie</span> oleju, filtrów i podzespołów.</li>
 								<li><span class="li">Q</span> Znajdź najbliższy <span>warsztat</span> w którym możesz dokonać napraw.</li>
 								<li><span class="li">Q</span> Przeglądaj <span>wiadomości</span>.</li>
 							</ul>
@@ -61,21 +54,21 @@
 							<h2><span>Zarejestruj się</span> już teraz:</h2>
 
 							<form action="" method="POST" class="registry-form">
-								<input type="text" placeholder="Adres e-mail:" class="email-reg-input">
+								<input type="text" placeholder="Adres e-mail:" name="email" class="email-reg-input">
 								<p class="warning"></p>
-								<input type="password" placeholder="Hasło:" class="password-reg-input">
+								<input type="password" placeholder="Hasło:" name="password" class="pass-reg-input">
 								<p class="warning"></p>
-								<input type="password" placeholder="Potwierdź hasło:" class="confirm-reg-input">
+								<input type="password" placeholder="Potwierdź hasło:" name="confirm" class="confirm-reg-input">
 								<p class="warning"></p>
 								<input type="submit" value="ZAREJESTRUJ" class="registry-btn">
 							</form>
 
 							<form action="" method="POST" class="login-form">
-								<input type="text" placeholder="Adres e-mail:" class="email-log-input">
+								<input type="text" placeholder="Adres e-mail:" name="email" class="email-log-input">
 								<p class="warning"></p>
-								<input type="password" placeholder="Hasło:" class="password-log-input">
+								<input type="password" placeholder="Hasło:" name="password" class="pass-log-input">
 								<p class="warning"></p>
-								<input type="submit" value="ZALOGUJ" class="login-btn">
+								<input type="submit" value="ZALOGUJ" name="login-btn">
 							</form>
 
 							<p>Masz już konto? <a class="sign-in-link">Zaloguj się</a></p>

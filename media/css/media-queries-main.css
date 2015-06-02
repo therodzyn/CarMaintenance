@@ -1,3 +1,11 @@
+@media all and (-webkit-max-device-pixel-ratio: 1) {
+
+	.right-box form input[type="submit"]:hover, .last-box > a:hover {
+		background: #1b6bff;
+	}
+
+}
+
 @media all and (max-width: 1680px) {
 
 	body {
@@ -26,7 +34,7 @@
 
 	.box {
 		padding: 2%;
-		height: 45%;
+		height: 48%;
 	}
 
 }
@@ -120,7 +128,7 @@
 	}
 
 	.left-box {
-		padding-bottom: 0%;
+		padding-bottom: 0;
 	}
 
 	.left-box, .right-box {
@@ -147,7 +155,7 @@
 	}
 
 	.right-box h2 {
-		margin-top: 0px;
+		margin-top: 0;
 		margin-bottom: 10px;
 	}
 
@@ -205,12 +213,6 @@
 		font-size: 3em;
 		border: 1px solid #fff;
 		font-family: "Open Sans";
-	}
-
-	.right-box form input[type="submit"]:hover, .last-box > a:hover {
-		border: 1px solid #fff;
-		background: #1b6bff;
-		color: #fff;
 	}
 
 	footer > p {
@@ -309,6 +311,11 @@
 
 	.left-box > ul >li {
 		font-size: 2.3em;
+	}
+
+	.right-box {
+		height: 320px;
+		padding-top: 20px;
 	}
 
 	.right-box h2 {
