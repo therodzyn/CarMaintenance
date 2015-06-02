@@ -1,14 +1,17 @@
 # CarMaintenance
-Automatic car management system.
+**Automatic car management system.**
 
 ## Dependencies
++ Node.js
++ MongoDB
 
 ## Usage
-CMD (Terminal) in project's folder:
+**CMD (Terminal) in project's folder:**
 ```
 npm install
 ```
 
-URL:
+**URL:**
 ```
 localhost:3000
+```
