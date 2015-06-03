@@ -1,5 +1,5 @@
-![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/media/img/favicon-96x96.png)
-# CarMaintenance   
+# CarMaintenance  
+### ![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/media/img/favicon-96x96.png)
 **Automatic car management system.**
 
 ## Dependencies
