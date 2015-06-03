@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/media/img/favicon-96x96.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/media/img/favicon-96x96.png)
 # CarMaintenance   
 **Automatic car management system.**
 
