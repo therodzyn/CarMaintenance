@@ -16,3 +16,6 @@ npm install
 ```
 localhost:3000
 ```
+
+## Releases
++ **1.0.0** - main site 
