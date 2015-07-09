@@ -1,5 +1,5 @@
 # CarMaintenance  
-### ![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/media/img/favicon-96x96.png)
+### ![alt text](https://raw.githubusercontent.com/therodzyn/CarMaintenance/master/public/img/favicon-96x96.png)
 **Automatic car management system.**
 
 ## Dependencies
@@ -18,4 +18,5 @@ localhost:3000
 ```
 
 ## Releases
++ **1.1.0** - GruntJS & SASS
 + **1.0.0** - main site 
