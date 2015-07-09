@@ -1,17 +1,18 @@
 var express = require("express"),
-	mongo = require("mongodb"),
-	bodyParser = require("body-parser"),
-	MongoClient = mongo.MongoClient,
-	app = express(),
-	dbUrl = "mongodb://localhost:27017/carmaintenance";
+	hbs = require("express-handlebars"),
+	app = express();
 
-app.use(express.static(__dirname));
-app.use(bodyParser.json());
+// CONFIG
+app.engine("handlebars", hbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
-app.get("/", function(req, res) {
-	res.sendfile("index.html");
-});
+// MIDDLEWARES
+require("./helpers/middlewares.js")(app);
 
+// ROUTES
+require("./routes/routes.js")(app);
+
+// START
 app.listen("3000", function() {
 	console.log("Serwer aktywny!");
 });
