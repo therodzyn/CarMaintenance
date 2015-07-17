@@ -28,8 +28,14 @@
 // 		LAYOUT
 // ----------------------
 
+	// *--------- HEADER ---------*
+	@import "layout/app-header";
+
+	// *--------- NAV ---------*
+	@import "layout/app-nav";
+
 	// *--------- INDEX ---------*
-	@import "layout/index";
+	@import "layout/app";
 
 	// *--------- MEDIA ---------*
-	@import "layout/media";
+	@import "layout/media2";

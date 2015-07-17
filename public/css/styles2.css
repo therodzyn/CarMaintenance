@@ -27,7 +27,7 @@
     transform: scale(1);
   }
 }
-.right-box form input[type="submit"], .last-box a {
+.content.add-car .container form button, .content #myModal .modal-footer button, .content.car .container .car-info .edit, .content.map form button {
   display: block;
   padding: 5px 25px;
   box-sizing: border-box;
@@ -46,7 +46,7 @@
   border: 1px solid #fff;
 }
 
-.right-box form input[type="submit"]:hover, .last-box a:hover {
+.content.add-car .container form button:hover, .content #myModal .modal-footer button:hover, .content.car .container .car-info .edit:hover, .content.map form button:hover {
   background: #fff;
   color: #1D212A;
   border: 1px solid #1D212A;
@@ -8305,327 +8305,558 @@ mark {
   color: inherit;
 }
 
-body {
+header {
+  width: 100%;
+  padding: 0;
+  height: 60px;
+}
+header > a {
+  display: block;
+  background: #000;
+  width: 250px;
+  color: #770000;
+  font-size: 20px;
+  font-family: "Montserrat";
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  height: 60px;
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+header > a:hover {
+  color: #770000;
+}
+header > a p {
+  position: absolute;
+  text-decoration: underline;
+  top: 50%;
+  margin-top: -13px;
+  width: 100%;
+}
+header .top > i {
+  display: block;
+  float: left;
+  font-size: 25px;
+  height: 60px;
+  padding: 15px 20px;
+  margin-left: 250px;
+}
+header .top > i:hover {
+  background: #f6f8f8;
+  cursor: pointer;
+}
+header .top .profile {
+  float: right;
+  margin-right: 20px;
+}
+header .top .profile .avatar {
+  box-sizing: content-box;
+  background: url("../img/avatar32.png");
+  border: 1px solid #20242d;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  margin-top: 10px;
+  float: left;
+}
+header .top .profile a {
+  float: right;
+  font-size: 14px;
+  margin-top: 15px;
+  color: #1d2939;
   font-family: "Open Sans";
-  font-size: 0.625em;
+  font-weight: 700;
+}
+header .top .profile a:hover {
+  text-decoration: none;
+}
+header .top .profile a i {
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.left-aside {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: 100%;
+  background: #1d212a;
+  width: 250px;
+  display: block;
+  z-index: 9999;
+}
+.left-aside.small-nav {
+  width: 250px;
+  display: none;
+}
+.left-aside.small-nav nav {
+  margin-top: 40px;
+}
+.left-aside .profile {
+  background: #13161c;
+  padding: 20px;
+}
+.left-aside .profile .avatar {
+  background: url("../img/avatar64.png");
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.left-aside .profile .profile-name a {
+  color: #fff;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 14px;
+  padding-right: 5px;
+}
+.left-aside nav {
+  padding: 0 10px;
+}
+.left-aside nav h2 {
+  font-size: 15px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  color: #6f737e;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.left-aside nav a {
+  width: 100%;
+  display: block;
+  padding: 9px 10px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 18px;
+  color: #b3b8c3;
+  border-radius: 4px;
+  margin: 5px 0;
+}
+.left-aside nav a.active {
+  background: #27b6af;
   color: #fff;
 }
-
-li, p {
-  font-size: 2.5em;
+.left-aside nav a:hover {
+  background: #fff;
+  color: #1d2939;
+  text-decoration: none;
+}
+.left-aside nav a i {
+  margin-right: 10px;
 }
 
-.container.header, footer > p {
-  width: auto;
-  text-transform: uppercase;
-  font-family: "Montserrat";
-  font-size: 6.5em;
-  color: #770000;
-  text-align: center;
-  background: #000;
-  font-weight: 600;
-  padding: 5px 0 10px 0;
-  letter-spacing: 20px;
-  box-sizing: border-box;
-}
-.container.header .zero, footer > p .zero {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-header h1 {
-  text-decoration: underline;
-}
-header h1 span {
-  letter-spacing: 0;
-}
-
-.panel {
-  position: relative;
-  margin: 0;
-  border: 0;
-  padding: 0;
+body {
+  font-size: 0.625em;
+  font-family: "Open Sans";
 }
 
 .content {
-  background: url("../img/foto1.jpg") top center;
-  margin: 0;
+  margin-left: 250px;
+}
+.content .info {
+  background: #f6f8f8;
+  position: relative;
+  border-top: 1px solid #dce0e6;
+  border-bottom: 1px solid #eee;
+  height: 100px;
+}
+.content .info .place {
+  float: left;
+}
+.content .info .place h2 {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 3em;
+  padding: 10px 0 5px 20px;
+}
+.content .info .place h3 {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 2em;
+  padding: 10px 0 10px 20px;
+}
+.content .info .breadcrumbs {
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.content .info .breadcrumbs h3 {
+  text-transform: uppercase;
+  font-family: "Open Sans";
+  font-size: 1.8em;
+  color: #a7a7a7;
+}
+.content .info .breadcrumbs h3 a {
+  text-transform: none;
+  color: #5a5b5b;
+  margin-left: 10px;
+}
+.content .info .breadcrumbs h3 span {
+  margin-left: 10px;
+}
+.content .container {
+  background: #f0f3f3;
+  width: auto;
+}
+.content .container .empty, .content .container .add-car {
+  height: 300px;
+  margin-top: 50px;
+}
+.content .container .empty {
+  background: #27b6af;
+  position: relative;
   padding: 0;
 }
-
-.second-panel {
-  background: url("../img/foto2.jpg") bottom center;
-}
-
-.third-panel {
-  background: url("../img/foto3.jpg") bottom center;
-}
-
-.content, .second-panel, .third-panel {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.main-box {
-  box-sizing: border-box;
-  position: relative;
-  margin-top: 170px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.85);
-}
-
-.left-box h2 {
-  text-transform: uppercase;
-  font-size: 4em;
-  margin-bottom: 10px;
-}
-.left-box h2 span {
-  font-family: "Open Sans";
-  font-weight: 700;
-}
-.left-box > ul:first-of-type {
-  display: none;
-}
-.left-box > ul > li {
-  padding: 10px 0;
-}
-.left-box > ul > li > span:last-child {
-  font-family: "Open Sans";
-  font-weight: 700;
-}
-
-.right-box h2 {
+.content .container .empty p {
+  width: 100%;
+  position: absolute;
   font-family: "Open Sans";
   font-weight: 300;
   font-size: 4em;
-  text-align: center;
-  margin-bottom: 20px;
+  color: #fff;
+  top: 45%;
 }
-.right-box h2 span {
+.content .container .add-car {
+  background: #fff;
+  position: relative;
+  padding: 0;
+  display: block;
+}
+.content .container .add-car i {
+  font-size: 75px;
+  color: #565656;
+  padding-top: 70px;
+}
+.content .container .add-car p {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 55%;
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 4em;
+  color: #565656;
+}
+.content.add-car > .info {
+  height: 70px;
+}
+.content.add-car .container form {
+  width: auto;
+  background: #fff;
+  margin: 15px 0;
+}
+.content.add-car .container form h3 {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 2.4em;
+  padding: 20px 0 20px 10px;
+  border-bottom: 1px solid #eff2f7;
+  margin-bottom: 30px;
+}
+.content.add-car .container form label {
   font-family: "Open Sans";
   font-weight: 700;
+  font-size: 2.2em;
+  color: #424856;
+  margin-top: -4px;
+  padding-right: 15px;
 }
-.right-box form.login-form {
-  display: none;
+.content.add-car .container form label.radio-inline {
+  font-weight: 300;
+  font-size: 2em;
 }
-.right-box form input {
-  display: block;
-  color: #fff;
+.content.add-car .container form label.long {
+  margin-top: -6px;
 }
-.right-box form input:not([type="submit"]) {
+.content.add-car .container form input[type="text"] {
+  border-radius: 0;
+  border: 2px solid #e8ebed;
+  box-shadow: none;
+  font-size: 2em;
   font-family: "Open Sans";
-  font-size: 2.5em;
-  border: 0;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 7px;
+  color: #424856;
+  font-weight: 300;
+  padding: 5px 10px;
+  height: 20px;
+  box-sizing: content-box;
+}
+.content.add-car .container form input[type="text"]:focus {
+  border-color: #556b8d;
+}
+.content.add-car .container form .small-input {
+  margin-top: 20px;
+}
+.content.add-car .container form .small-input .row {
+  margin-top: 7px;
+}
+.content.add-car .container form .small-input .row label {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0;
+}
+.content.add-car .container form .small-input .row label.thin {
+  font-weight: 300;
+  min-width: 80px;
+  margin-right: 10px;
+  padding-left: 15px;
+}
+.content.add-car .container form .small-input .row label.left {
+  text-align: left;
+  margin-right: 20px;
+}
+.content.add-car .container form .small-input .row input {
+  margin-top: -5px;
+}
+.content.add-car .container form .small-input .form-control {
+  width: 15%;
+  margin-left: 20px;
+}
+.content.add-car .container form .small-input .row:last-of-type {
   margin-top: 10px;
 }
-.right-box form input[type="submit"] {
-  padding: 15px 0;
+.content.add-car .container form button.delete {
+  font-size: 1.8em;
+  color: #fff;
+  background: #000;
+  text-transform: none;
 }
-.right-box > p {
-  text-align: center;
-  padding: 20px 0 0 0;
+.content.add-car .container form button.delete:hover {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
 }
-.right-box > p > a {
-  color: #27b6af;
-  font-family: "Open Sans";
-  font-weight: 700;
-  cursor: pointer;
+.content #myModal h1 {
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-.right-box > p > a:hover {
+.content #myModal .modal-footer button {
+  margin: 10px 10px;
+  display: inline;
+}
+.content #myModal .modal-footer button:first-of-type {
+  background: #000;
+  border: 1px solid #000;
   color: #fff;
 }
-
-.warning {
-  padding: 3px 0 3px 0;
-  color: #770000;
-  font-family: "Open Sans";
-  font-weight: 700;
-  font-size: 1.8em;
+.content #myModal .modal-footer button:first-of-type:hover {
+  background: #fff;
+  color: #000;
 }
-
-.arrow {
-  display: block;
-  width: 86px;
-  height: 86px;
-  position: absolute;
-  bottom: 70px;
-  left: 50%;
-  cursor: pointer;
-  margin-left: -43px;
-  animation: arrow-anim 2s infinite;
+.content.empty-garage .empty {
+  margin-left: 4%;
+  margin-bottom: 25px;
 }
-.arrow i {
-  font-size: 86px;
-  color: #27b6af;
-}
-
-.box {
-  background: rgba(0, 0, 0, 0.9);
-  height: 450px;
-  margin: 200px 20px 0 20px;
-  padding: 0 20px;
-}
-.box > i {
-  font-size: 70px;
-  padding: 20px;
-}
-.box > h4 {
-  text-transform: uppercase;
-  font-size: 4em;
-  font-family: "Open Sans";
-  font-weight: 700;
-  padding: 20px 0;
-}
-.box .description {
-  font-size: 2.2em;
-  line-height: 1.5;
-  padding: 20px 0;
-}
-
-.last-box {
-  background: rgba(0, 0, 0, 0.85);
-  padding: 20px 0;
+.content.garage .add-car {
+  height: 100px;
   position: relative;
-  top: 20px;
 }
-.last-box a {
+.content.garage .add-car p {
+  position: absolute;
+  top: 30%;
+}
+.content.garage .add-car p i {
+  font-size: 40px;
+  padding-top: 0;
+  padding-right: 20px;
+}
+.content.garage .empty {
   display: block;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 20px;
+  margin-top: 20px;
+  height: 250px;
+  background: #2e313a;
+  margin-bottom: 25px;
 }
-
-.registry-info {
+.content.garage .empty > p:first-of-type {
   font-family: "Open Sans";
   font-weight: 700;
-  font-size: 4em;
-  margin-bottom: 20px;
+  font-size: 4.8em;
+  text-transform: uppercase;
+  top: 15%;
 }
-
-footer {
-  position: absolute;
-  bottom: 0;
+.content.garage .empty .reg {
+  font-size: 2.4em;
+  top: 55%;
+}
+.content.garage .empty i {
+  font-size: 220px;
+  color: rgba(255, 255, 255, 0.07);
+}
+.content.car > .info {
+  height: 70px;
+}
+.content.car .container .car {
+  margin-top: 50px;
+  height: 250px;
+  padding: 15px;
+  background: #1d212a;
+}
+.content.car .container .car p {
+  font-family: "Open Sans";
+  font-weight: 700;
+  color: #fff;
+}
+.content.car .container .car p.name {
+  font-size: 3em;
+  margin-top: 25px;
+}
+.content.car .container .car p.km {
+  font-size: 1.8em;
+  margin-top: 40px;
+}
+.content.car .container .car p.reg {
+  font-size: 2.2em;
+  font-weight: 300;
+  margin-top: 40px;
+}
+.content.car .container .drop {
+  margin-top: 50px;
+  margin-left: 25px;
+  border: 5px dashed #fff;
+  height: 250px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+.content.car .container .drop p {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 2.2em;
+  color: #999;
   width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
 }
-footer > p {
-  background: rgba(0, 0, 0, 0.95);
-  padding: 10px 0;
+.content.car .container .drop p span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+.content.car .container .car-info {
+  background: #fff;
+  margin-top: 25px;
+  font-family: "Open Sans";
+  font-weight: 300;
+  color: #1d212a;
+  font-size: 2.4em;
+  box-sizing: content-box;
+  padding-left: 12px;
+  padding-right: 13px;
+  margin-bottom: 25px;
+}
+.content.car .container .car-info .row {
+  box-sizing: border-box;
+}
+.content.car .container .car-info h3 {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.content.car .container .car-info td {
+  border: 0;
+  padding: 5px 0;
+}
+.content.car .container .car-info td:first-child {
+  font-size: 0.7em;
+  color: #999;
+}
+.content.car .container .car-info td:last-child {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #1d212a;
+}
+.content.map .info {
+  height: 70px;
+}
+.content.map form {
+  margin-top: 20px;
+}
+.content.map form input {
+  width: 100%;
+  border-radius: 0;
+  border: 0;
+  color: #424856;
+  font-size: 3em;
+  height: 60px;
+  border: 1px solid #424856;
+}
+.content.map form button {
+  margin-right: 0;
+  margin-top: 0;
+  height: 60px;
+  font-size: 3em;
+}
+.content.map form button:hover {
+  border-width: 1px;
+}
+.content.map #map-container {
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 1px solid #424856;
+  box-sizing: border-box;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.1) {
-  .arrow {
-    display: none;
-  }
-}
 @media (max-width: 1199px) {
-  .arrow {
-    display: none;
-  }
-
-  body {
-    font-size: 0.35em;
-  }
-
-  .container {
+  .content.empty-garage .empty {
     margin-left: 0;
-    margin-right: 0;
-    width: 100%;
   }
 
-  .container.boxes {
-    background: rgba(0, 0, 0, 0.9);
+  .content.add-car .container form {
+    padding: 10px;
   }
 
-  .main-box {
-    margin: 0;
+  .content.add-car .container form label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 2em;
   }
 
-  .arrow {
-    width: 70px;
-    height: 70px;
-    margin-left: -35px;
-  }
-  .arrow i {
-    font-size: 70px;
+  .content.add-car .container form input[type="text"] {
+    font-size: 1.8em;
   }
 
-  .box {
-    height: 300px;
-    margin: 50px 3px 0 3px;
-    background: 0;
+  .content.add-car .container form .small-input .row input {
+    margin-left: 25px;
   }
 
-  .box .description {
-    font-size: 3em;
+  .content.add-car .container form .small-input .row label.thin {
+    font-size: 1.8em;
   }
 
-  .last-box {
-    margin-top: 100px;
+  .row {
+    margin: 10px;
   }
 
-  .last-box a {
-    padding: 5px 10px;
+  .content.car .container .car-info {
+    padding: 10px;
   }
 
-  .left-box {
-    text-align: center;
-  }
-
-  .right-box form input[type="submit"] {
-    padding: 5px 10px;
-  }
-
-  .right-box h2 {
-    margin-top: 20px;
-  }
-
-  .right-box form input:not([type="submit"]) {
-    font-size: 3em;
-  }
-
-  .warning {
-    font-size: 2.5em;
-  }
-
-  .right-box > p {
-    padding-top: 5px;
-    margin-bottom: 20px;
+  .content.car .container .car {
+    margin-top: 10px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1599px) {
   body {
-    font-size: 0.4em;
+    font-size: 0.5em;
   }
 
-  .main-box {
-    margin: 90px 80px 0 80px;
-  }
-
-  .right-box form input[type="submit"] {
-    font-size: 2.5em;
-  }
-
-  .arrow {
-    width: 70px;
-    height: 70px;
-    margin-left: -35px;
-  }
-  .arrow i {
-    font-size: 70px;
-  }
-
-  .box {
-    height: 375px;
-    margin: 100px 10px 0 10px;
+  .content.add-car .container form .small-input .row input {
+    min-width: 70px;
   }
 }
 @media (min-width: 1600px) and (max-width: 1899px) {
   body {
-    font-size: 0.5em;
+    font-size: 0.6em;
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles2.css.map */

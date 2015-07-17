@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Car Maintenance - Garaż w chmurze</title>
+
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:700,300&subset=latin,latin-ext'>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+
+		<link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+		<link rel="stylesheet" href="css/styles2.css">
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+	    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZbNq_cVH46iuuhRAa7QP3GMPtpuCBd4"></script>
+
+	    <script type="text/javascript">
+			function initialize() {
+				var mapOptions = {
+					center: {
+						lat: 52.16167,
+						lng: 19.25041
+					},
+					zoom: 6
+				};
+				var map = new google.maps.Map(document.getElementById('map-container'), mapOptions);
+				console.log("aaa");
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+
+	</head>
+
+	<body>
+
+		<header>
+
+			<a href="garage.html"><p class="text-center">car maintenanc<span>e</span></p></a>
+
+			<div class="top">
+				<i class="fa fa-bars"></i>
+				<div class="profile">
+					<div class="avatar"></div>
+					<a href="#">rodzyn2007@gmail.com <i class="fa fa-arrow-circle-o-down"></i></a>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="clear"></div>
+
+		</header>
+
+		<div class="left-aside">
+
+			<div class="profile text-center">
+				<div class="avatar"></div>
+
+				<div class="profile-name">
+					<a href="empty-garage.html">rodzyn2007@gmail.com</a>
+				</div>
+			</div>
+
+			<nav>
+				<h2>nawigacja</h2>
+
+				<ul>
+					<li><a href="garage.html"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
+					<li><a href="map.html" class="active"><i class="fa fa-fw fa-map-marker"></i>Mapa warsztatów</a></li>
+					<li><a href=""><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
+					<li><a href=""><i class="fa fa-fw fa-newspaper-o"></i>Aktualności</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="left-aside small-nav">
+
+			<nav>
+
+				<ul>
+					<li><a href=""><i class="fa fa-fw fa-car"></i></a></li>
+					<li><a href="" class="active"><i class="fa fa-fw fa-map-marker"></i></a></li>
+					<li><a href=""><i class="fa fa-fw fa-database"></i></a></li>
+					<li><a href=""><i class="fa fa-fw fa-newspaper-o"></i></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="content map">
+
+			<div class="info">
+				<div class="place">
+					<h2>Mapa</h2>
+				</div>
+
+				<div class="breadcrumbs">
+					<h3>jesteś tutaj: <a href="garage.html">Mapa warsztatów</a></h3>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="container">
+
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						<form class="form-inline" role="form">
+							<div class="row">
+								<div class="form-group col-lg-8">
+									<input type="text" class="form-control" id="search" placeholder="Wpisz miejscowość lub warsztat...">
+								</div>
+								<button type="submit" class="col-lg-3 col-lg-offset-1">Szukaj</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						<div id="map-container">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="results">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="result-box">
+										<p>
+											Amper<br>
+											Wolińska 23A<br>
+											64-100 Leszno<br>
+											<small>Dzisiaj otwarte 08:00 - 20:00</small>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="result-box">
+										<p>
+											Amper<br>
+											Wolińska 23A<br>
+											64-100 Leszno<br>
+											<small>Dzisiaj otwarte 08:00 - 20:00</small>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="result-box">
+										<p>
+											Amper<br>
+											Wolińska 23A<br>
+											64-100 Leszno<br>
+											<small>Dzisiaj otwarte 08:00 - 20:00</small>
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="result-box">
+										<p>
+											Amper<br>
+											Wolińska 23A<br>
+											64-100 Leszno<br>
+											<small>Dzisiaj otwarte 08:00 - 20:00</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="js/libs/jquery.js"></script>
+		<script src="js/libs/bootstrap.min.js"></script>
+		<script src="js/scripts2.js"></script>
+
+	</body>
+
+</html>

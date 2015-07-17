@@ -1,0 +1,479 @@
+body {
+	font-size: 0.625em;
+	font-family: $OS;
+}
+
+.content {
+
+	margin-left: $nav;
+
+	.info {
+		background: #f6f8f8;
+		position: relative;
+		border-top: 1px solid #dce0e6;
+		border-bottom: 1px solid #eee;
+		height: 100px;
+
+		.place {
+
+			float: left;
+
+			h2 {
+				font-family: $OS;
+				font-weight: 700;
+				font-size: 3em;
+				padding: 10px 0 5px 20px;
+			}
+
+			h3 {
+				font-family: $OS;
+				font-weight: 300;
+				font-size: 2em;
+				padding: 10px 0 10px 20px;
+			}
+		}
+
+		.breadcrumbs {
+			float: right;
+			margin-right: 20px;
+			margin-top: 20px;
+
+			h3 {
+				text-transform: uppercase;
+				font-family: $OS;
+				font-size: 1.8em;
+				color: #a7a7a7;
+
+				a {
+					text-transform: none;
+					color: #5a5b5b;
+					margin-left: 10px;
+				}
+
+				span {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+
+	.container {
+		background: #f0f3f3;
+		width: auto;
+
+		.empty, .add-car {
+			height: 300px;
+			margin-top: 50px;
+		}
+
+		.empty {
+			background: $colorTurkus;
+			position: relative;
+			padding: 0;
+
+			p {
+				width: 100%;
+				position: absolute;
+				font-family: $OS;
+				font-weight: 300;
+				font-size: 4em;
+				color: #fff;
+				top: 45%;
+			}
+		}
+
+		.add-car {
+			background: #fff;
+			position: relative;
+			padding: 0;
+			display: block;
+
+			i {
+				font-size: 75px;
+				color: #565656;
+				padding-top: 70px;
+			}
+
+			p {
+				width: 100%;
+				position: absolute;
+				text-align: center;
+				top: 55%;
+				font-family: $OS;
+				font-weight: 300;
+				font-size: 4em;
+				color: #565656;
+			}
+		}
+	}
+
+	&.add-car {
+
+		& > .info {
+			height: 70px;
+		}
+
+		.container {
+
+			form {
+
+				width: auto;
+				background: #fff;
+				margin: 15px 0;
+
+				h3 {
+					font-family: $OS;
+					font-weight: 300;
+					font-size: 2.4em;
+					padding: 20px 0 20px 10px;
+					border-bottom: 1px solid #eff2f7;
+					margin-bottom: 30px;
+				}
+
+				label {
+					font-family: $OS;
+					font-weight: 700;
+					font-size: 2.2em;
+					color: #424856;
+					margin-top: -4px;
+					padding-right: 15px;
+
+					&.radio-inline {
+						font-weight: 300;
+						font-size: 2em;
+					}
+
+					&.long {
+						margin-top: -6px;
+					}
+				}
+
+				input[type="text"] {
+
+					border-radius: 0;
+					border: 2px solid #e8ebed;
+					box-shadow: none;
+					font-size: 2em;
+					font-family: $OS;
+					color: #424856;
+					font-weight: 300;
+					padding: 5px 10px;
+					height: 20px;
+					box-sizing: content-box;
+
+					&:focus {
+						border-color: #556b8d;
+					}
+
+				}
+
+				.small-input {
+
+					margin-top: 20px;
+
+					.row {
+						margin-top: 7px;
+					}
+
+					.row label {
+						font-size: 2em;
+						font-weight: 700;
+						margin-top: 0;
+
+						&.thin {
+							font-weight: 300;
+							min-width: 80px;
+							margin-right: 10px;
+							padding-left: 15px;
+						}
+
+						&.left {
+							text-align: left;
+							margin-right: 20px;
+						}
+
+					}
+
+					.row input {
+						margin-top: -5px;
+					}
+
+					.form-control {
+						width: 15%;
+						margin-left: 20px;
+					}
+
+					.row:last-of-type {
+						margin-top: 10px;
+					}
+				}
+
+				button {
+					@extend %button;
+
+					&:hover {
+						@extend %buttonHover;
+					}
+				}
+
+				button.delete {
+					font-size: 1.8em;
+					color: #fff;
+					background: #000;
+					text-transform: none;
+
+					&:hover {
+						background: #fff;
+						color: #000;
+						border: 1px solid #000;
+					}
+				}
+			}
+
+
+		}
+	}
+
+	#myModal {
+
+		h1 {
+			font-size: 30px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.modal-footer {
+			button {
+				@extend %button;
+				margin: 10px 10px;
+				display: inline;
+
+				&:first-of-type {
+					background: #000;
+					border: 1px solid #000;
+					color: #fff;
+
+					&:hover {
+						background: #fff;
+						color: #000;
+					}
+				}
+
+				&:hover {
+					@extend %buttonHover;
+				}
+			}
+		}
+	}
+
+	&.empty-garage {
+		.empty {
+			margin-left: 4%;
+			margin-bottom: 25px;
+		}
+	}
+
+	&.garage {
+		.add-car {
+			height: 100px;
+			position: relative;
+
+			p {
+				position: absolute;
+				top: 30%;
+
+				i {
+					font-size: 40px;
+					padding-top: 0;
+					padding-right: 20px;
+				}
+			}
+
+		}
+
+		.empty {
+			display: block;
+			margin-top: 20px;
+			height: 250px;
+			background: #2e313a;
+			margin-bottom: 25px;
+
+			& > p:first-of-type {
+				font-family: $OS;
+				font-weight: 700;
+				font-size: 4.8em;
+				text-transform: uppercase;
+				top: 15%;
+			}
+
+			.reg {
+				font-size: 2.4em;
+				top: 55%;
+			}
+
+			i {
+				font-size: 220px;
+				color: rgba(255, 255, 255, 0.07)
+			}
+		}
+	}
+
+	&.car {
+
+		& > .info {
+			height: 70px;
+		}
+
+		.container {
+
+			.car {
+
+				margin-top: 50px;
+				height: 250px;
+				padding: 15px;
+				background: #1d212a;
+
+				p {
+					font-family: $OS;
+					font-weight: 700;
+					color: #fff;
+
+					&.name {
+						font-size: 3em;
+						margin-top: 25px;
+					}
+
+					&.km {
+						font-size: 1.8em;
+						margin-top: 40px;
+					}
+
+					&.reg {
+						font-size: 2.2em;
+						font-weight: 300;
+						margin-top: 40px;
+					}
+				}
+			}
+
+			.drop {
+				margin-top: 50px;
+				margin-left: 25px;
+				border: 5px dashed #fff;
+				height: 250px;
+				position: relative;
+				padding: 0;
+				cursor: pointer;
+
+				p {
+					font-family: $OS;
+					font-weight: 300;
+					font-size: 2.2em;
+					color: #999;
+					width: 100%;
+					position: absolute;
+					top: 50%;
+					margin-top: -26px;
+
+					span {
+						display: block;
+						margin-top: 10px;
+						font-size: 0.8em;
+					}
+				}
+			}
+
+			.car-info {
+				background: #fff;
+				margin-top: 25px;
+				font-family: $OS;
+				font-weight: 300;
+				color: #1d212a;
+				font-size: 2.4em;
+				box-sizing: content-box;
+				padding-left: 12px;
+				padding-right: 13px;
+				margin-bottom: 25px;
+
+				.row {
+					box-sizing: border-box;
+				}
+
+				h3 {
+					margin-bottom: 20px;
+					margin-top: 10px;
+				}
+
+				td {
+					border: 0;
+					padding: 5px 0;
+				}
+
+				td:first-child {
+					font-size: 0.7em;
+					color: #999;
+				}
+
+				td:last-child {
+					font-size: 0.9em;
+					font-weight: 700;
+					color: #1d212a
+				}
+
+				.edit {
+					@extend %button;
+
+					&:hover {
+						@extend %buttonHover;
+					}
+				}
+			}
+		}
+	}
+
+	&.map {
+
+		.info {
+			height: 70px;
+		}
+
+		form {
+
+			margin-top: 20px;
+
+			input {
+				width: 100%;
+				border-radius: 0;
+				border: 0;
+				color: #424856;
+				font-size: 3em;
+				height: 60px;
+				border: 1px solid #424856;
+			}
+
+			button {
+				@extend %button;
+				margin-right: 0;
+				margin-top: 0;
+				height: 60px;
+				font-size: 3em;
+				// border: 2px solid #F0F3F3;
+
+				&:hover {
+					@extend %buttonHover;
+					border-width: 1px;
+				}
+			}
+		}
+
+		#map-container {
+			height: 500px;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			border: 1px solid #424856;
+			box-sizing: border-box;
+		}
+	}
+
+}

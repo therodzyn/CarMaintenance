@@ -1,0 +1,88 @@
+header {
+
+	width: 100%;
+	padding: 0;
+	height: 60px;
+
+	& > a {
+		display: block;
+		background: #000;
+		width: 250px;
+		color: $colorBordo;
+		font-size: 20px;
+		font-family: $montserrat;
+		font-weight: 700;
+		text-transform: uppercase;
+		position: relative;
+		height: 60px;
+		float: left;
+		position: fixed;
+		top: 0; left: 0;
+		z-index: 9999;
+
+		&:hover {
+			color: $colorBordo;
+		}
+
+		p {
+			position: absolute;
+			text-decoration: underline;
+			top: 50%;
+			margin-top: -13px;
+			width: 100%;
+		}
+	}
+
+	.top {
+
+		& > i {
+			display: block;
+			float: left;
+			font-size: 25px;
+			height: 60px;
+			padding: 15px 20px;
+			margin-left: 250px;
+
+			&:hover {
+				background: #f6f8f8;
+				cursor: pointer;
+			}
+		}
+
+		.profile {
+			float: right;
+			margin-right: 20px;
+
+			.avatar {
+				box-sizing: content-box;
+				background: url('../img/avatar32.png');
+				border: 1px solid #20242d;
+				border-radius: 50%;
+				width: 32px;
+				height: 32px;
+				margin-right: 10px;
+				margin-top: 10px;
+				float: left;
+			}
+
+			a {
+				float: right;
+				font-size: 14px;
+				margin-top: 15px;
+				color: #1d2939;
+				font-family: $OS;
+				font-weight: 700;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				i {
+					margin-left: 5px;
+					font-size: 18px;
+				}
+
+			}
+		}
+	}
+}

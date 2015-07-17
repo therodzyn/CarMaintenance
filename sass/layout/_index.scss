@@ -1,0 +1,258 @@
+body {
+	font-family: $OS;
+	font-size: $mainFS;
+	color: #fff;
+}
+
+li, p {
+	font-size: $pointsFS;
+}
+
+.container.header, footer > p {
+	width: auto;
+	text-transform: uppercase;
+	font-family: $montserrat;
+	font-size: $mainHeadersFS;
+	color: $colorBordo;
+	text-align: center;
+	background: #000;
+	font-weight: 600;
+	padding: 5px 0 10px 0;
+	letter-spacing: 20px;
+	box-sizing: border-box;
+
+	.zero {
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
+}
+
+header h1 {
+	text-decoration: underline;
+
+	span {
+		letter-spacing: 0;
+	}
+}
+
+.panel {
+	position: relative;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+.content {
+	background: url('../img/foto1.jpg') top center;
+	margin: 0;
+	padding: 0;
+}
+
+.second-panel {
+	background: url('../img/foto2.jpg') bottom center;
+}
+
+.third-panel {
+	background: url('../img/foto3.jpg') bottom center;
+}
+
+.content, .second-panel, .third-panel {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.main-box {
+	box-sizing: border-box;
+	position: relative;
+	margin-top: 170px;
+	padding: 20px;
+	background: rgba(0,0,0,0.85);
+}
+
+.left-box {
+
+	h2 {
+		text-transform: uppercase;
+		font-size: $normalHeadersFS;
+		margin-bottom: 10px;
+
+		span {
+			font-family: $OS;
+			font-weight: 700;
+		}
+	}
+
+	& > ul {
+
+		&:first-of-type {
+			display: none;
+		}
+
+		& > li {
+			padding: 10px 0;
+
+			& > span:last-child {
+				font-family: $OS;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+.right-box {
+
+	h2 {
+		font-family: $OS;
+		font-weight: 300;
+		font-size: $normalHeadersFS;
+		text-align: center;
+		margin-bottom: 20px;
+
+		span {
+			font-family: $OS;
+			font-weight: 700;
+		}
+	}
+
+	form {
+
+		&.login-form {
+			display: none;
+		}
+
+		input {
+			display: block;
+			color: #fff;
+
+			&:not([type="submit"]) {
+				font-family: $OS;
+				font-size: $inputFS;
+				border: 0;
+				background: rgba(255, 255, 255, 0.3);
+				padding: 7px;
+				margin-top: 10px;
+			}
+
+			&[type="submit"] {
+				@extend %button;
+				padding: 15px 0;
+			}
+
+			&[type="submit"]:hover {
+				@extend %buttonHover;
+			}
+		}
+	}
+
+	& > p {
+		text-align: center;
+		padding: 20px 0 0 0;
+
+		& > a {
+			color: $colorTurkus;
+			font-family: $OS;
+			font-weight: 700;
+			cursor: pointer;
+
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+}
+
+.warning {
+	padding: 3px 0 3px 0;
+	color: $colorBordo;
+	font-family: $OS;
+	font-weight: 700;
+	font-size: $smallFS;
+}
+
+.last-box a {
+	@extend %button;
+	&:hover {
+		@extend %buttonHover;
+	}
+}
+
+.arrow {
+	display: block;
+	width: 86px;
+	height: 86px;
+	position: absolute;
+	bottom: 70px;
+	left: 50%;
+	cursor: pointer;
+
+	margin-left: -43px;
+	animation: arrow-anim 2s infinite;
+
+	i {
+		font-size: 86px;
+		color: $colorTurkus;
+	}
+}
+
+.box {
+	background: rgba(0, 0, 0, 0.9);
+	height: 450px;
+	margin: 200px 20px 0 20px;
+	padding: 0 20px;
+
+	& > i {
+		font-size: 70px;
+		padding: 20px;
+	}
+
+	& > h4 {
+		text-transform: uppercase;
+		font-size: $normalHeadersFS;
+		font-family: $OS;
+		font-weight: 700;
+		padding: 20px 0;
+	}
+
+	.description {
+		font-size: $textFS;
+		line-height: 1.5;
+		padding: 20px 0;
+	}
+}
+
+
+
+
+
+.last-box {
+	background: rgba(0,0,0,0.85);
+	padding: 20px 0;
+	position: relative;
+	top: 20px;
+
+	a {
+		display: block;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 20px;
+	}
+}
+
+.registry-info {
+	font-family: $OS;
+	font-weight: 700;
+	font-size: $normalHeadersFS;
+	margin-bottom: 20px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	& > p {
+		background: rgba(0,0,0,0.95);
+		padding: 10px 0;
+	}
+}

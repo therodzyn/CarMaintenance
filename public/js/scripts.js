@@ -4,14 +4,14 @@ $(function() {
 
 	// jeżeli smartfon (pxrt >= 2), to nie ustawiaj stałej wysokości drugiej sekcji
 
-	if(window.devicePixelRatio < 2) {
+	if($(window).width() > 1199 && window.devicePixelRatio === 1) {
 
 		$(".content").height( $(window).height() - $("header").height() );
 		$(".second-panel, .third-panel").height( $(window).height() );
 
 	} else {
 
-		$(".third-panel").height( $(window).height() );
+		$(".third-panel").height( 500 );
 
 	}
 
@@ -24,11 +24,7 @@ $(function() {
 		setDisplayFlex: function(el) {
 
 			el.css({
-				display: "-webkit-flex",
-				display: "-moz-flex",
-				display: "-ms-flex",
-				display: "-o-flex",
-				display: "flex"
+				display: "block"
 			});
 
 		}
@@ -61,7 +57,7 @@ $(function() {
 
 			this.link = "";
 
-			if(window.devicePixelRatio === 1) {
+			if($(window).width() > 1199 && window.devicePixelRatio === 1) {
 
 				this.link = $(this.arrow).attr("href");
 				$.scrollify("move", this.link);
@@ -162,14 +158,14 @@ $(function() {
 				this.hiddenForm = $(".login-form");
 				this.visibleForm = $(".registry-form");
 				this.rightBox.children("h2").html("<span>Zaloguj się</span>:");
-				this.rightBox.children("p").html("Nie masz jeszcze konta? <a class='sign-up-link'>Zarejestuj się</a>");
+				this.rightBox.children("p").html("Nie masz jeszcze konta? <a href='#' class='sign-up-link'>Zarejestuj się</a>");
 
 			} else {
 
 				this.hiddenForm = $(".registry-form");
 				this.visibleForm = $(".login-form");
 				this.rightBox.children("h2").html("<span>Zarejestruj się</span> już teraz:");
-				this.rightBox.children("p").html("Masz już konto? <a class='sign-in-link'>Zaloguj się</a>");
+				this.rightBox.children("p").html("Masz już konto? <a href='#' class='sign-in-link'>Zaloguj się</a>");
 
 			}
 
@@ -206,7 +202,7 @@ $(function() {
 
 			// ustaw focus na emailu, jeżeli komputer
 
-			if(window.devicePixelRatio === 1) {
+			if($(window).width() > 767 && window.devicePixelRatio === 1) {
 				this.hiddenForm.children("input:first-child").focus();
 			}
 
@@ -222,8 +218,9 @@ $(function() {
 
 			// this: obiekt
 			$(el).css("border", "2px solid #A60404");
-			$('.' + el.className + ' + .warning').css("display", "block").text(msg);
+			$('.' + el.classList[0] + ' + .warning').css("display", "block").text(msg);
 			this.e.preventDefault();
+			this.e.stopPropagation();
 
 		},
 
@@ -250,6 +247,10 @@ $(function() {
 			// this: konkretny input
 			// self: obiekt
 			$(elements).each(function(){
+
+				if(this.type === "submit") {
+					return;
+				}
 
 				if(self.checkEmpty(this) === false) {
 					return;
@@ -284,7 +285,8 @@ $(function() {
 			// wyzerowanie ostrzeżeń oraz obramowania inputów
 
 			$(".warning").text("");
-			$("input").not("input[type='submit']").css("border", "none");
+			$(".warning").css({"display": "none"});
+			$("input").css("border", "0");
 
 			// waliduj pola formularza
 
@@ -299,7 +301,7 @@ $(function() {
 
 	// uruchom scrollify na komputerze
 
-	if(window.devicePixelRatio === 1) {
+	if($(window).width() > 1199 && window.devicePixelRatio === 1) {
 
 		$.scrollify({
 	        section : ".panel",
@@ -317,13 +319,15 @@ $(function() {
 	    	e.stopPropagation();
 	    });
 
+	} else {
+		handleArrow.setLink();
 	}
 
 
 	// zdarzenie zmiany rozmiarów przeglądarki
 	// tylko na komputerze
 
-	if(window.devicePixelRatio === 1) {
+	if($(window).width() > 1199 && window.devicePixelRatio === 1) {
 
 		$(window).on("resize", function(e) {
     		handleResize.init(e);
@@ -355,6 +359,8 @@ $(function() {
     $(".registry-form, .login-form").on("submit", function(e) {
     	handleFormSubmit.init(e);
     });
+
+    $(".login-form, form .warning").css({"display": "none"});
 
 // ========================= OBSŁUGA ZDARZEŃ =========================
 

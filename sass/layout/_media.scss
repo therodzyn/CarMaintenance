@@ -1,0 +1,102 @@
+// ROZDZIELCZOŚĆ TELEFONU NA PÓŹNIEJ
+// NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
+@media (max-width: 767px) {}
+
+@media (-webkit-min-device-pixel-ratio: 1.1) {
+  .arrow {
+    display: none;
+  }
+}
+
+// NALEŻY ZMIENIĆ TEN WARUNEK PRZY ROZDZ TELEFONICZNEJ
+// NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
+@media (max-width: 1199px) {
+  .arrow {
+    display: none;
+  }
+  body {
+    font-size: 0.35em;
+  }
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .container.boxes {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .main-box {
+    margin: 0;
+  }
+  .arrow {
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    i {
+      font-size: 70px;
+    }
+  }
+  .box {
+    height: 300px;
+    margin: 50px 3px 0 3px;
+    background: 0;
+  }
+  .box .description {
+    font-size: 3em;
+  }
+  .last-box {
+    margin-top: 100px;
+  }
+  .last-box {
+    a {
+      padding: 5px 10px;
+    }
+  }
+  .left-box {
+    text-align: center;
+  }
+  .right-box form input[type="submit"] {
+    padding: 5px 10px;
+  }
+  .right-box h2 {
+    margin-top: 20px;
+  }
+  .right-box form input:not([type="submit"]) {
+    font-size: 3em;
+  }
+  .warning {
+    font-size: 2.5em;
+  }
+  .right-box > p {
+    padding-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+  body {
+    font-size: 0.4em;
+  }
+  .main-box {
+    margin: 90px 80px 0 80px;
+  }
+  .right-box form input[type="submit"] {
+    font-size: 2.5em;
+  }
+  .arrow {
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    i {
+      font-size: 70px;
+    }
+  }
+  .box {
+    height: 375px;
+    margin: 100px 10px 0 10px;
+  }
+}
+@media (min-width: 1600px) and (max-width: 1899px) {
+  body {
+    font-size: 0.5em;
+  }
+}

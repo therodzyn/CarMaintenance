@@ -1,3 +1,73 @@
 $OS: "Open Sans";
-$arrows: "arrows";
-$colorBordo: #A60404;
+$montserrat: "Montserrat";
+$colorBordo: #770000;
+$colorTurkus: #27b6af;
+
+// Index FONT-SIZES
+$mainFS: 0.625em;
+$textFS: 2.2em;
+$pointsFS: 2.5em;
+$mainHeadersFS: 6.5em;
+$normalHeadersFS: 4em;
+$inputFS: 2.5em;
+$smallFS: 1.8em;
+
+// 65 - small, 250 - big
+$nav: 250px;
+
+.clear {
+	clear: both;
+}
+
+@keyframes arrow-anim {
+	0% {
+		transform: scale(1.0);
+		bottom: 70px;
+	}
+	50% {
+		transform: scale(1.1);
+		bottom: 50px;
+	}
+	100% {
+		transform: scale(1.0);
+		bottom: 70px;
+	}
+}
+
+@keyframes arrow-anim2 {
+	0% {
+		transform: scale(1.0);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1.0);
+	}
+}
+
+%button {
+	display: block;
+	padding: 5px 25px;
+	box-sizing: border-box;
+	font-family: $OS;
+	font-weight: 700;
+	color: #fff;
+	font-size: 22px;
+	background: $colorTurkus;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-right: 20px;
+	text-transform: uppercase;
+	height: auto;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	border: 1px solid #fff;
+}
+
+%buttonHover {
+	background: #fff;
+	color: #1D212A;
+	border: 1px solid #1D212A;
+	text-decoration: none;
+}
