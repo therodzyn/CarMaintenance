@@ -18,5 +18,6 @@ localhost:3000
 ```
 
 ## Releases
++ **1.2.0** - Bootstrap
 + **1.1.0** - GruntJS & SASS
 + **1.0.0** - main site 
