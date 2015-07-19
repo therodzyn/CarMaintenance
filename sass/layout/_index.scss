@@ -12,7 +12,6 @@ li, p {
 	width: auto;
 	text-transform: uppercase;
 	font-family: $montserrat;
-	font-size: $mainHeadersFS;
 	color: $colorBordo;
 	text-align: center;
 	background: #000;
@@ -20,6 +19,8 @@ li, p {
 	padding: 5px 0 10px 0;
 	letter-spacing: 20px;
 	box-sizing: border-box;
+	font-size: 50px;
+
 
 	.zero {
 		padding: 0;
@@ -30,6 +31,8 @@ li, p {
 
 header h1 {
 	text-decoration: underline;
+	font-size: 50px;
+	font-weight: 600;
 
 	span {
 		letter-spacing: 0;
@@ -250,6 +253,7 @@ footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	font-size: $mainFS;
 
 	& > p {
 		background: rgba(0,0,0,0.95);

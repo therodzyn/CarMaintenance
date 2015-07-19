@@ -25,16 +25,33 @@
 
 		<header>
 
-			<a href="garage.html"><p class="text-center">car maintenanc<span>e</span></p></a>
+			<div class="page-header text-center">
+				<a href="garage.html">car maintenanc<span>e</span></a>
+			</div>
 
 			<div class="top">
-				<i class="fa fa-bars"></i>
-				<div class="profile">
-					<div class="avatar"></div>
-					<a href="#">rodzyn2007@gmail.com <i class="fa fa-arrow-circle-o-down"></i></a>
-					<div class="clear"></div>
+				<div class="container">
+					<div class="row">
+
+						<div class="col-sm-2">
+							<i class="fa fa-bars pull-left mini-menu-btn"></i>
+						</div>
+
+						<div class="col-sm-10">
+							<div class="profile pull-right">
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="avatar pull-right"></div>
+									</div>
+									<div class="col-sm-10">
+										<a href="#" class="pull-left">rodzyn2007@gmail.com</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
-				<div class="clear"></div>
 			</div>
 
 			<div class="clear"></div>
@@ -69,8 +86,8 @@
 			<nav>
 
 				<ul>
-					<li><a href="" class="active"><i class="fa fa-fw fa-car"></i></a></li>
-					<li><a href=""><i class="fa fa-fw fa-map-marker"></i></a></li>
+					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i></a></li>
+					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i></a></li>
 					<li><a href=""><i class="fa fa-fw fa-database"></i></a></li>
 					<li><a href=""><i class="fa fa-fw fa-newspaper-o"></i></a></li>
 				</ul>
@@ -81,28 +98,42 @@
 		<div class="content empty-garage">
 
 			<div class="info">
-				<div class="place">
-					<h2>Mój garaż</h2>
-					<h3>Witaj w panelu użytkownika Car Maintenance</h3>
+
+				<div class="container">
+
+					<div class="col-sm-6">
+						<div class="place pull-left">
+							<h2>Mój garaż</h2>
+							<h3>Witaj w panelu użytkownika Car Maintenance</h3>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="breadcrumbs pull-right">
+							<h3>jesteś tutaj: <a href="garage.html">Mój garaż</a></h3>
+						</div>
+					</div>
+
 				</div>
 
-				<div class="breadcrumbs">
-					<h3>jesteś tutaj: <a href="garage.html">Mój garaż</a></h3>
-				</div>
-
-				<div class="clear"></div>
 			</div>
 
 			<div class="container">
 				<div class="row">
-					<div class="empty col-lg-5 col-lg-offset-1 col-md-12 text-center">
-						<p>Garaż jest pusty.</p>
+
+					<div class="col-sm-6 text-center">
+						<div class="empty"><p>Garaż jest pusty.</p></div>
 					</div>
 
-					<a href="add-car.html" class="add-car col-lg-5 col-lg-offset-1 col-md-12 text-center">
-						<i class="fa fa-plus"></i>
-						<p>Dodaj swój pojazd</p>
-					</a>
+					<div class="col-sm-6 text-center">
+						<a href="add-car.html">
+							<div class="add-car">
+								<i class="fa fa-plus"></i>
+								<p>Dodaj swój pojazd</p>
+							</div>
+						</a>
+					</div>
+
 				</div>
 			</div>
 

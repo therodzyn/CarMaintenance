@@ -27,32 +27,6 @@
     transform: scale(1);
   }
 }
-.content.add-car .container form button, .content #myModal .modal-footer button, .content.car .container .car-info .edit, .content.map form button {
-  display: block;
-  padding: 5px 25px;
-  box-sizing: border-box;
-  font-family: "Open Sans";
-  font-weight: 700;
-  color: #fff;
-  font-size: 22px;
-  background: #27b6af;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  margin-right: 20px;
-  text-transform: uppercase;
-  height: auto;
-  cursor: pointer;
-  transition: all 0.2s linear;
-  border: 1px solid #fff;
-}
-
-.content.add-car .container form button:hover, .content #myModal .modal-footer button:hover, .content.car .container .car-info .edit:hover, .content.map form button:hover {
-  background: #fff;
-  color: #1D212A;
-  border: 1px solid #1D212A;
-  text-decoration: none;
-}
-
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2065,16 +2039,6 @@ pre code {
     width: 1170px;
   }
 }
-@media (min-width: 1600px) {
-  .container {
-    width: 1530px;
-  }
-}
-@media (min-width: 1900px) {
-  .container {
-    width: 1800px;
-  }
-}
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -2083,15 +2047,15 @@ pre code {
 }
 
 .row {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
@@ -8250,59 +8214,32 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+@media (min-width: 1600px) {
+  .container {
+    width: 1560px;
+  }
+}
+@media (min-width: 1900px) {
+  .container {
+    width: 1850px;
+  }
+}
+.btn {
+  font-family: "Open Sans";
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 0;
+  font-size: 22px;
+  padding: 5px 25px;
 }
 
-html {
-  box-sizing: border-box;
+.btn-success {
+  background-color: #27B6AF;
+  border-color: #2E9D97;
 }
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-.outline {
-  position: absolute;
-  clip: rect(0px 0px 0px 0px);
-  *clip: rect 0 0 0 0;
-}
-
-input, textarea, button {
-  outline: none;
-}
-
-mark {
-  background: none;
-  color: inherit;
+.btn-success:link, .btn-success:visited, .btn-success:hover, .btn-success:active, .btn-success:focus {
+  background-color: #1F8E89;
+  border-color: #2E9D97;
 }
 
 header {
@@ -8310,47 +8247,45 @@ header {
   padding: 0;
   height: 60px;
 }
-header > a {
-  display: block;
+header .page-header {
+  float: left;
+  height: 61px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
   background: #000;
   width: 250px;
+  margin: 0;
+  padding: 0;
+}
+header .page-header a {
+  display: block;
+  margin-top: 17px;
   color: #770000;
   font-size: 20px;
   font-family: "Montserrat";
   font-weight: 700;
   text-transform: uppercase;
-  position: relative;
-  height: 60px;
-  float: left;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
 }
-header > a:hover {
+header .page-header:hover {
   color: #770000;
 }
-header > a p {
-  position: absolute;
-  text-decoration: underline;
-  top: 50%;
-  margin-top: -13px;
-  width: 100%;
+header .top .container {
+  width: auto;
+  margin-left: 250px;
 }
-header .top > i {
-  display: block;
-  float: left;
+header .top .mini-menu-btn {
   font-size: 25px;
   height: 60px;
   padding: 15px 20px;
-  margin-left: 250px;
+  margin-left: -15px;
 }
-header .top > i:hover {
+header .top .mini-menu-btn:hover {
   background: #f6f8f8;
   cursor: pointer;
 }
 header .top .profile {
-  float: right;
   margin-right: 20px;
 }
 header .top .profile .avatar {
@@ -8360,24 +8295,17 @@ header .top .profile .avatar {
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  margin-right: 10px;
   margin-top: 10px;
-  float: left;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 header .top .profile a {
-  float: right;
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 17px;
   color: #1d2939;
   font-family: "Open Sans";
   font-weight: 700;
-}
-header .top .profile a:hover {
-  text-decoration: none;
-}
-header .top .profile a i {
-  margin-left: 5px;
-  font-size: 18px;
+  margin-right: -10px;
 }
 
 .left-aside {
@@ -8430,6 +8358,7 @@ header .top .profile a i {
 }
 .left-aside nav a {
   width: 100%;
+  box-sizing: border-box;
   display: block;
   padding: 9px 10px;
   font-family: "Open Sans";
@@ -8467,25 +8396,28 @@ body {
   border-bottom: 1px solid #eee;
   height: 100px;
 }
+.content .info .container {
+  width: auto;
+}
 .content .info .place {
-  float: left;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .content .info .place h2 {
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 3em;
-  padding: 10px 0 5px 20px;
+  padding: 10px 0 5px 5px;
 }
 .content .info .place h3 {
   font-family: "Open Sans";
   font-weight: 300;
   font-size: 2em;
-  padding: 10px 0 10px 20px;
+  padding: 10px 0 10px 5px;
 }
 .content .info .breadcrumbs {
-  float: right;
-  margin-right: 20px;
-  margin-top: 20px;
+  padding-top: 10px;
+  margin-right: -5px;
 }
 .content .info .breadcrumbs h3 {
   text-transform: uppercase;
@@ -8501,20 +8433,19 @@ body {
 .content .info .breadcrumbs h3 span {
   margin-left: 10px;
 }
-.content .container {
+.content > .container {
   background: #f0f3f3;
   width: auto;
+  padding: 20px;
 }
-.content .container .empty, .content .container .add-car {
+.content > .container .empty, .content > .container .add-car {
   height: 300px;
-  margin-top: 50px;
 }
-.content .container .empty {
+.content > .container .empty {
   background: #27b6af;
   position: relative;
-  padding: 0;
 }
-.content .container .empty p {
+.content > .container .empty p {
   width: 100%;
   position: absolute;
   font-family: "Open Sans";
@@ -8523,18 +8454,17 @@ body {
   color: #fff;
   top: 45%;
 }
-.content .container .add-car {
+.content > .container .add-car {
   background: #fff;
   position: relative;
-  padding: 0;
   display: block;
 }
-.content .container .add-car i {
+.content > .container .add-car i {
   font-size: 75px;
   color: #565656;
   padding-top: 70px;
 }
-.content .container .add-car p {
+.content > .container .add-car p {
   width: 100%;
   position: absolute;
   text-align: center;
@@ -8547,120 +8477,93 @@ body {
 .content.add-car > .info {
   height: 70px;
 }
-.content.add-car .container form {
-  width: auto;
+.content.add-car form {
   background: #fff;
-  margin: 15px 0;
 }
-.content.add-car .container form h3 {
+.content.add-car form h3 {
   font-family: "Open Sans";
   font-weight: 300;
   font-size: 2.4em;
   padding: 20px 0 20px 10px;
   border-bottom: 1px solid #eff2f7;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-.content.add-car .container form label {
+.content.add-car form label {
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 2.2em;
   color: #424856;
-  margin-top: -4px;
-  padding-right: 15px;
-}
-.content.add-car .container form label.radio-inline {
-  font-weight: 300;
-  font-size: 2em;
-}
-.content.add-car .container form label.long {
   margin-top: -6px;
 }
-.content.add-car .container form input[type="text"] {
+.content.add-car form label.lbl-radio {
+  font-weight: 300;
+  font-size: 2em;
+  margin-right: 25px;
+}
+.content.add-car form label.long {
+  margin-top: -6px;
+}
+.content.add-car form input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 8px;
+}
+.content.add-car form input[type="text"] {
   border-radius: 0;
   border: 2px solid #e8ebed;
-  box-shadow: none;
   font-size: 2em;
   font-family: "Open Sans";
   color: #424856;
   font-weight: 300;
-  padding: 5px 10px;
   height: 20px;
   box-sizing: content-box;
 }
-.content.add-car .container form input[type="text"]:focus {
-  border-color: #556b8d;
+.content.add-car form input[type="text"]:focus {
+  border-color: #66AFE9;
 }
-.content.add-car .container form .small-input {
-  margin-top: 20px;
+.content.add-car form .small-input .row {
+  margin-bottom: 10px;
 }
-.content.add-car .container form .small-input .row {
-  margin-top: 7px;
-}
-.content.add-car .container form .small-input .row label {
+.content.add-car form .small-input .row label {
   font-size: 2em;
   font-weight: 700;
-  margin-top: 0;
+  margin-top: 4px;
+  min-width: 120px;
 }
-.content.add-car .container form .small-input .row label.thin {
+.content.add-car form .small-input .row label.thin {
   font-weight: 300;
-  min-width: 80px;
-  margin-right: 10px;
-  padding-left: 15px;
 }
-.content.add-car .container form .small-input .row label.left {
-  text-align: left;
+.content.add-car form .small-input input {
+  margin-top: 0;
+  height: 20px;
+  box-sizing: content-box;
+  padding: 6px 12px;
   margin-right: 20px;
+  width: 50px;
 }
-.content.add-car .container form .small-input .row input {
-  margin-top: -5px;
+.content.add-car form .small-input input:focus {
+  border-color: #66AFE9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.content.add-car .container form .small-input .form-control {
-  width: 15%;
-  margin-left: 20px;
-}
-.content.add-car .container form .small-input .row:last-of-type {
-  margin-top: 10px;
-}
-.content.add-car .container form button.delete {
-  font-size: 1.8em;
-  color: #fff;
-  background: #000;
-  text-transform: none;
-}
-.content.add-car .container form button.delete:hover {
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
+.content.add-car form button {
+  margin-bottom: 20px;
 }
 .content #myModal h1 {
   font-size: 30px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
-.content #myModal .modal-footer button {
-  margin: 10px 10px;
-  display: inline;
-}
-.content #myModal .modal-footer button:first-of-type {
-  background: #000;
-  border: 1px solid #000;
-  color: #fff;
-}
-.content #myModal .modal-footer button:first-of-type:hover {
-  background: #fff;
-  color: #000;
-}
-.content.empty-garage .empty {
-  margin-left: 4%;
-  margin-bottom: 25px;
-}
 .content.garage .add-car {
   height: 100px;
   position: relative;
+  margin-bottom: 20px;
 }
 .content.garage .add-car p {
   position: absolute;
-  top: 30%;
+  top: 20%;
 }
 .content.garage .add-car p i {
   font-size: 40px;
@@ -8669,10 +8572,9 @@ body {
 }
 .content.garage .empty {
   display: block;
-  margin-top: 20px;
   height: 250px;
   background: #2e313a;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .content.garage .empty > p:first-of-type {
   font-family: "Open Sans";
@@ -8693,7 +8595,6 @@ body {
   height: 70px;
 }
 .content.car .container .car {
-  margin-top: 50px;
   height: 250px;
   padding: 15px;
   background: #1d212a;
@@ -8717,12 +8618,9 @@ body {
   margin-top: 40px;
 }
 .content.car .container .drop {
-  margin-top: 50px;
-  margin-left: 25px;
   border: 5px dashed #fff;
   height: 250px;
   position: relative;
-  padding: 0;
   cursor: pointer;
 }
 .content.car .container .drop p {
@@ -8748,16 +8646,10 @@ body {
   color: #1d212a;
   font-size: 2.4em;
   box-sizing: content-box;
-  padding-left: 12px;
-  padding-right: 13px;
-  margin-bottom: 25px;
-}
-.content.car .container .car-info .row {
-  box-sizing: border-box;
+  padding: 15px;
 }
 .content.car .container .car-info h3 {
   margin-bottom: 20px;
-  margin-top: 10px;
 }
 .content.car .container .car-info td {
   border: 0;
@@ -8776,7 +8668,7 @@ body {
   height: 70px;
 }
 .content.map form {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .content.map form input {
   width: 100%;
@@ -8785,72 +8677,41 @@ body {
   color: #424856;
   font-size: 3em;
   height: 60px;
-  border: 1px solid #424856;
 }
 .content.map form button {
-  margin-right: 0;
-  margin-top: 0;
   height: 60px;
   font-size: 3em;
-}
-.content.map form button:hover {
-  border-width: 1px;
+  width: 100%;
 }
 .content.map #map-container {
   height: 500px;
-  margin: 0;
-  padding: 0;
   width: 100%;
+  margin-bottom: 20px;
+}
+.content.map .well {
+  margin-bottom: 10px;
+  border-radius: 0;
+  font-size: 2em;
+  line-height: 1.5;
   border: 1px solid #424856;
-  box-sizing: border-box;
+}
+.content.map .well small {
+  font-size: 0.75em;
+  line-height: 2;
 }
 
 @media (max-width: 1199px) {
-  .content.empty-garage .empty {
-    margin-left: 0;
-  }
-
-  .content.add-car .container form {
-    padding: 10px;
-  }
-
-  .content.add-car .container form label {
-    text-align: left;
-    margin-bottom: 5px;
-    font-size: 2em;
-  }
-
-  .content.add-car .container form input[type="text"] {
-    font-size: 1.8em;
-  }
-
-  .content.add-car .container form .small-input .row input {
-    margin-left: 25px;
-  }
-
-  .content.add-car .container form .small-input .row label.thin {
-    font-size: 1.8em;
-  }
-
-  .row {
-    margin: 10px;
-  }
-
-  .content.car .container .car-info {
-    padding: 10px;
-  }
-
-  .content.car .container .car {
-    margin-top: 10px;
-  }
-}
-@media (min-width: 1200px) and (max-width: 1599px) {
   body {
     font-size: 0.5em;
   }
 
-  .content.add-car .container form .small-input .row input {
-    min-width: 70px;
+  .content.add-car form .small-input .row label {
+    min-width: 100px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+  body {
+    font-size: 0.55em;
   }
 }
 @media (min-width: 1600px) and (max-width: 1899px) {

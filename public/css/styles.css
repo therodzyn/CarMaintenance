@@ -2065,16 +2065,6 @@ pre code {
     width: 1170px;
   }
 }
-@media (min-width: 1600px) {
-  .container {
-    width: 1530px;
-  }
-}
-@media (min-width: 1900px) {
-  .container {
-    width: 1800px;
-  }
-}
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -2083,15 +2073,15 @@ pre code {
 }
 
 .row {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
@@ -8222,6 +8212,16 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+@media (min-width: 1600px) {
+  .container {
+    width: 1560px;
+  }
+}
+@media (min-width: 1900px) {
+  .container {
+    width: 1850px;
+  }
+}
 html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -8319,7 +8319,6 @@ li, p {
   width: auto;
   text-transform: uppercase;
   font-family: "Montserrat";
-  font-size: 6.5em;
   color: #770000;
   text-align: center;
   background: #000;
@@ -8327,6 +8326,7 @@ li, p {
   padding: 5px 0 10px 0;
   letter-spacing: 20px;
   box-sizing: border-box;
+  font-size: 50px;
 }
 .container.header .zero, footer > p .zero {
   padding: 0;
@@ -8336,6 +8336,8 @@ li, p {
 
 header h1 {
   text-decoration: underline;
+  font-size: 50px;
+  font-weight: 600;
 }
 header h1 span {
   letter-spacing: 0;
@@ -8509,6 +8511,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  font-size: 0.625em;
 }
 footer > p {
   background: rgba(0, 0, 0, 0.95);
@@ -8532,6 +8535,8 @@ footer > p {
   .container {
     margin-left: 0;
     margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
     width: 100%;
   }
 
@@ -8553,9 +8558,13 @@ footer > p {
   }
 
   .box {
-    height: 300px;
-    margin: 50px 3px 0 3px;
+    height: 250px;
+    margin: 20px 3px 20px 3px;
     background: 0;
+  }
+
+  .box > i {
+    font-size: 50px;
   }
 
   .box .description {
@@ -8593,6 +8602,10 @@ footer > p {
   .right-box > p {
     padding-top: 5px;
     margin-bottom: 20px;
+  }
+
+  footer > p {
+    font-size: 35px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1599px) {

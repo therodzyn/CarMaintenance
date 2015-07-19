@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
 		      	files: {
 
-		        	'public/css/styles.css': 'sass/main.scss'
+		        	'public/css/styles2.css': 'sass/main2.scss'
 
 		    	}
 

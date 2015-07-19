@@ -20,6 +20,8 @@
   .container {
     margin-left: 0;
     margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
     width: 100%;
   }
   .container.boxes {
@@ -37,9 +39,12 @@
     }
   }
   .box {
-    height: 300px;
-    margin: 50px 3px 0 3px;
+    height: 250px;
+    margin: 20px 3px 20px 3px;
     background: 0;
+  }
+  .box > i {
+    font-size: 50px;
   }
   .box .description {
     font-size: 3em;
@@ -70,6 +75,9 @@
   .right-box > p {
     padding-top: 5px;
     margin-bottom: 20px;
+  }
+  footer > p {
+    font-size: 35px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1599px) {

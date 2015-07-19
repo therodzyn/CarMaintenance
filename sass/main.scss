@@ -17,9 +17,7 @@
 
 	// *--------- BOOTSTRAP ---------*
 	@import "components/bootstrap";
-
-	// *--------- CSS RESET ---------*
-	@import "base/reset";
+	@import "components/bootstrap-overwrite";
 
 
 

@@ -25,16 +25,33 @@
 
 		<header>
 
-			<a href="garage.html"><p class="text-center">car maintenance</p></a>
+			<div class="page-header text-center">
+				<a href="garage.html">car maintenanc<span>e</span></a>
+			</div>
 
 			<div class="top">
-				<i class="fa fa-bars"></i>
-				<div class="profile">
-					<div class="avatar"></div>
-					<a href="#">rodzyn2007@gmail.com <i class="fa fa-arrow-circle-o-down"></i></a>
-					<div class="clear"></div>
+				<div class="container">
+					<div class="row">
+
+						<div class="col-sm-2">
+							<i class="fa fa-bars pull-left mini-menu-btn"></i>
+						</div>
+
+						<div class="col-sm-10">
+							<div class="profile pull-right">
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="avatar pull-right"></div>
+									</div>
+									<div class="col-sm-10">
+										<a href="#" class="pull-left">rodzyn2007@gmail.com</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
-				<div class="clear"></div>
 			</div>
 
 			<div class="clear"></div>
@@ -69,8 +86,8 @@
 			<nav>
 
 				<ul>
-					<li><a href="" class="active"><i class="fa fa-fw fa-car"></i></a></li>
-					<li><a href=""><i class="fa fa-fw fa-map-marker"></i></a></li>
+					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i></a></li>
+					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i></a></li>
 					<li><a href=""><i class="fa fa-fw fa-database"></i></a></li>
 					<li><a href=""><i class="fa fa-fw fa-newspaper-o"></i></a></li>
 				</ul>
@@ -81,112 +98,121 @@
 		<div class="content add-car">
 
 			<div class="info">
-				<div class="place">
-					<h2>Dodawanie pojazdu</h2>
+
+				<div class="container">
+
+					<div class="col-sm-6">
+						<div class="place pull-left">
+							<h2>Dodaj pojazd</h2>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="breadcrumbs pull-right">
+							<h3>jesteś tutaj: <a href="garage.html">Mój garaż</a><span>></span><a href="add-car.html">Dodaj pojazd</a></h3>
+						</div>
+					</div>
+
 				</div>
 
-				<div class="breadcrumbs">
-					<h3>jesteś tutaj: <a href="empty-garage.html">Mój garaż</a><span>></span><a href="">Dodaj pojazd</a></h3>
-				</div>
-
-				<div class="clear"></div>
 			</div>
 
 			<div class="container">
-				<form class="form-horizontal form" role="form">
+				<form class="form-horizontal" role="form">
 					<h3>Dodaj pojazd</h3>
-					<div class="form-group">
-					    <label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="country">Kraj rejestracji:</label>
-					    <div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="country" autofocus>
-				   		</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="year">Rok produkcji:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="year">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="brand">Marka:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="brand">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="model">Model:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="model">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="reg">Numer rejestracyjny:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="reg">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="check">Przegląd techniczny:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="check">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="insurance">Ubezpiecznie:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="insurance">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="act-km">Aktualny przebieg:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="act-km">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="avg-km">Średni roczny przebieg:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="avg-km">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left" for="vin">Numer VIN:</label>
-				    	<div class="col-lg-3 col-md-12">
-				      		<input type="text" class="form-control" id="vin">
-				    	</div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left long">Jaki rodzaj opon używasz?</label>
-				    	<div class="col-lg-5">
-				      		<label class="radio-inline"><input type="radio" name="tire-kind" checked>Letnie</label>
-							<label class="radio-inline"><input type="radio" name="tire-kind">Zimowe</label>
-							<label class="radio-inline"><input type="radio" name="tire-kind">Uniwersalne</label>
-				    	</div>
-				  	</div>
-				  	<div class="form-group small-input">
-				    	<label class="control-label col-lg-4 col-lg-offset-1 col-md-12 left">Rozmiar opon:</label>
-				    	<div class="col-lg-6 col-md-12">
-				    		<div class="row">
-					      		<label class="col-lg-1 col-md-1 left">Przód:</label>
-					      		<label class="col-lg-2 col-md-1 thin" for="tire-width-front">Szerokość:</label>
-					      		<input type="text" class="col-lg-1 col-md-1" id="tire-width-front">
-					      		<label class="col-lg-2 col-md-1 thin" for="tire-inch-front">Przekątna:</label>
-					      		<input type="text" class="col-lg-1 col-md-1" id="tire-inch-front">
-					      	</div>
-					      	<div class="row">
-					      		<label class="col-lg-1 col-md-1 left">Tył:</label>
-					      		<label class="col-lg-2 col-md-1 thin" for="tire-width-back">Szerokość:</label>
-					      		<input type="text" class="col-lg-1 col-md-1" id="tire-width-back">
-					      		<label class="col-lg-2 col-md-1 thin" for="tire-inch-back">Przekątna:</label>
-					      		<input type="text" class="col-lg-1 col-md-1" id="tire-inch-back">
-					      	</div>
-				    	</div>
-				  	</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3 col-sm-offset-2" for="country">Kraj rejestracji:</label>
+						    <div class="col-sm-4">
+					      		<input type="text" class="form-control" id="country" autofocus>
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label class="control-label col-sm-3 col-sm-offset-2" for="year">Rok produkcji:</label>
+					    	<div class="col-sm-4">
+					    		<input type="text" class="form-control" id="year">
+					    	</div>
+					  	</div>
+					  	<div class="form-group">
+					    	<label class="control-label col-sm-3 col-sm-offset-2" for="brand">Marka:</label>
+					    	<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="brand">
+					    	</div>
+					  	</div>
+					  	<div class="form-group">
+					  		<label class="control-label col-sm-3 col-sm-offset-2" for="model">Model:</label>
+					    	<div class="col-sm-4">
+					    		<input type="text" class="form-control" id="model">
+					    	</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="reg">Numer rejestracyjny:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="reg">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="check">Przegląd techniczny:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="check">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="insurance">Ubezpiecznie:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="insurance">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="act-km">Aktualny przebieg:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="act-km">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="avg-km">Średni roczny przebieg:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="avg-km">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2" for="vin">Numer VIN:</label>
+				    		<div class="col-sm-4">
+				    			<input type="text" class="form-control" id="vin">
+				    		</div>
+					  	</div>
+					  	<div class="form-group">
+				    		<label class="control-label col-sm-3 col-sm-offset-2 long">Jaki rodzaj opon używasz?</label>
+				    		<div class="col-sm-7">
+					      		<input type="radio" name="tire-kind" id="letnie" checked><label class="lbl-radio" for="letnie">Letnie</label>
+								<input type="radio" name="tire-kind" id="zimowe"><label class="lbl-radio" for="zimowe">Zimowe</label>
+								<input type="radio" name="tire-kind" id="uniwersalne"><label class="lbl-radio" for="uniwersalne">Uniwersalne</label>
+				    		</div>
+					  	</div>
+					  	<div class="form-group small-input">
+					    	<label class="control-label col-sm-3 col-sm-offset-2">Rozmiar opon:</label>
+					    	<div class="col-sm-7">
+					    		<div class="row">
+						      		<label class="col-sm-12">Przód:</label>
+						      		<label class="col-sm-2 thin" for="tire-width-front">Szerokość:</label>
+						      		<input type="text" class="col-sm-4" id="tire-width-front">
+						      		<label class="col-sm-2 thin" for="tire-inch-front">Przekątna:</label>
+						      		<input type="text" class="col-sm-4" id="tire-inch-front">
+						      	</div>
+						      	<div class="row">
+						      		<label class="col-sm-12">Tył:</label>
+						      		<label class="col-sm-2 thin" for="tire-width-back">Szerokość:</label>
+						      		<input type="text" class="col-sm-4" id="tire-width-back">
+						      		<label class="col-sm-2 thin" for="tire-inch-back">Przekątna:</label>
+						      		<input type="text" class="col-sm-4" id="tire-inch-back">
+						      	</div>
+					    	</div>
+					  	</div>
 
-
-				  	<div class="form-group">
-			      		<button type="submit" class="col-lg-2 col-lg-offset-5 col-md-6 col-md-offset-3">Dodaj</button>
-				  	</div>
+					  	<div class="form-group">
+					  		<div class="col-sm-2 col-sm-offset-5">
+			      				<button type="submit" class="btn btn-success">Dodaj</button>
+			      			</div>
+					  	</div>
 				</form>
 			</div>
 
