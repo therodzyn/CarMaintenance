@@ -1,0 +1,101 @@
+// ROZDZIELCZOŚĆ TELEFONU NA PÓŹNIEJ
+// NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
+@media (max-width: 767px) {}
+
+// NALEŻY ZMIENIĆ TEN WARUNEK PRZY ROZDZ TELEFONICZNEJ
+// NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
+@media (max-width: 1199px) {
+	body {
+		font-size: 0.4em;
+	}
+	.jumbotron {
+		margin-top: 60px;
+
+		input {
+			font-size: 1.3em;
+		}
+
+		.warning {
+			font-size: 1.2em;
+		}
+	}
+	.arrow {
+		display: none;
+	}
+	.second-subsite {
+
+		.well {
+			margin-top: 30px;
+			height: 320px;
+
+			& > i {
+				font-size: 50px;
+				padding: 10px;
+			}
+
+			& > h4 {
+				font-size: 4em;
+				padding: 10px 0;
+			}
+
+			& > .description {
+				font-size: 3em;
+			}
+
+		}
+	}
+	.right-box > p {
+		font-size: 1.5em;
+	}
+	.content {
+		height: 90vh;
+	}
+	.second-subsite {
+		height: 120vh;
+	}
+	.third-subsite {
+		height: 100vh;
+	}
+
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+	body {
+		font-size: 0.45em;
+	}
+	.jumbotron {
+		margin-top: 60px;
+	}
+	.arrow {
+		width: 50px;
+		height: 50px;
+		margin-left: -25px;
+
+		i {
+			font-size: 50px;
+		}
+	}
+	.second-subsite {
+
+		.well {
+			margin-top: 80px;
+			height: 380px;
+
+			& > i {
+				font-size: 50px;
+				padding: 15px;
+			}
+
+			& > h4 {
+				font-size: 3em;
+				padding: 15px 0;
+			}
+
+		}
+	}
+
+}
+@media (min-width: 1600px) and (max-width: 1899px) {
+	body {
+		font-size: 0.55em;
+	}
+}
