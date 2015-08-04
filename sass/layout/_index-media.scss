@@ -1,10 +1,106 @@
 // ROZDZIELCZOŚĆ TELEFONU NA PÓŹNIEJ
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+	body {
+		font-size: 0.4em;
+
+		.row {
+			margin: 0;
+		}
+	}
+	header .page-header h1{
+		font-size: 4em;
+	}
+	.container {
+		padding: 0;
+		margin: 0;
+	}
+	.jumbotron {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 5px;
+		text-align: center;
+
+		h2 {
+			font-size: 1.2em;
+			margin: 20px 0;
+		}
+		form, .form-group {
+			padding: 0;
+		}
+
+		input {
+			font-size: 1.2em;
+		}
+
+		.warning {
+			font-size: 0.8em;
+			margin: 0;
+			padding: 0;
+			padding-top: 3px;
+		}
+		.change {
+			font-size: 1em;
+			padding: 0;
+		}
+	}
+	
+	.second-subsite {
+		& > .container {
+			background: rgba(0, 0, 0, 0.8);
+			height: auto;
+		}
+		.well {
+			background: none;
+			height: 280px;
+			margin: 0;
+			padding: 15px;
+
+			& > i {
+				font-size: 50px;
+				padding: 10px 0;
+			}
+
+			& > h4 {
+				text-transform: uppercase;
+				font-size: 3.5em;
+				font-family: $OS;
+				font-weight: 700;
+				padding: 10px 0;
+			}
+
+			.description {
+				font-size: 2.5em;
+				line-height: 1.5;
+				padding: 10px 0;
+			}
+
+		}
+	}
+
+	.third-subsite {
+
+		background-position-x: left;
+	
+		.last-box {
+			top: 0;
+
+			.registry-info {
+				font-size: 3.5em;
+			}
+		}
+
+		min-height: 500px;
+		 footer p {
+			font-size: 3.5em;
+			padding: 20px 0;
+		}
+	}
+}
 
 // NALEŻY ZMIENIĆ TEN WARUNEK PRZY ROZDZ TELEFONICZNEJ
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
-@media (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1199px) {
 	body {
 		font-size: 0.4em;
 	}

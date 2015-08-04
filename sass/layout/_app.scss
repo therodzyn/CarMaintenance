@@ -10,7 +10,6 @@ body {
 	.info {
 		background: #f6f8f8;
 		position: relative;
-		border-top: 1px solid #dce0e6;
 		border-bottom: 1px solid #eee;
 		height: 100px;
 
@@ -69,7 +68,7 @@ body {
 		}
 
 		.empty {
-			background: $colorTurkus;
+			background: #fff;
 			position: relative;
 
 			p {
@@ -77,32 +76,39 @@ body {
 				position: absolute;
 				font-family: $OS;
 				font-weight: 300;
-				font-size: 4em;
-				color: #fff;
-				top: 45%;
+				font-size: 5em;
+				color: #333;
+				top: 40%;
+				font-weight: bold;
 			}
 		}
 
 		.add-car {
-			background: #fff;
+			background: $colorTurkus;
 			position: relative;
 			display: block;
+			transition: 0.3s all;
 
 			i {
-				font-size: 75px;
-				color: #565656;
-				padding-top: 70px;
+				font-size: 50px;
+				color: #fff;
+				padding-right: 20px;
 			}
 
 			p {
 				width: 100%;
 				position: absolute;
 				text-align: center;
-				top: 55%;
+				top: 40%;
 				font-family: $OS;
 				font-weight: 300;
-				font-size: 4em;
-				color: #565656;
+				font-size: 5em;
+				color: #fff;
+				font-weight: bold;
+			}
+
+			&:hover {
+				background: #1F8E89;
 			}
 		}
 	}
@@ -213,7 +219,7 @@ body {
 	#myModal {
 
 		h1 {
-			font-size: 30px;
+			font-size: 3em;
 			margin-top: 15px;
 			margin-bottom: 15px;
 		}
@@ -228,7 +234,8 @@ body {
 
 			p {
 				position: absolute;
-				top: 20%;
+				top: 15%;
+				font-weight: normal;
 
 				i {
 					font-size: 40px;
@@ -244,6 +251,7 @@ body {
 			height: 250px;
 			background: #2e313a;
 			margin-bottom: 20px;
+			transition: 0.3s all;
 
 			& > p:first-of-type {
 				font-family: $OS;
@@ -251,16 +259,22 @@ body {
 				font-size: 4.8em;
 				text-transform: uppercase;
 				top: 15%;
+				color: #fff;
 			}
 
 			.reg {
 				font-size: 2.4em;
 				top: 55%;
+				color: #fff;
 			}
 
 			i {
 				font-size: 220px;
 				color: rgba(255, 255, 255, 0.07)
+			}
+
+			&:hover {
+				background: #222329;
 			}
 		}
 	}
@@ -403,6 +417,160 @@ body {
 				line-height: 2;
 			}
 		}
+	}
+
+	&.news {
+
+		.info {
+			height: 70px;
+		}
+
+		& > .container {
+			padding: 15px 100px;
+		}
+
+		.box-link {
+
+			color: #424856;
+
+			display: block;
+			transition: all 0.3s;
+
+			&:hover {
+				text-decoration: none;
+				opacity: 0.75;
+				color: $colorTurkus;
+			}
+		}
+
+		.well {
+
+			border-radius: 0;
+			background: #fff;
+
+			.logo {
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			h4 {
+				font-family: $OS;
+				padding: 15px 0;
+				font-weight: bold;
+				font-size: 3em;
+			}
+
+			p {
+				font-family: $OS;
+				font-size: 1.6em;
+				text-align: justify;
+			}
+		}
+
+
+
+	}
+
+
+	&.one-news-site {
+
+		.info {
+			height: 70px;
+		}
+
+		.message {
+
+			color: #424856;
+
+			.logo {
+
+				img {
+					max-width: 100%;
+				}
+			}
+
+			h3 {
+				font-family: $OS;
+				padding: 15px 0;
+				font-weight: bold;
+				font-size: 3em;
+			}
+
+			p {
+				font-family: $OS;
+				font-size: 1.6em;
+				text-align: justify;
+				padding: 0 5%;
+			}
+		}
+
+	}
+
+	&.database {
+
+		.info {
+			height: 70px;
+		}
+
+		.car-database, .choose-car {
+			background: #fff;
+			padding: 15px;
+		}
+
+		.choose-car {
+			margin-bottom: 15px;
+		}
+
+		& > .container {
+
+			h3 {
+				font-size: 2.5em;
+				font-weight: bold;
+				font-family: $OS;
+				margin-bottom: 30px;
+			}
+
+			table > tbody > tr {
+				font-size: 1.6em;
+				font-family: $OS;
+				color: #424856;
+
+				td {
+					border: none;
+					padding: 10px 0;
+
+					&.header {
+						font-weight: bold;
+						text-transform: uppercase;
+					}
+				}
+			}
+
+			form {
+
+				select {
+					margin-bottom: 10px;
+					border-radius: 0;
+					font-family: $OS;
+					font-size: 1.6em;
+					height: auto;
+				}
+
+				option[disabled] {
+					color: #ccc;
+				}
+
+				button {
+					width: 100%;
+				}
+			}
+
+		}
+
+
+
 	}
 
 }

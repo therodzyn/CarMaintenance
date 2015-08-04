@@ -1,21 +1,414 @@
 // ROZDZIELCZOŚĆ TELEFONU NA PÓŹNIEJ
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+	body {
+		font-size: 0.4em;
+
+		.container {
+			padding: 0;
+		}
+
+		.row {
+			margin: 0;
+		}
+
+		.left-aside {
+			display: none;
+		}
+		.content {
+			margin-left: 0;
+		}
+
+		.content.news > .container {
+			padding: 5px;
+		}
+
+		header {
+
+			background: #000;
+
+			.page-header {
+				width: auto;
+				background: none;
+				// margin-left: 60px;
+				// margin-right: 60px;
+				left: 50%;
+				margin-left: -103px;
+				border: none;
+			}
+
+			.top {
+
+				color: #fff;
+				background: none;
+				padding-left: 0;
+				border: none;
+
+				.mini-menu-btn:hover {
+					background: none;
+				}
+
+				.container {
+					margin-left: 0px;
+					padding: 0;
+				}
+
+				.profile {
+					margin-right: 0;
+
+
+
+					.avatar {
+						margin-right: -10px;
+					}
+
+					.dropdown-menu {
+						right: -10px;
+					}
+				}
+			}
+		}
+
+		.content {
+
+			.info {
+				height: 40px;
+
+				.place {
+
+					h2 {
+						padding-top: 10px;
+						padding-bottom: 10px;
+					}
+
+					h3 {
+						padding-top: 5px;
+					}
+				}
+			}
+
+			& > .container {
+				padding: 5px;
+
+				.row > div {
+					padding: 0;
+				}
+
+				.add-car p {
+					font-size: 25px;
+					top: 33%;
+				}
+			}
+
+			&.add-car, &.edit-car, &.car, &.map, &.database, &.news, &.one-news-site {
+				.info {
+					height: 40px;
+				}
+			}
+
+			&.garage {
+
+				.info {
+					height: 60px;
+
+					.place {
+
+						h2 {
+							padding-bottom: 0;
+						}
+					}
+				}
+
+				.add-car {
+					margin-bottom: 5px;
+
+					p i {
+						font-size: 25px;
+					}
+				}
+
+				.empty {
+
+					margin-bottom: 5px;
+					height: 200px;
+
+					i {
+						font-size: 190px;
+					}
+				}
+			}
+
+			&.empty-garage {
+
+				.info {
+					height: 60px;
+
+					.place {
+
+						h2 {
+							padding-bottom: 0;
+						}
+					}
+				}
+
+				.empty {
+					margin-bottom: 5px;
+					height: 100px;
+
+					p {
+						top: 30%;
+						font-size: 25px;
+					}
+				}
+
+				.add-car {
+					margin-bottom: 5px;
+					height: 150px;
+
+					p {
+						top: 40%;
+						font-size: 25px;
+					}
+
+					i {
+						font-size: 25px;
+						padding-right: 20px;
+					}
+				}
+
+			}
+
+			&.car {
+
+				.container {
+
+					.car {
+						font-size: 1.7em;
+						margin-bottom: 5px;
+					}
+
+					.car-info {
+						margin-top: 0;
+
+						h3 {
+							font-size: 22px;
+						}
+
+						td:first-child {
+							font-weight: bold;
+							color: #1d212a;
+							font-size: 0.7em;
+						}
+
+						td:last-child {
+							font-size: 0.7em;
+						}
+						.btn {
+							width: 100%;
+							font-size: 20px;
+							padding: 3px;
+						}
+					}
+
+				}
+
+			}
+
+			&.add-car {
+
+				.form-horizontal {
+					padding-top: 20px;
+					padding-left: 5px;
+					padding-right: 5px;
+
+					.form-group {
+						margin-left: 0;
+						margin-right: 0;
+
+						label {
+							padding: 0;
+							margin: 0;
+							margin-bottom: 3px;
+							font-size: 2.5em;
+
+							&.lbl-radio {
+								margin-right: 10px;
+							}
+						}
+
+						& > div {
+							padding: 0;
+						}
+
+						input[type="text"] {
+							box-sizing: border-box;
+							padding: 6px 12px;
+							height: 36px;
+							font-size: 2.5em;
+						}
+
+						input[type="radio"] {
+							width: auto;
+							height: auto;
+						}
+
+						.btn {
+							width: 100%;
+							font-size: 20px;
+							padding: 3px;
+						}
+
+						&.small-input {
+
+							label {
+								margin: 0;
+								margin-top: 5px;
+							}
+
+							input[type="text"] {
+								margin-bottom: 5px;
+								margin-top: 0;
+								margin-right: 0;
+								width: 50%;
+								box-sizing: border-box;
+							}
+						}
+					}
+
+				}
+
+			}
+
+			&.map {
+
+				.form-inline {
+					margin-bottom: 0;
+				}
+
+				.form-group {
+					margin-bottom: 5px;
+
+					.btn {
+						width: 100%;
+						font-size: 20px;
+						padding: 3px;
+						height: auto;
+					}
+				}
+
+				#map-container {
+					margin: 0;
+					margin-bottom: 5px;
+				}
+
+				.well {
+					margin-bottom: 5px;
+					font-size: 2.5em;
+					padding: 10px;
+				}
+
+
+			}
+
+			&.database {
+
+				.container h3 {
+					margin-bottom: 10px;
+					font-size: 3.3em;
+				}
+
+				.container form select {
+					font-size: 2.5em;
+				}
+
+				.container table > tbody > tr {
+					font-size: 1.8em;
+
+					td:not(.header) {
+						padding-left: 15px;
+					}
+				}
+			}
+
+			&.news {
+
+				.well {
+					font-size: 1.2em;
+
+					p {
+						font-size: 1.8em;
+					}
+				}
+			}
+
+			&.one-news-site {
+
+				.message {
+
+					h3 {
+						font-size: 4em;
+					}
+
+					p {
+						font-size: 2.2em;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.left-aside {
+		display: none;
+	}
+
+	.left-aside.small-nav {
+		display: block;
+		width: 65px;
+	}
+
+	.small-nav i {
+		margin: 0;
+	}
+
+	.content {
+		margin-left: 65px;
+	}
+
+	.top {
+		padding-left: 65px;
+	}
+
+	header .page-header {
+		width: 65px;
+	}
+}
 
 // NALEŻY ZMIENIĆ TEN WARUNEK PRZY ROZDZ TELEFONICZNEJ
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
-@media (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1199px) {
 	body {
 		font-size: 0.5em;
 	}
 	.content.add-car form .small-input .row label {
 		min-width: 100px;
 	}
+	.content.news > .container {
+		padding: 15px;
+	}
+	.form-horizontal {
+		padding-top: 20px;
+	}
 }
 
 @media (min-width: 1200px) and (max-width: 1599px) {
 	body {
 		font-size: 0.55em;
+	}
+	.content.news > .container {
+		padding: 15px;
 	}
 }
 

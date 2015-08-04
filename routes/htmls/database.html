@@ -90,9 +90,9 @@
 				<h2>nawigacja</h2>
 
 				<ul>
-					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
+					<li><a href="garage.html"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
 					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i>Mapa warsztatów</a></li>
-					<li><a href="database.html"><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
+					<li><a href="database.html" class="active"><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
 					<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i>Aktualności</a></li>
 				</ul>
 			</nav>
@@ -103,17 +103,17 @@
 
 			<nav>
 
-				<ul>
-					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i></a></li>
+				<ul class="text-center">
+					<li><a href="garage.html"><i class="fa fa-fw fa-car"></i></a></li>
 					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i></a></li>
-					<li><a href="database.html"><i class="fa fa-fw fa-database"></i></a></li>
+					<li><a href="database.html" class="active"><i class="fa fa-fw fa-database"></i></a></li>
 					<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i></a></li>
 				</ul>
 			</nav>
 
 		</div>
 
-		<div class="content car">
+		<div class="content database">
 
 			<div class="info">
 
@@ -122,13 +122,13 @@
 					<div class="row">
 						<div class="col-sm-6 col-xs-12">
 							<div class="place pull-left">
-								<h2>Opel Astra</h2>
+								<h2>Baza wiedzy</h2>
 							</div>
 						</div>
 
 						<div class="col-sm-6 hidden-xs">
 							<div class="breadcrumbs pull-right">
-								<h3>jesteś tutaj: <a href="garage.html">Mój garaż</a><span>></span><a href="car.html">Opel Astra</a></h3>
+								<h3>jesteś tutaj: <a href="database.html">Baza wiedzy</a></h3>
 							</div>
 						</div>
 					</div>
@@ -141,105 +141,71 @@
 
 				<div class="row">
 
-					<div class="col-sm-6 col-xs-12 text-center">
-						<div class="car">
-							<p class="name">Opel Astra</p>
-							<p class="km">100 000 km</p>
-							<p class="reg">PL 09295</p>
+					<div class="col-md-4 col-xs-12">
+						<div class="choose-car">
+							<h3>Wybierz samochód:</h3>
+							<form class="form-horizontal">
+								<div class="form-group">
+									<div class="col-xs-12">
+										<select class="form-control">
+											<option selected disabled>Wybierz markę...</option>
+											<option value="Opel">Opel</option>
+											<option value="BMW">BMW</option>
+											<option value="Audi">Audi</option>
+											<option value="Mercedes">Mercedes</option>
+										</select>
+									</div>
+									<div class="col-xs-12">
+										<select class="form-control">
+											<option selected disabled>Wybierz model...</option>
+											<option value="Astra">Astra</option>
+											<option value="Vectra">Vectra</option>
+											<option value="Insignia">Insignia</option>
+											<option value="Omega">Omega</option>
+											<option value="Meriva">Meriva</option>
+										</select>
+									</div>
+									<div class="col-lg-8 col-lg-offset-2 col-xs-12">
+										<button class="btn btn-success" type="submit">Wybierz</button>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 
-					<div class="col-sm-6 hidden-xs text-center">
-						<div class="drop"><p class="desc">Upuść tutaj zdjęcie<span>(lub kliknij)</span></p></div>
-					</div>
-
-				</div>
-
-				<div class="row">
-
-					<div class="col-xs-12">
-						<div class="car-info">
-							<h3>Ważne terminy</h3>
-
+					<div class="col-md-8 col-xs-12">
+						<div class="car-database">
+							<h3>Opel Astra</h3>
 							<table class="table">
 								<tbody>
 									<tr class="row">
-										<td class="col-sm-6">Termin badania technicznego:</td>
-										<td class="col-sm-6">10 LUT 2016</td>
+										<td class="col-sm-6 col-xs-5 header">Wymiana oleju:</td>
+										<td class="col-sm-6 col-xs-7">raz w roku lub co 30 000 km</td>
 									</tr>
 									<tr class="row">
-										<td class="col-sm-6">Termin ważności ubezpieczenia OC:</td>
-										<td class="col-sm-6">15 LUT 2016</td>
+										<td class="col-sm-6 col-xs-5 header">Wymiana filtru olejowego:</td>
+										<td class="col-sm-6 col-xs-7">raz w roku lub co 30 000 km</td>
+									</tr>
+									<tr class="row">
+										<td class="col-sm-6 col-xs-5 header">Wymiana filtru kabinowego:</td>
+										<td class="col-sm-6 col-xs-7">raz na 2 lata lub co 50 000 km</td>
+									</tr>
+									<tr class="row">
+										<td class="col-sm-6 col-xs-5 header">Napełnienie klimatyzacji:</td>
+										<td class="col-sm-6 col-xs-7">raz w roku</td>
+									</tr>
+									<tr class="row">
+										<td class="col-sm-6 col-xs-5 header">Odgrzybianie klimatyzacji:</td>
+										<td class="col-sm-6 col-xs-7">raz na dwa lata</td>
 									</tr>
 								</tbody>
 							</table>
-
-							<h3>Szczegóły pojazdu</h3>
-
-							<div class="row">
-								<div class="left-side col-sm-6 col-xs-12">
-									<table class="table">
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Kraj rejestracji:</td>
-											<td class="col-sm-6 col-xs-5">Polska</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Rok produkcji:</td>
-											<td class="col-sm-6 col-xs-5">2006</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Marka:</td>
-											<td class="col-sm-6 col-xs-5">Opel</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Model:</td>
-											<td class="col-sm-6 col-xs-5">Astra</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Numer rejestracyjny:</td>
-											<td class="col-sm-6 col-xs-5">PL 09295</td>
-										</tr>
-									</table>
-
-								</div>
-
-								<div class="right-side col-sm-6 col-xs-12">
-
-									<table class="table">
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Aktualny przebieg:</td>
-											<td class="col-sm-6 col-xs-5">100 000 km</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Średni roczny przebieg:</td>
-											<td class="col-sm-6 col-xs-5">9000 km</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Używane opony:</td>
-											<td class="col-sm-6 col-xs-5">letnie</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">Rozmiar opon:</td>
-											<td class="col-sm-6 col-xs-5">135 mm / 13"</td>
-										</tr>
-										<tr class="row">
-											<td class="col-sm-6 col-xs-7">VIN:</td>
-											<td class="col-sm-6 col-xs-5">ZFA146A0000106768</td>
-										</tr>
-
-									</table>
-
-								</div>
-
-								<div class="col-sm-2 col-sm-offset-5 col-xs-12">
-									<a class="btn btn-success" href="edit-car.html" role="button">Edytuj</a>
-								</div>
-							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
+				</div>
+
+			</div>
 		</div>
 
 		<script src="js/libs/jquery.js"></script>

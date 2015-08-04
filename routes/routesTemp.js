@@ -36,4 +36,22 @@ module.exports = function(app) {
 
 	});
 
+	app.get("/news.html", function(req, res) {
+
+		res.sendFile(__dirname + '/htmls/news.html');
+
+	});
+
+	app.get("/one-news.html", function(req, res) {
+
+		res.sendFile(__dirname + '/htmls/one-news.html');
+
+	});
+
+	app.get("/database.html", function(req, res) {
+
+		res.sendFile(__dirname + '/htmls/database.html');
+
+	});
+
 };

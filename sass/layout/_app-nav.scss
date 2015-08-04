@@ -7,7 +7,7 @@
 	background: #1d212a;
 	width: $nav;
 	display: block;
-	z-index: 9999;
+	z-index: 99999;
 
 	&.small-nav {
 		width: $nav;
@@ -66,6 +66,7 @@
 			color: #b3b8c3;
 			border-radius: 4px;
 			margin: 5px 0;
+			transition: 0.3s all;
 
 			&.active {
 				background: $colorTurkus;
