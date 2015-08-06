@@ -8309,11 +8309,11 @@ header .top .profile .dropdown button {
   border: none;
   text-transform: none;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 12px;
   color: #1d2939;
   font-family: "Open Sans";
   font-weight: 700;
-  padding: 9px 20px;
+  padding: 5px 20px;
   background: #27b6af;
   color: #fff;
   border-radius: 4px;
@@ -8528,6 +8528,15 @@ body {
   border-bottom: 1px solid #eff2f7;
   margin-bottom: 20px;
 }
+.content.add-car form .account-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  padding-right: 10px;
+}
+.content.add-car form .account-header:not(:first-child) {
+  border-top: 1px solid #eff2f7;
+}
 .content.add-car form label {
   font-family: "Open Sans";
   font-weight: 700;
@@ -8549,7 +8558,7 @@ body {
   margin-right: 5px;
   margin-top: 8px;
 }
-.content.add-car form input[type="text"] {
+.content.add-car form input[type="text"], .content.add-car form .same-styles {
   border-radius: 0;
   border: 2px solid #e8ebed;
   font-size: 2em;
@@ -8559,8 +8568,34 @@ body {
   height: 20px;
   box-sizing: content-box;
 }
-.content.add-car form input[type="text"]:focus {
+.content.add-car form input[type="text"]:focus, .content.add-car form .same-styles:focus {
   border-color: #66AFE9;
+}
+.content.add-car form select.same-styles {
+  padding: 0 12px;
+  height: 32px;
+}
+.content.add-car form .drop {
+  border: 5px dashed #f0f3f3;
+  height: 170px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.content.add-car form .drop p {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 2.2em;
+  color: #999;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+}
+.content.add-car form .drop p span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8em;
 }
 .content.add-car form .small-input .row {
   margin-bottom: 10px;
@@ -8590,6 +8625,9 @@ body {
 }
 .content.add-car form button {
   margin-bottom: 20px;
+}
+.content #myModal {
+  z-index: 9999999;
 }
 .content #myModal h1 {
   font-size: 3em;
@@ -8703,7 +8741,7 @@ body {
   padding: 5px 0;
 }
 .content.car .container .car-info td:first-child {
-  font-size: 0.7em;
+  font-size: 0.9em;
   color: #999;
 }
 .content.car .container .car-info td:last-child {
@@ -8777,7 +8815,7 @@ body {
 }
 .content.news .well p {
   font-family: "Open Sans";
-  font-size: 1.6em;
+  font-size: 2em;
   text-align: justify;
 }
 .content.one-news-site .info {
@@ -8788,6 +8826,7 @@ body {
 }
 .content.one-news-site .message .logo img {
   max-width: 100%;
+  max-height: 300px;
 }
 .content.one-news-site .message h3 {
   font-family: "Open Sans";
@@ -8797,7 +8836,7 @@ body {
 }
 .content.one-news-site .message p {
   font-family: "Open Sans";
-  font-size: 1.6em;
+  font-size: 2em;
   text-align: justify;
   padding: 0 5%;
 }
@@ -8818,11 +8857,12 @@ body {
   margin-bottom: 30px;
 }
 .content.database > .container table > tbody > tr {
-  font-size: 1.6em;
+  font-size: 2.4em;
   font-family: "Open Sans";
   color: #424856;
 }
 .content.database > .container table > tbody > tr td {
+  font-size: 0.9em;
   border: none;
   padding: 10px 0;
 }
@@ -8834,7 +8874,7 @@ body {
   margin-bottom: 10px;
   border-radius: 0;
   font-family: "Open Sans";
-  font-size: 1.6em;
+  font-size: 2em;
   height: auto;
 }
 .content.database > .container form option[disabled] {
@@ -8865,6 +8905,8 @@ body {
   }
   body header {
     background: #000;
+    position: fixed;
+    z-index: 9999;
   }
   body header .page-header {
     width: auto;
@@ -8894,6 +8936,10 @@ body {
   }
   body header .top .profile .dropdown-menu {
     right: -10px;
+  }
+  body .content {
+    top: 60px;
+    position: relative;
   }
   body .content .info {
     height: 40px;
@@ -8991,6 +9037,20 @@ body {
     padding-left: 5px;
     padding-right: 5px;
   }
+  body .content.add-car .form-horizontal .account-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 3.5em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 5px solid #424856;
+    border-top: 5px solid #424856;
+    color: #424856;
+    background: #D1D4D4;
+  }
   body .content.add-car .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0;
@@ -9007,11 +9067,14 @@ body {
   body .content.add-car .form-horizontal .form-group > div {
     padding: 0;
   }
-  body .content.add-car .form-horizontal .form-group input[type="text"] {
+  body .content.add-car .form-horizontal .form-group input[type="text"], body .content.add-car .form-horizontal .form-group .same-styles {
     box-sizing: border-box;
     padding: 6px 12px;
     height: 36px;
     font-size: 2.5em;
+  }
+  body .content.add-car .form-horizontal .form-group select.same-styles {
+    height: 40px;
   }
   body .content.add-car .form-horizontal .form-group input[type="radio"] {
     width: auto;
@@ -9062,7 +9125,7 @@ body {
     font-size: 2.5em;
   }
   body .content.database .container table > tbody > tr {
-    font-size: 1.8em;
+    font-size: 2em;
   }
   body .content.database .container table > tbody > tr td:not(.header) {
     padding-left: 15px;
@@ -9080,7 +9143,7 @@ body {
     font-size: 2.2em;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .left-aside {
     display: none;
   }
@@ -9094,8 +9157,16 @@ body {
     margin: 0;
   }
 
+  .mini-menu-btn {
+    display: none;
+  }
+
   .content {
     margin-left: 65px;
+  }
+
+  .content > .container .add-car p {
+    font-size: 4em;
   }
 
   .top {
@@ -9108,7 +9179,7 @@ body {
 }
 @media (min-width: 768px) and (max-width: 1199px) {
   body {
-    font-size: 0.5em;
+    font-size: 0.47em;
   }
 
   .content.add-car form .small-input .row label {
@@ -9125,7 +9196,7 @@ body {
 }
 @media (min-width: 1200px) and (max-width: 1599px) {
   body {
-    font-size: 0.55em;
+    font-size: 0.50em;
   }
 
   .content.news > .container {

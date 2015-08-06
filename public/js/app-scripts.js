@@ -11,6 +11,7 @@ $(function() {
 	var small = true;
 	var show = true;
 
+	// USTAWIĆ RESPONSYWNOŚĆ
 	function enableSmallNav(bool) {
 
 		var nav = bool === true ? 65 : 250;
@@ -29,10 +30,6 @@ $(function() {
 		$(".content").css({"margin-left": nav});
 		$(".top").css({"padding-left": nav});
 		$(".page-header").width(nav);
-
-		if($(window).width() < 1200 && $(window).width() > 767) {
-			$(".mini-menu-btn").hide();
-		}
 
 	}
 

@@ -150,16 +150,26 @@ $(function() {
 			if(this.link.className == "sign-in-link") {
 
 				this.hiddenForm = $(".login-form");
-				this.visibleForm = $(".registry-form");
+				this.visibleForm = $(".registry-form").add($(".reset-form"));
 				this.rightBox.children("h2").html("<span>Zaloguj się</span>:");
-				this.rightBox.children(".row").children("p").html("Nie masz jeszcze konta? <a href='#' class='sign-up-link'>Zarejestuj się</a>");
+				this.rightBox.children(".row").children("p:first-of-type").html("Nie masz jeszcze konta? <a href='#' class='sign-up-link'>Zarejestuj się</a>");
+				$(".forgot-pass").show();
 
-			} else {
+			} else if(this.link.className == "sign-up-link") {
 
 				this.hiddenForm = $(".registry-form");
-				this.visibleForm = $(".login-form");
+				this.visibleForm = $(".login-form").add($(".reset-form"));
 				this.rightBox.children("h2").html("<span>Zarejestruj się</span> już teraz:");
-				this.rightBox.children(".row").children("p").html("Masz już konto? <a href='#' class='sign-in-link'>Zaloguj się</a>");
+				this.rightBox.children(".row").children("p:first-of-type").html("Masz już konto? <a href='#' class='sign-in-link'>Zaloguj się</a>");
+				$(".forgot-pass").hide();
+
+			} else if(this.link.className == "reset-pass") {
+
+				this.hiddenForm = $(".reset-form");
+				this.visibleForm = $(".registry-form").add($(".login-form"));
+				this.rightBox.children("h2").html("<span>Reset</span> hasła:");
+				this.rightBox.children(".row").children("p:first-of-type").html("Przypomniałeś sobie hasło? <a href='#' class='sign-in-link'>Zaloguj się</a>");
+				$(".forgot-pass").hide();
 
 			}
 
@@ -175,6 +185,7 @@ $(function() {
 
 		init: function(e) {
 
+			e.preventDefault();
 			this.link = e.currentTarget;
 			this.rightBox = $(".right-box");
 
@@ -250,22 +261,27 @@ $(function() {
 					return;
 				}
 
-				if( this.name === "email" && !emailRegEx.test($(this).val()) ) {
+				if(self.form.className.split(" ")[0] != "login-form") {
 
-					errorMsg = "Podano niepoprawny format adresu e-mail.";
-					self.setStyles(this, errorMsg);
+					if( this.name === "email" && !emailRegEx.test($(this).val()) ) {
 
-				} else if( this.name === "password" && $(this).val().length < 8 ) {
+						errorMsg = "Podano niepoprawny format adresu e-mail.";
+						self.setStyles(this, errorMsg);
 
-					errorMsg = "Hasło musi mieć minimum 8 znaków.";
-					self.setStyles(this, errorMsg);
+					} else if( this.name === "password" && $(this).val().length < 8 ) {
 
-				} else if( this.name === "confirm" && $(this).val() !== $("input[name='password']").val() ) {
+						errorMsg = "Hasło musi mieć minimum 8 znaków.";
+						self.setStyles(this, errorMsg);
 
-					errorMsg = "Hasła się nie zgadzają.";
-					self.setStyles(this, errorMsg);
+					} else if( this.name === "confirm" && $(this).val() !== $("input[name='password']").val() ) {
+
+						errorMsg = "Hasła się nie zgadzają.";
+						self.setStyles(this, errorMsg);
+
+					}
 
 				}
+
 
 			});
 
@@ -300,7 +316,7 @@ $(function() {
 		$.scrollify({
 	        section : ".subsite",
 	        easing: "jswing",
-			scrollSpeed: 1500,
+			scrollSpeed: 1200,
 			offset : 0,
 			scrollbars: true,
 			before:function() {},
@@ -348,7 +364,7 @@ $(function() {
 
     // walidacja formularzy
 
-    $(".registry-form, .login-form").on("submit", function(e) {
+    $(".registry-form, .login-form, .reset-form").on("submit", function(e) {
     	handleFormSubmit.init(e);
     });
 

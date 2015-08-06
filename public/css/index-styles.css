@@ -8495,9 +8495,21 @@ header .page-header h1 {
   body {
     font-size: 0.4em;
   }
+  body .row {
+    margin: 0;
+  }
+
+  .container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
 
   .jumbotron {
-    margin-top: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px 0;
+    text-align: center;
   }
   .jumbotron input {
     font-size: 1.3em;
@@ -8510,32 +8522,37 @@ header .page-header h1 {
     display: none;
   }
 
+  .second-subsite > .container {
+    background: rgba(0, 0, 0, 0.8);
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
   .second-subsite .well {
-    margin-top: 30px;
-    height: 320px;
+    background: none;
+    height: 280px;
+    margin: 0;
+    padding: 15px;
   }
   .second-subsite .well > i {
     font-size: 50px;
-    padding: 10px;
-  }
-  .second-subsite .well > h4 {
-    font-size: 4em;
     padding: 10px 0;
   }
-  .second-subsite .well > .description {
-    font-size: 3em;
+  .second-subsite .well > h4 {
+    text-transform: uppercase;
+    font-size: 3.5em;
+    font-family: "Open Sans";
+    font-weight: 700;
+    padding: 10px 0;
+  }
+  .second-subsite .well .description {
+    font-size: 2.5em;
+    line-height: 1.5;
+    padding: 10px 0;
   }
 
   .right-box > p {
     font-size: 1.5em;
-  }
-
-  .content {
-    height: 90vh;
-  }
-
-  .second-subsite {
-    height: 120vh;
   }
 
   .third-subsite {

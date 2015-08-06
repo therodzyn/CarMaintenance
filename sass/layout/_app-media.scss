@@ -26,6 +26,8 @@
 		header {
 
 			background: #000;
+			position: fixed;
+			z-index: 9999;
 
 			.page-header {
 				width: auto;
@@ -70,6 +72,9 @@
 		}
 
 		.content {
+
+			top: 60px;
+			position: relative;
 
 			.info {
 				height: 40px;
@@ -221,9 +226,25 @@
 					padding-left: 5px;
 					padding-right: 5px;
 
+					.account-header {
+						padding-top: 10px;
+						padding-bottom: 10px;
+						padding-left: 0;
+						padding-right: 0;
+						font-size: 3.5em;
+						text-align: center;
+						text-transform: uppercase;
+						font-weight: bold;
+						border-bottom: 5px solid #424856;
+						border-top: 5px solid #424856;
+						color: #424856;
+						background: #D1D4D4;
+					}
+
 					.form-group {
 						margin-left: 0;
 						margin-right: 0;
+
 
 						label {
 							padding: 0;
@@ -240,11 +261,15 @@
 							padding: 0;
 						}
 
-						input[type="text"] {
+						input[type="text"], .same-styles {
 							box-sizing: border-box;
 							padding: 6px 12px;
 							height: 36px;
 							font-size: 2.5em;
+						}
+
+						select.same-styles {
+							height: 40px;
 						}
 
 						input[type="radio"] {
@@ -322,7 +347,7 @@
 				}
 
 				.container table > tbody > tr {
-					font-size: 1.8em;
+					font-size: 2em;
 
 					td:not(.header) {
 						padding-left: 15px;
@@ -359,7 +384,7 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 991px) {
 	.left-aside {
 		display: none;
 	}
@@ -373,8 +398,16 @@
 		margin: 0;
 	}
 
+	.mini-menu-btn {
+		display: none;
+	}
+
 	.content {
 		margin-left: 65px;
+	}
+
+	.content > .container .add-car p {
+		font-size: 4em;
 	}
 
 	.top {
@@ -390,7 +423,7 @@
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
 @media (min-width: 768px) and (max-width: 1199px) {
 	body {
-		font-size: 0.5em;
+		font-size: 0.47em;
 	}
 	.content.add-car form .small-input .row label {
 		min-width: 100px;
@@ -405,7 +438,7 @@
 
 @media (min-width: 1200px) and (max-width: 1599px) {
 	body {
-		font-size: 0.55em;
+		font-size: 0.50em;
 	}
 	.content.news > .container {
 		padding: 15px;

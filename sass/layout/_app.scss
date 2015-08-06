@@ -132,6 +132,17 @@ body {
 					margin-bottom: 20px;
 				}
 
+				.account-header {
+					text-align: center;
+					font-weight: bold;
+					font-size: 3em;
+					padding-right: 10px;
+
+					&:not(:first-child) {
+						border-top: 1px solid #eff2f7;
+					}
+				}
+
 				label {
 					font-family: $OS;
 					font-weight: 700;
@@ -157,7 +168,7 @@ body {
 					margin-top: 8px;
 				}
 
-				input[type="text"] {
+				input[type="text"], .same-styles {
 
 					border-radius: 0;
 					border: 2px solid #e8ebed;
@@ -172,6 +183,36 @@ body {
 						border-color: #66AFE9;
 					}
 
+				}
+
+				select.same-styles {
+					padding: 0 12px;
+					height: 32px;
+				}
+
+				.drop {
+					border: 5px dashed #f0f3f3;
+					height: 170px;
+					position: relative;
+					cursor: pointer;
+					margin-bottom: 5px;
+
+					p {
+						font-family: $OS;
+						font-weight: 300;
+						font-size: 2.2em;
+						color: #999;
+						width: 100%;
+						position: absolute;
+						top: 50%;
+						margin-top: -26px;
+
+						span {
+							display: block;
+							margin-top: 10px;
+							font-size: 0.8em;
+						}
+					}
 				}
 
 				.small-input {
@@ -217,6 +258,7 @@ body {
 	}
 
 	#myModal {
+		z-index: 9999999;
 
 		h1 {
 			font-size: 3em;
@@ -360,7 +402,7 @@ body {
 				}
 
 				td:first-child {
-					font-size: 0.7em;
+					font-size: 0.9em;
 					color: #999;
 				}
 
@@ -464,7 +506,7 @@ body {
 
 			p {
 				font-family: $OS;
-				font-size: 1.6em;
+				font-size: 2em;
 				text-align: justify;
 			}
 		}
@@ -488,6 +530,7 @@ body {
 
 				img {
 					max-width: 100%;
+					max-height: 300px;
 				}
 			}
 
@@ -500,7 +543,7 @@ body {
 
 			p {
 				font-family: $OS;
-				font-size: 1.6em;
+				font-size: 2em;
 				text-align: justify;
 				padding: 0 5%;
 			}
@@ -533,11 +576,12 @@ body {
 			}
 
 			table > tbody > tr {
-				font-size: 1.6em;
+				font-size: 2.4em;
 				font-family: $OS;
 				color: #424856;
 
 				td {
+					font-size: 0.9em;
 					border: none;
 					padding: 10px 0;
 
@@ -554,7 +598,7 @@ body {
 					margin-bottom: 10px;
 					border-radius: 0;
 					font-family: $OS;
-					font-size: 1.6em;
+					font-size: 2em;
 					height: auto;
 				}
 

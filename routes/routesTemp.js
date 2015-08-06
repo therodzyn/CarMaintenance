@@ -54,4 +54,11 @@ module.exports = function(app) {
 
 	});
 
+	app.get("/account.html", function(req, res) {
+
+		res.sendFile(__dirname + '/htmls/account.html');
+
+	});
+
+
 };

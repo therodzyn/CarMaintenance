@@ -90,7 +90,7 @@
 				<h2>nawigacja</h2>
 
 				<ul>
-					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
+					<li><a href="garage.html"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
 					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i>Mapa warsztatów</a></li>
 					<li><a href="database.html"><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
 					<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i>Aktualności</a></li>
@@ -104,7 +104,7 @@
 			<nav>
 
 				<ul>
-					<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i></a></li>
+					<li><a href="garage.html"><i class="fa fa-fw fa-car"></i></a></li>
 					<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i></a></li>
 					<li><a href="database.html"><i class="fa fa-fw fa-database"></i></a></li>
 					<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i></a></li>
@@ -122,13 +122,13 @@
 					<div class="row">
 						<div class="col-sm-6 col-xs-12">
 							<div class="place pull-left">
-								<h2>Edytuj pojazd</h2>
+								<h2>Moje konto</h2>
 							</div>
 						</div>
 
 						<div class="col-sm-6 hidden-xs">
 							<div class="breadcrumbs pull-right">
-								<h3>jesteś tutaj: <a href="garage.html">Mój garaż</a><span>></span><a href="edit-car.html">Edytuj pojazd</a></h3>
+								<h3>jesteś tutaj: <a href="account.html">Moje konto</a></h3>
 							</div>
 						</div>
 					</div>
@@ -139,106 +139,87 @@
 
 			<div class="container">
 				<form class="form-horizontal" role="form">
-					<h3 class="hidden-sm hidden-xs">Dodaj pojazd</h3>
+					<h3 class="account-header">O mnie</h3>
+						<div class="form-group hidden-xs">
+							<div class="col-sm-8 col-sm-offset-2 text-center">
+								<div class="drop"><p class="desc">Upuść tutaj avatar<span>(lub kliknij)</span></p></div>
+							</div>
+						</div>
 						<div class="form-group">
-							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="country">Kraj rejestracji:</label>
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="name">Imię i nazwisko:</label>
 						    <div class="col-sm-4 col-xs-12">
-					      		<input type="text" class="form-control" id="country" value="Polska" autofocus>
+					      		<input type="text" class="form-control" id="name" autofocus>
 						    </div>
 					  	</div>
 					  	<div class="form-group">
-					    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="year">Rok produkcji:</label>
-					    	<div class="col-sm-4 col-xs-12">
-					    		<input type="text" class="form-control" id="year" value="2006">
-					    	</div>
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="sex">Płeć:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<select class="form-control same-styles" id="sex">
+					      			<option selected disabled>Wybierz...</option>
+					      			<option value="male">Mężczyzna</option>
+					      			<option value="female">Kobieta</option>
+					      		</select>
+						    </div>
 					  	</div>
 					  	<div class="form-group">
-					    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="brand">Marka:</label>
-					    	<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="brand" value="Opel">
-					    	</div>
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="birth-year">Rok urodzenia:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="text" class="form-control" id="birth-year">
+						    </div>
 					  	</div>
 					  	<div class="form-group">
-					  		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="model">Model:</label>
-					    	<div class="col-sm-4 col-xs-12">
-					    		<input type="text" class="form-control" id="model" value="Astra">
-					    	</div>
+							<label class="control-label col-sm-4 col-sm-offset-1 col-xs-12" for="license-year">Rok uzyskania prawa jazdy:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="text" class="form-control" id="license-year">
+						    </div>
 					  	</div>
 					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="reg">Numer rejestracyjny:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="reg" value="PL 09295">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="check">Przegląd techniczny:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="check" value="25 LUT 2016">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="insurance">Ubezpiecznie:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="insurance" value="30 MAR 2016">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="act-km">Aktualny przebieg:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="act-km" value="105 000">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="avg-km">Średni roczny przebieg:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="avg-km" value="9000">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="vin">Numer VIN:</label>
-				    		<div class="col-sm-4 col-xs-12">
-				    			<input type="text" class="form-control" id="vin" value="ZFA146A0000106768">
-				    		</div>
-					  	</div>
-					  	<div class="form-group">
-				    		<label class="control-label col-sm-4 col-sm-offset-1 col-xs-12 long">Jaki rodzaj opon używasz?</label>
-				    		<div class="col-sm-7 col-xs-12">
-					      		<input type="radio" name="tire-kind" id="letnie" checked><label class="lbl-radio" for="letnie">Letnie</label>
-								<input type="radio" name="tire-kind" id="zimowe"><label class="lbl-radio" for="zimowe">Zimowe</label>
-								<input type="radio" name="tire-kind" id="uniwersalne"><label class="lbl-radio" for="uniwersalne">Uniwersalne</label>
-				    		</div>
-					  	</div>
-					  	<div class="form-group small-input">
-					    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12">Rozmiar opon:</label>
-					    	<div class="col-sm-7 col-xs-12">
-					    		<div class="row">
-						      		<label class="col-xs-12">Przód:</label>
-						      		<label class="col-sm-2 col-xs-6 thin" for="tire-width-front">Szerokość:</label>
-						      		<input type="text" class="col-sm-4 col-xs-6" id="tire-width-front" value="135">
-						      		<label class="col-sm-2 col-xs-6 thin" for="tire-inch-front">Przekątna:</label>
-						      		<input type="text" class="col-sm-4 col-xs-6" id="tire-inch-front" value="15">
-						      	</div>
-						      	<div class="row">
-						      		<label class="col-xs-12">Tył:</label>
-						      		<label class="col-sm-2 col-xs-6 thin" for="tire-width-back">Szerokość:</label>
-						      		<input type="text" class="col-sm-4 col-xs-6" id="tire-width-back" value="135">
-						      		<label class="col-sm-2 col-xs-6 thin" for="tire-inch-back">Przekątna:</label>
-						      		<input type="text" class="col-sm-4 col-xs-6" id="tire-inch-back" value="15">
-						      	</div>
-					    	</div>
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="phone">Nr telefonu:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="text" class="form-control" id="phone">
+						    </div>
 					  	</div>
 
 					  	<div class="form-group">
-
 					  		<div class="col-sm-2 col-sm-offset-4 col-xs-12">
 			      				<button type="button" class="btn btn-success pull-right">Zapisz</button>
 			      			</div>
-
-			      			<div class="col-sm-2 col-xs-12">
-			      				<button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#myModal">Usuń pojazd</button>
-			      			</div>
-
 					  	</div>
+
+						<h3 class="account-header">Zmień dane logowania</h3>
+						<div class="form-group">
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="email">Adres e-mail:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="text" class="form-control" id="email" value="rodzyn2007@gmail.com">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="old-pass">Stare hasło:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="password" class="form-control same-styles" id="old-pass">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="new-pass">Nowe hasło:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="password" class="form-control same-styles" id="new-pass">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+							<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="new-pass-confirm">Potwierdź nowe hasło:</label>
+						    <div class="col-sm-4 col-xs-12">
+					      		<input type="password" class="form-control same-styles" id="new-pass-confirm">
+						    </div>
+					  	</div>
+					  	<div class="form-group">
+					  		<div class="col-sm-2 col-sm-offset-4 col-xs-12">
+			      				<button type="button" class="btn btn-success pull-right">Zapisz</button>
+			      			</div>
+			      			<div class="col-sm-2 col-xs-12">
+			      				<button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#myModal">Usuń konto</button>
+			      			</div>
+			      		</div>
+
 				</form>
 			</div>
 
@@ -252,7 +233,7 @@
 						</div>
 						<!-- Treść -->
 						<div class="modal-body">
-							<h1>Czy na pewno chcesz usunąć pojazd?</h1>
+							<h1>Czy na pewno chcesz usunąć konto?</h1>
 						</div>
 						<!-- Stopka -->
 						<div class="modal-footer">
@@ -262,7 +243,6 @@
 					</div>
 				</div>
 			</div>
-
 
 		</div>
 
