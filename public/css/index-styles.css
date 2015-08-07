@@ -8329,6 +8329,11 @@ header .page-header h1 {
   font-weight: 700;
   color: #27b6af;
 }
+.jumbotron .forgot-pass {
+  display: none;
+  font-size: 18px;
+  margin-top: -5px;
+}
 .jumbotron .warning {
   padding: 3px 0 3px 0;
   color: #700;
@@ -8445,8 +8450,12 @@ header .page-header h1 {
     padding-top: 3px;
   }
   .jumbotron .change {
-    font-size: 1em;
+    font-size: 16px;
     padding: 0;
+  }
+  .jumbotron .right-box .forgot-pass {
+    font-size: 14px;
+    margin-top: -10px;
   }
 
   .second-subsite > .container {
