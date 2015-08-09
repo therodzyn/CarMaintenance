@@ -3,7 +3,7 @@ var express = require("express"),
 	app = express();
 
 // CONFIG
-app.engine("handlebars", hbs({defaultLayout: "main"}));
+app.engine("handlebars", hbs({defaultLayout: "app-layout"}));
 app.set("view engine", "handlebars");
 
 // MIDDLEWARES
