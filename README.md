@@ -18,6 +18,7 @@ localhost:3000
 ```
 
 ## Releases
++ **3.0.0** - Login and Registration
 + **2.0.0** - All static sites with full RWD
 + **1.2.0** - Bootstrap
 + **1.1.0** - GruntJS & SASS
