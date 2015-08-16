@@ -1,0 +1,140 @@
+<form class="form-horizontal" role="form">
+	<h3 class="hidden-sm hidden-xs">Dodaj pojazd</h3>
+	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="country">Kraj rejestracji:</label>
+	    <div class="col-sm-4 col-xs-12">
+      		<input type="text" class="form-control" id="country" autofocus>
+	    </div>
+  	</div>
+  	<div class="form-group">
+    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="year">Rok produkcji:</label>
+    	<div class="col-sm-4 col-xs-12">
+    		<input type="text" class="form-control" id="year">
+    	</div>
+  	</div>
+  	<div class="form-group">
+    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="brand">Marka:</label>
+    	<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="brand">
+    	</div>
+  	</div>
+  	<div class="form-group">
+  		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="model">Model:</label>
+    	<div class="col-sm-4 col-xs-12">
+    		<input type="text" class="form-control" id="model">
+    	</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="reg">Numer rejestracyjny:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="reg">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="check">Przegląd techniczny:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="check">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="insurance">Ubezpiecznie:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="insurance">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="act-km">Aktualny przebieg:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="act-km">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="avg-km">Średni roczny przebieg:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="avg-km">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12" for="vin">Numer VIN:</label>
+		<div class="col-sm-4 col-xs-12">
+			<input type="text" class="form-control" id="vin">
+		</div>
+  	</div>
+  	<div class="form-group">
+		<label class="control-label col-sm-4 col-sm-offset-1 col-xs-12 long">Jaki rodzaj opon używasz?</label>
+		<div class="col-sm-7 col-xs-12">
+      		<input type="radio" name="tire-kind" class="tire-kind" id="letnie" value="letnie"><label class="lbl-radio" for="letnie">Letnie</label>
+			<input type="radio" name="tire-kind" class="tire-kind" id="zimowe" value="zimowe"><label class="lbl-radio" for="zimowe">Zimowe</label>
+			<input type="radio" name="tire-kind" class="tire-kind" id="uniwersalne" value="uniwersalne"><label class="lbl-radio" for="uniwersalne">Uniwersalne</label>
+		</div>
+  	</div>
+  	<div class="form-group small-input">
+    	<label class="control-label col-sm-3 col-sm-offset-2 col-xs-12">Rozmiar opon:</label>
+    	<div class="col-sm-7 col-xs-12">
+    		<div class="row">
+	      		<label class="col-xs-12">Przód:</label>
+	      		<label class="col-sm-2 col-xs-6 thin" for="tire-width-front">Szerokość:</label>
+	      		<input type="text" class="col-sm-4 col-xs-6" id="tire-width-front">
+	      		<label class="col-sm-2 col-xs-6 thin" for="tire-inch-front">Przekątna:</label>
+	      		<input type="text" class="col-sm-4 col-xs-6" id="tire-inch-front">
+	      	</div>
+	      	<div class="row">
+	      		<label class="col-xs-12">Tył:</label>
+	      		<label class="col-sm-2 col-xs-6 thin" for="tire-width-back">Szerokość:</label>
+	      		<input type="text" class="col-sm-4 col-xs-6" id="tire-width-back">
+	      		<label class="col-sm-2 col-xs-6 thin" for="tire-inch-back">Przekątna:</label>
+	      		<input type="text" class="col-sm-4 col-xs-6" id="tire-inch-back">
+	      	</div>
+    	</div>
+  	</div>
+
+	{{#if newItem}}
+
+  	<div class="form-group">
+  		<div class="col-sm-2 col-sm-offset-5 col-xs-12">
+				<button type="submit" class="btn btn-success">Dodaj</button>
+			</div>
+  	</div>
+
+  	{{else}}
+
+	<div class="form-group">
+
+		<div class="col-sm-2 col-sm-offset-4 col-xs-12">
+			<button type="button" class="btn btn-success pull-right">Zapisz</button>
+		</div>
+
+		<div class="col-sm-2 col-xs-12">
+			<button type="button" class="btn btn-danger pull-left" data-toggle="modal" data-target="#myModal">Usuń pojazd</button>
+		</div>
+
+	</div>
+
+	{{/if}}
+
+</form>
+
+{{#unless newItem}}
+
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<!-- Nagłówek -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Uwaga!</h4>
+			</div>
+			<!-- Treść -->
+			<div class="modal-body">
+				<h1>Czy na pewno chcesz usunąć pojazd?</h1>
+			</div>
+			<!-- Stopka -->
+			<div class="modal-footer">
+				<button type="button" data-dismiss="modal" class="btn btn-success">Nie</button>
+				<button type="button" class="btn btn-danger">Tak</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{/unless}}

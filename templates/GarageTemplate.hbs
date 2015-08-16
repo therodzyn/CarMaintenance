@@ -1,0 +1,41 @@
+{{#if emptyGarage}}
+
+	<div class="row">
+
+		<div class="col-sm-6 col-xs-12 text-center">
+			<div class="empty"><p>Garaż jest pusty.</p></div>
+		</div>
+
+		<div class="col-sm-6 col-xs-12 text-center">
+			<a href="garage/add-car" pushstate-link>
+				<div class="add-car">
+					<p><i class="fa fa-plus"></i>Dodaj swój pojazd</p>
+				</div>
+			</a>
+		</div>
+
+	</div>
+
+{{else}}
+
+	<div class="row">
+
+		<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
+			<a href="garage/add-car" class="add-car" pushstate-link>
+				<p><i class="fa fa-plus"></i>Dodaj kolejny pojazd</p>
+			</a>
+		</div>
+
+	{{#each cars}}
+		<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
+			<a href="car/{{_idCar}}" class="empty" pushstate-link>
+				<p>{{brand}} {{model}}</p>
+				<p class="reg">{{reg}}</p>
+				<i class="fa fa-car"></i>
+			</a>
+		</div>
+	{{/each}}
+
+	</div>
+
+{{/if}}

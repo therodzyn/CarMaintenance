@@ -28,9 +28,6 @@ module.exports = function(app, fns) {
 					req.session.user = user.email;
 					return res.json({"error": "no-errors"});
 
-					// REJESTRACJA:
-					// var zaszyfrowaneHasło = bcrypt.hashSync(req.password, bcrypt.genSaltSync(10));
-
 				});
 
 			});

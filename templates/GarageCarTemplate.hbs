@@ -1,0 +1,99 @@
+<div class="row">
+
+	<div class="col-sm-6 col-xs-12 text-center">
+		<div class="car">
+			<p class="name">{{brand}} {{model}}</p>
+			<p class="km">{{act-km}} km</p>
+			<p class="reg">{{reg}}</p>
+		</div>
+	</div>
+
+	<div class="col-sm-6 hidden-xs text-center">
+		<div class="drop"><p class="desc">Upuść tutaj zdjęcie<span>(lub kliknij)</span></p></div>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12">
+		<div class="car-info">
+			<h3>Ważne terminy</h3>
+
+			<table class="table">
+				<tbody>
+					<tr class="row">
+						<td class="col-sm-6">Termin badania technicznego:</td>
+						<td class="col-sm-6">{{check}}</td>
+					</tr>
+					<tr class="row">
+						<td class="col-sm-6">Termin ważności ubezpieczenia OC:</td>
+						<td class="col-sm-6">{{insurance}}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h3>Szczegóły pojazdu</h3>
+
+			<div class="row">
+				<div class="left-side col-sm-6 col-xs-12">
+					<table class="table">
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Kraj rejestracji:</td>
+							<td class="col-sm-6 col-xs-5">{{country}}</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Rok produkcji:</td>
+							<td class="col-sm-6 col-xs-5">{{year}}</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Marka:</td>
+							<td class="col-sm-6 col-xs-5">{{brand}}</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Model:</td>
+							<td class="col-sm-6 col-xs-5">{{model}}</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Numer rejestracyjny:</td>
+							<td class="col-sm-6 col-xs-5">{{reg}}</td>
+						</tr>
+					</table>
+
+				</div>
+
+				<div class="right-side col-sm-6 col-xs-12">
+
+					<table class="table">
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Aktualny przebieg:</td>
+							<td class="col-sm-6 col-xs-5">{{act-km}} km</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Średni roczny przebieg:</td>
+							<td class="col-sm-6 col-xs-5">{{avg-km}} km</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Używane opony:</td>
+							<td class="col-sm-6 col-xs-5">{{tire-kind}}</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">Rozmiar opon:</td>
+							<td class="col-sm-6 col-xs-5">{{tire-width-front}} mm / {{tire-inch-front}}"</td>
+						</tr>
+						<tr class="row">
+							<td class="col-sm-6 col-xs-7">VIN:</td>
+							<td class="col-sm-6 col-xs-5">{{vin}}</td>
+						</tr>
+
+					</table>
+
+				</div>
+
+				<div class="col-sm-2 col-sm-offset-5 col-xs-12">
+					<a class="btn btn-success" href="/car/{{_idCar}}/edit" role="button" pushstate-link>Edytuj</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

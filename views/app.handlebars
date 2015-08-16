@@ -88,7 +88,7 @@
 
 </div>
 
-<div class="content garage">
+<div class="content">
 
 	<div class="info">
 
@@ -104,7 +104,7 @@
 
 				<div class="col-sm-6 hidden-xs">
 					<div class="breadcrumbs pull-right">
-						<h3>jesteś tutaj: <a href="empty-garage.html">Mój garaż</a></h3>
+						<h3>jesteś tutaj: <a href="/garage" pushstate-link>Mój garaż</a></h3>
 					</div>
 				</div>
 			</div>
@@ -113,32 +113,31 @@
 
 	</div>
 
-	<div class="container">
-		<div class="row">
-
-			<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-				<a href="add-car.html" class="add-car">
-					<p><i class="fa fa-plus"></i>Dodaj kolejny pojazd</p>
-				</a>
-			</div>
-
-			<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-				<a href="car.html" class="empty">
-					<p>Opel Astra.</p>
-					<p class="reg">PL 09295</p>
-					<i class="fa fa-car"></i>
-				</a>
-			</div>
-		</div>
-	</div>
-
 </div>
 
+</script>
+
 <script src="js/libs/jquery.js"></script>
+<script src="js/libs/handlebars.js"></script>
+<script src="js/libs/underscore.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="js/libs/backbone.stickit.js"></script>
+<script src="js/libs/pushstate-links.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
-<script src="js/app-scripts.js"></script>
+
+<script src="js/templates.js"></script>
 
 <script src="js/App.js"></script>
+
+<script src="js/Models/UserModel.js"></script>
+<script src="js/Models/CarModel.js"></script>
+
+<script src="js/Views/GarageView.js"></script>
+<script src="js/Views/GarageAddCarView.js"></script>
+<script src="js/Views/GarageCarView.js"></script>
+<script src="js/Views/GarageEditCarView.js"></script>
+
+<script src="js/Routers/router.js"></script>
 
 <script>
 	APP.init();

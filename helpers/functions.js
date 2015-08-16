@@ -13,13 +13,19 @@ module.exports = {
 
     isValidId: function(id) {
 
-        return mongo.BSONPure.ObjectID.isValid(id);
+        return mongo.ObjectID.isValid(id);
 
     },
 
     createObjectId: function(id) {
 
         return new mongo.ObjectID(id);
+
+    },
+
+    createEmptyObjectId: function() {
+
+        return new mongo.ObjectID();
 
     },
 

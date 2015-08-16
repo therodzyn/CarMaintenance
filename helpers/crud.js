@@ -2,9 +2,13 @@ var helpers = require("./functions.js"),
     dbConnect = helpers.dbConnect,
     handleError = helpers.handleError,
     createObjectId = helpers.createObjectId,
+    createEmptyObjectId = helpers.createEmptyObjectId,
     isValidId = helpers.isValidId;
 
 routes = {
+    "/user": "users",
+
+    "/user/:id": "users"
 };
 
 module.exports = {
@@ -68,8 +72,13 @@ module.exports = {
         dbConnect(req, res, function(req, res, db) {
 
             delete req.body._id;
+            delete req.body.email;
+            delete req.body.password;
+            delete req.body.emptyGarage;
+            delete req.body.cars;
+            req.body._idCar = createEmptyObjectId();
 
-            db.collection(colname).findAndModify({_id: createObjectId(id)}, {}, {$set: req.body}, {new: true}, function(err, doc) {
+            db.collection(colname).findAndModify({_id: createObjectId(id)}, {}, {$push: {cars: req.body}, $unset: {emptyGarage: ""}}, {new: true}, function(err, doc) {
 
                 if(err) return handleError(res);
 

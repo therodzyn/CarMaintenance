@@ -12,8 +12,9 @@ module.exports = function(app) {
     app.use(sessions({
     	cookieName: "session",
     	secret: "asdasdmi2319k0asdkj12)(@#*nj",
-    	duration: 2 * 60 * 1000,
-    	activeDuration: 0
+    	cookie: {
+    		ephemeral: true
+    	}
     }));
 
     app.use(helpers.checkLogin);
@@ -27,8 +28,8 @@ module.exports = function(app) {
     //         },
 
     //         html: function() {
-    //             if(req.url !== "/" && req.url !== "/login" && req.url !== "/logout") {
-    //                 res.redirect("/");
+    //             if(req.url !== "/index" && req.url !== "/login" && req.url !== "/logout" && req.url !== "/") {
+    //                 res.redirect("/index");
     //             } else {
     //                 next();
     //             }
