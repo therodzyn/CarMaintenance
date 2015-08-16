@@ -5,13 +5,13 @@ APP.Routers.Router = Backbone.Router.extend({
     routes: {
     	"garage": "showGarage",
     	"garage/add-car": "showGarageAddCar",
-    	"car/:id": "showGarageCar",
-    	"car/:id/edit": "showGarageEditCar"
+    	"garage/car/:id": "showGarageCar",
+    	"garage/car/:id/edit": "showGarageEditCar"
     },
 
     showGarage: function() {
 
-    	var model = new APP.Models.User();
+    	var model = new APP.Models.Car();
     	var view = new APP.Views.Garage({model: model});
     	APP.showMainView(view);
 
@@ -21,11 +21,11 @@ APP.Routers.Router = Backbone.Router.extend({
 
     showGarageAddCar: function() {
 
-    	var model = new APP.Models.User();
+    	var model = new APP.Models.Car();
     	var view = new APP.Views.GarageAddCar({model: model});
     	APP.showMainView(view);
 
-    	model.fetch();
+    	view.render();
 
     },
 

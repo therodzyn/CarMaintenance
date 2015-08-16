@@ -1,33 +1,16 @@
 module.exports = function(app, fns) {
 
-	var dbConnect = fns.helpers.dbConnect,
-		handleError = fns.helpers.handleError,
-		updateItem = fns.crud.updateItem;
+	var login = fns.database.login,
+		logout = fns.database.logout,
+		registration = fns.database.registration;
 
-	app.get("/user", function(req, res) {
+	// Rejestracja użytkownika
+	app.post("/registration", registration);
 
-		dbConnect(req, res, function(req, res, db) {
+	// Logowanie użytkownika
+	app.post("/login", login);
 
-			db.collection("users").findOne({email: req.session.user}, function(err, user) {
-
-				// błąd serwera
-				if(err) {
-					req.session.reset();
-					return handleError(res);
-				}
-
-				if(!user.cars) {
-					user.emptyGarage = true;
-				}
-
-				return res.json(user);
-
-			});
-
-		});
-
-	});
-
-	app.put("/user/:id", updateItem);
+	// Wylogowanie użytkownika
+	app.get("/logout", logout);
 
 };

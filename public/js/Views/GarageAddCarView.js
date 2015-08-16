@@ -13,7 +13,6 @@ APP.Views.GarageAddCar = Backbone.View.extend({
 
     initialize: function() {
 
-    	this.listenToOnce(this.model, "change", this.render);
     	this.listenTo(this.model, "update", this.redirectToGarage);
 
     },

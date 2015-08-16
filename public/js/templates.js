@@ -52,7 +52,7 @@ this["JST"]["GarageCarTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias3(((helper = (helper = helpers['tire-inch-front'] || (depth0 != null ? depth0['tire-inch-front'] : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"tire-inch-front","hash":{},"data":data}) : helper)))
     + "\"</td>\r\n						</tr>\r\n						<tr class=\"row\">\r\n							<td class=\"col-sm-6 col-xs-7\">VIN:</td>\r\n							<td class=\"col-sm-6 col-xs-5\">"
     + alias3(((helper = (helper = helpers.vin || (depth0 != null ? depth0.vin : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"vin","hash":{},"data":data}) : helper)))
-    + "</td>\r\n						</tr>\r\n\r\n					</table>\r\n\r\n				</div>\r\n\r\n				<div class=\"col-sm-2 col-sm-offset-5 col-xs-12\">\r\n					<a class=\"btn btn-success\" href=\"/car/"
+    + "</td>\r\n						</tr>\r\n\r\n					</table>\r\n\r\n				</div>\r\n\r\n				<div class=\"col-sm-2 col-sm-offset-5 col-xs-12\">\r\n					<a class=\"btn btn-success\" href=\"garage/car/"
     + alias3(((helper = (helper = helpers._idCar || (depth0 != null ? depth0._idCar : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"_idCar","hash":{},"data":data}) : helper)))
     + "/edit\" role=\"button\" pushstate-link>Edytuj</a>\r\n				</div>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>";
 },"useData":true});
@@ -68,7 +68,7 @@ this["JST"]["GarageTemplate"] = Handlebars.template({"1":function(depth0,helpers
 },"4":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "		<div class=\"col-sm-6 col-sm-offset-3 col-xs-12 text-center\">\r\n			<a href=\"car/"
+  return "		<div class=\"col-sm-6 col-sm-offset-3 col-xs-12 text-center\">\r\n			<a href=\"/garage/car/"
     + alias3(((helper = (helper = helpers._idCar || (depth0 != null ? depth0._idCar : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"_idCar","hash":{},"data":data}) : helper)))
     + "\" class=\"empty\" pushstate-link>\r\n				<p>"
     + alias3(((helper = (helper = helpers.brand || (depth0 != null ? depth0.brand : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"brand","hash":{},"data":data}) : helper)))

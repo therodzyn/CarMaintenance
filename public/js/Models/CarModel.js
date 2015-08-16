@@ -8,9 +8,9 @@
 		url: function() {
 
 			if(this.isNew()) {
-				return "/cars/";
+				return "/garage/cars/";
 			} else {
-				return "/car/" + this.get("_idCar");
+				return "/garage/car/" + this.get("_idCar");
 			}
 
 		}

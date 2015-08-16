@@ -138,7 +138,7 @@
 		APP.initConfig();
 		APP.router = new APP.Routers.Router();
 
-		var model = new APP.Models.User();
+		var model = new APP.Models.Car();
 		var view = new APP.Views.Garage({model: model});
     	APP.showMainView(view);
 
