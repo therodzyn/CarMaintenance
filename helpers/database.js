@@ -39,6 +39,70 @@ module.exports = {
 
     },
 
+    editUserCar : function(req, res) {
+
+    	var id = req.params.id;
+
+        dbConnect(req, res, function(req, res, db) {
+
+            delete req.body.newItem;
+            req.body._idCar = createObjectId(req.body._idCar);
+
+            db.collection("users").findAndModify({email: req.session.user, "cars._idCar": createObjectId(id)}, {}, {$set: {"cars.$": req.body}}, {new: true}, function(err, car) {
+
+                if(err) return handleError(res);
+
+                res.json(car);
+
+                db.close();
+
+            });
+
+       });
+
+    },
+
+    deleteUserCar: function(req, res) {
+
+    	var id = req.params.id;
+
+        dbConnect(req, res, function(req, res, db) {
+
+            delete req.body.newItem;
+            req.body._idCar = createObjectId(req.body._idCar);
+
+            db.collection("users").findAndModify({email: req.session.user}, {}, { $pull: { "cars": { "_idCar": createObjectId(id) } } }, {new: true}, function(err, user) {
+
+                if(err) return handleError(res);
+
+                if(user.value.cars.length === 0) {
+
+                	db.collection("users").findAndModify({email: req.session.user}, {}, { $set: {emptyGarage: true} }, {new: true}, function(err, user2) {
+
+                			console.log(user2);
+
+                			res.json({deletedAll: true});
+
+                			db.close();
+
+                		}
+
+                	);
+
+                	return;
+
+                }
+
+                res.json({deletedOne: true});
+
+                db.close();
+
+            });
+
+       });
+
+    },
+
     getUserCars: function(req, res) {
 
 		var id = req.params.id;

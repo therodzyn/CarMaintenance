@@ -19,6 +19,8 @@ APP.Views.GarageAddCar = Backbone.View.extend({
 
     render: function() {
 
+    	var model = this.model;
+
     	this.model.set("newItem", true);
 
         var html = this.template( this.model.toJSON() );
@@ -30,6 +32,46 @@ APP.Views.GarageAddCar = Backbone.View.extend({
         $(".content > .container").remove();
 
         APP.Regions.infoDiv.after(this.$el);
+
+        var options = {
+        	dateInputNode: this.$("#check"),
+        	modules: {
+        		footer: false,
+				icon: false,
+        		clear: false
+        	},
+        	dateFormat: {
+			    separator: "-",
+			    format: ["DD" , "MM" , "YYYY"]
+        	}
+        };
+
+         var options2 = {
+        	dateInputNode: this.$("#insurance"),
+        	modules: {
+        		footer: false,
+				icon: false,
+        		clear: false
+        	},
+        	dateFormat: {
+			    separator: "-",
+			    format: ["DD" , "MM" , "YYYY"]
+        	}
+        };
+		var instance = new BeatPicker(options);
+		var instance2 = new BeatPicker(options2);
+
+		instance.on("change", function(o) {
+
+			model.set("check", o.string);
+
+		});
+
+		instance2.on("change", function(o) {
+
+			model.set("insurance", o.string);
+
+		});
 
         APP.Scripts();
 
@@ -77,6 +119,14 @@ APP.Views.GarageAddCar = Backbone.View.extend({
 			wait: true,
 			success: function() {
 				// Zdarzenie update w Backbone nie istnieje, ale za pomoca trigger, samodzielnie je wywołujemy i możemy na nie nasłuchiwać.
+				swal(
+	    			{
+	    				title: "Dodano!",
+	    				text: "Pojazd został dodany.",
+	    				type: "success",
+	    				confirmButtonColor: "#27B6AF"
+	    			}
+	    		);
 				model.trigger("update");
 			}
 		});

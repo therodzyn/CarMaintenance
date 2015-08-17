@@ -1,0 +1,19 @@
+.sweet-alert button {
+	font-family: "Open Sans";
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0;
+    font-size: 20px;
+    padding: 5px 25px;
+    transition: 0.3s all;
+}
+
+.sweet-alert {
+	width: 700px;
+	left: 50%;
+	margin-left: -350px;
+}
+
+.no-hover button.confirm:hover {
+	background-color: #c9302c !important;
+}

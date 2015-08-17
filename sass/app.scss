@@ -15,6 +15,10 @@
 	// *--------- BOOTSTRAP ---------*
 	@import "components/bootstrap";
 	@import "components/bootstrap-overwrite";
+	@import "components/sweetalert";
+	@import "components/sweetalert-overwrite";
+	@import "components/BeatPicker.min";
+	@import "components/BeatPicker.min-overwrite";
 
 // ----------------------
 // 		LAYOUT

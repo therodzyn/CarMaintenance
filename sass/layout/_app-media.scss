@@ -1,6 +1,25 @@
 // ROZDZIELCZOŚĆ TELEFONU NA PÓŹNIEJ
 // NOWE TABLETY RóWNIEż RODZIELCZOść TELEFONICZNA (DUżY PX RATIO)
+
+
 @media (max-width: 767px) {
+
+	.sweet-alert h2 {
+		font-size: 20px;
+		line-height: normal;
+	}
+
+	.sweet-alert button {
+		width: 250px;
+	    font-size: 18px;
+	}
+
+	.sweet-alert {
+		width: 300px;
+		left: 50%;
+		margin-left: -150px;
+	}
+
 	body {
 		font-size: 0.4em;
 
