@@ -18,6 +18,9 @@ localhost:3000
 ```
 
 ## Releases
++ **4.4.0** - Backbone - Account Edition and Delete
++ **4.3.0** - Backbone - News
++ **4.2.0** - Backbone - Map, GoogleMaps API
 + **4.1.0** - Backbone - Garage CRUD
 + **4.0.0** - Backbone - Garage Views
 + **3.0.0** - Login and Registration
