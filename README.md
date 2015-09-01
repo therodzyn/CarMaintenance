@@ -18,6 +18,7 @@ localhost:3000
 ```
 
 ## Releases
++ **5.0.0** - Backbone - All APP Sites
 + **4.4.0** - Backbone - Account Edition and Delete
 + **4.3.0** - Backbone - News
 + **4.2.0** - Backbone - Map, GoogleMaps API
