@@ -388,6 +388,172 @@ module.exports = {
 
        });
 
+    },
+
+    getDatabaseBrands: function(req, res) {
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("carsDatabase").find({}, {_id: 0, brand: 1}).toArray( function(err, brands) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				var array = [];
+
+				brands.forEach(function(brand) {
+
+					array.push(brand.brand);
+
+				});
+
+				return res.json(array);
+
+			});
+
+		});
+
+    },
+
+    getDatabaseModels: function(req, res) {
+
+    	var brand = req.params.brand;
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("carsDatabase").find({"brand": brand}, {_id: 0, "models.name": 1}).toArray( function(err, items) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				var modelsNames = [];
+
+				items[0].models.forEach(function(model) {
+
+					modelsNames.push(model.name);
+
+				});
+
+				return res.json(modelsNames);
+
+			});
+
+		});
+
+    },
+
+    getDatabaseEngines: function(req, res) {
+
+    	var brand = req.params.brand;
+    	var modelParam = req.params.model;
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("carsDatabase").find({"brand": brand, "models.name": modelParam}, {_id: 0, "models.name": 1, "models.engines": 1}).toArray( function(err, items) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				var enginesNames = [];
+
+				items[0].models.forEach(function(model) {
+
+					if(model.name == modelParam) {
+						model.engines.forEach(function(engine) {
+							var obj = {};
+							obj.id = engine._id;
+							obj.name = engine.name;
+							enginesNames.push(obj);
+						});
+						return true;
+					} else {
+						return;
+					}
+
+				});
+
+				return res.json(enginesNames);
+
+			});
+
+		});
+
+    },
+
+    getDatabaseItem: function(req, res) {
+
+    	var id = req.params.id;
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("carsDatabase").find({"models.engines._id": Number(id)}, {_id: 0, brand: 1, "models.name": 1, "models.engines": 1}).toArray( function(err, items) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				var responseItem = {};
+
+				items.forEach(function(item) {
+					item.models.forEach(function(model) {
+						model.engines.forEach(function(engine) {
+							if(engine._id == id) {
+								engine.brand = item.brand;
+								engine.model = model.name;
+								responseItem = engine;
+								return true;
+							} else {
+								return;
+							}
+						});
+					});
+				});
+
+				return res.json(responseItem);
+
+			});
+
+
+		});
+
+    },
+
+    getDatabaseItems: function(req, res) {
+
+    	dbConnect(req, res, function(req, res, db) {
+
+			db.collection("carsDatabase").find({}, {_id: 0, brand: 1, "models.name": 1, "models.engines": 1}).toArray( function(err, items) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				var engines = [];
+
+				items.forEach(function(item) {
+					item.models.forEach(function(model) {
+						model.engines.forEach(function(engine) {
+							engine.brand = item.brand;
+							engine.model = model.name;
+							engines.push(engine);
+						});
+					});
+				});
+
+				return res.json(engines);
+
+			});
+
+		});
+
     }
 
 };

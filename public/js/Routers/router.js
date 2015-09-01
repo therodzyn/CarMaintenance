@@ -12,7 +12,8 @@ APP.Routers.Router = Backbone.Router.extend({
     	"news/:id": "showNewsItem",
     	"account": "showAccount",
     	"account/edit": "editAccount",
-    	"account/delete": "deleteAccount"
+    	"account/delete": "deleteAccount",
+    	"database": "showDatabase"
     },
 
     showGarage: function() {
@@ -89,6 +90,20 @@ APP.Routers.Router = Backbone.Router.extend({
     	var model = new APP.Models.User();
     	var view = new APP.Views.Account({model: model});
     	APP.showMainView(view);
+
+    	model.fetch();
+
+    },
+
+    showDatabase: function() {
+
+    	var chooseView = new APP.Views.DatabaseChoose();
+    	APP.showMainView(chooseView);
+
+    	var randomID = Math.floor((Math.random() * 10) + 1);
+
+    	var model = new APP.Models.DatabaseItem({"_id": randomID});
+    	var itemView = new APP.Views.DatabaseItem({model: model});
 
     	model.fetch();
 

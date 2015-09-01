@@ -11,5 +11,6 @@ module.exports = function(app) {
     require("./cars.js")(app, fns);
     require("./user.js")(app, fns);
     require("./news.js")(app, fns);
+    require("./database.js")(app, fns);
 
 };

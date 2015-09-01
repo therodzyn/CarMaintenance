@@ -96,9 +96,13 @@
 	        APP.ViewsInstances.mainView.remove();
 	    }
 
+	    if(APP.ViewsInstances.databaseItem) {
+	    	APP.ViewsInstances.databaseItem.remove();
+		}
+
 	    APP.ViewsInstances.mainView = view;
 
-	};
+	},
 
 	APP.Messages = {
 
