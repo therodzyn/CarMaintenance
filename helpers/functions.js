@@ -43,8 +43,16 @@ module.exports = {
 
     checkLogin: function(req, res, next) {
 
-        if(req.url === "/login" || req.url === "/" || req.url === "/registration") {
+        if(req.url === "/login" || req.url === "/registration") {
             return next();
+        }
+
+        if(req.url === "/" && req.session && req.session.user) {
+        	return res.redirect("/garage");
+        }
+
+        if(req.url === "/") {
+        	return next();
         }
 
         if(req.session && req.session.user) {

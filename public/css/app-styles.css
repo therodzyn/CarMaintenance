@@ -8251,6 +8251,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: inherit;
 }
 
+a:focus {
+  text-decoration: none;
+}
+
 body.stop-scrolling {
   height: 100%;
   overflow: hidden;
@@ -10529,10 +10533,13 @@ body {
 .content.map form input {
   width: 100%;
   border-radius: 0;
-  border: 0;
+  border: 2px solid #e8ebed;
   color: #424856;
   font-size: 3em;
   height: 60px;
+}
+.content.map form input:focus {
+  border: 2px solid #66AFE9;
 }
 .content.map form button {
   height: 60px;
@@ -10653,6 +10660,16 @@ body {
 }
 .content.database > .container form button {
   width: 100%;
+}
+
+.infowindow {
+  font-family: "Open Sans";
+  font-size: 1.4em;
+  color: #424856;
+}
+.infowindow span {
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
 @media (max-width: 767px) {

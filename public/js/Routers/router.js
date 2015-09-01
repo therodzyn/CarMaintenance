@@ -6,7 +6,13 @@ APP.Routers.Router = Backbone.Router.extend({
     	"garage": "showGarage",
     	"garage/add-car": "showGarageAddCar",
     	"garage/car/:id": "showGarageCar",
-    	"garage/car/:id/edit": "showGarageEditCar"
+    	"garage/car/:id/edit": "showGarageEditCar",
+    	"map": "showMap",
+    	"news": "showNews",
+    	"news/:id": "showNewsItem",
+    	"account": "showAccount",
+    	"account/edit": "editAccount",
+    	"account/delete": "deleteAccount"
     },
 
     showGarage: function() {
@@ -48,6 +54,45 @@ APP.Routers.Router = Backbone.Router.extend({
     	model.fetch();
 
     },
+
+    showMap: function() {
+
+    	var view = new APP.Views.Map();
+    	APP.showMainView(view);
+
+    	view.render();
+
+    },
+
+    showNews: function() {
+
+    	var collection = new APP.Collections.NewsList();
+    	var view = new APP.Views.NewsList({collection: collection});
+    	APP.showMainView(view);
+
+    	collection.fetch({reset: true});
+
+    },
+
+    showNewsItem: function(id) {
+
+    	var model = new APP.Models.News({_id: id});
+    	var view = new APP.Views.NewsItem({model: model});
+    	APP.showMainView(view);
+
+    	model.fetch();
+
+    },
+
+    showAccount: function() {
+
+    	var model = new APP.Models.User();
+    	var view = new APP.Views.Account({model: model});
+    	APP.showMainView(view);
+
+    	model.fetch();
+
+    }
 
 });
 

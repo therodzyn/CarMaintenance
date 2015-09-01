@@ -79,8 +79,6 @@ module.exports = {
 
                 	db.collection("users").findAndModify({email: req.session.user}, {}, { $set: {emptyGarage: true} }, {new: true}, function(err, user2) {
 
-                			console.log(user2);
-
                 			res.json({deletedAll: true});
 
                 			db.close();
@@ -246,6 +244,150 @@ module.exports = {
 
 		}
 
-	}
+	},
+
+	getNews: function(req, res) {
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("news").find({}, {}).toArray(function(err, news) {
+
+				// błąd serwera
+				if(err) {
+					return handleError(res);
+				}
+
+				return res.json(news);
+
+			});
+
+		});
+
+	},
+
+	getNewsItem: function(req, res) {
+
+		var id = req.params.id;
+
+        dbConnect(req, res, function(req, res, db) {
+
+            db.collection("news").find({_id: createObjectId(id)}).toArray( function(err, docs) {
+
+                if(err) return handleError(res);
+
+                res.json(docs[0]);
+
+                db.close();
+
+            });
+
+       });
+
+	},
+
+	getAccount: function(req, res) {
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("users").findOne({email: req.session.user}, {}, function(err, user) {
+
+				// błąd serwera
+				if(err) {
+					req.session.reset();
+					return handleError(res);
+				}
+
+				return res.json(user);
+
+			});
+
+		});
+
+	},
+
+	editAccount: function(req, res) {
+
+        dbConnect(req, res, function(req, res, db) {
+
+        	db.collection("users").findOne({email: req.body.email}, function(err, user) {
+
+                if(err) return handleError(res);
+
+                if(user && user.email !== req.session.user) {
+                	return res.json({"error": "Istnieje już użytkownik o podanym adresie e-mail."});
+                }
+
+				if(req.body.new_pass) {
+
+					if(!req.body.old_pass) {
+						return res.json({"error": "Należy podać stare hasło."});
+					}
+
+					if(req.body.new_pass !== req.body.new_pass_confirm) {
+						return res.json({"error": "Podane hasła nie zgadzają się."});
+					}
+
+				}
+
+					db.collection("users").findOne({email: req.session.user}, function(err, user) {
+
+						if(err) return handleError(res);
+
+						if(req.body.new_pass) {
+							if(!bcrypt.compareSync(req.body.old_pass, user.password)) {
+								return res.json({"error": "Stare hasło jest niepoprawne."});
+							} else {
+								req.body.password = bcrypt.hashSync(req.body.new_pass, bcrypt.genSaltSync(10));
+							}
+						}
+
+						delete req.body.new_pass;
+						delete req.body.new_pass_confirm;
+						delete req.body.old_pass;
+		            	delete req.body._id;
+		            	delete req.body.error;
+
+			            db.collection("users").findAndModify({email: req.session.user}, {}, {$set: req.body}, function(err, user) {
+
+			                if(err) return handleError(res);
+
+		                	req.session.reset();
+		                	req.session.user = req.body.email;
+
+			                res.json({"error": "no-errors"});
+
+			                db.close();
+
+			            });
+
+					});
+
+	        });
+
+       });
+
+    },
+
+	deleteAccount: function(req, res) {
+
+		// USUNIĘCIE KONTA
+
+        dbConnect(req, res, function(req, res, db) {
+
+            db.collection("users").findAndRemove({email: req.session.user}, function(err, user) {
+
+                if(err) return handleError(res);
+
+        		req.session.reset();
+
+                res.json({deleted: true});
+
+                db.close();
+
+            });
+
+       });
+
+    }
 
 };

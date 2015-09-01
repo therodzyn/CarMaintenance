@@ -19,14 +19,14 @@
 
 	APP.Scripts = function() {
 
-		// var height = $(".content").height() + $("header").height() + 2;
-		// if(height < $(window).height()) {
-		// 	if($(window).width() > 767) {
-		// 		$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 42);
-		// 	} else {
-		// 		$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 11);
-		// 	}
-		// }
+		var height = $(".content").height() + $("header").height() + 2;
+		if(height < $(window).height()) {
+			if($(window).width() > 767) {
+				$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 42);
+			} else {
+				$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 11);
+			}
+		}
 
 		var small = true;
 		var show = true;

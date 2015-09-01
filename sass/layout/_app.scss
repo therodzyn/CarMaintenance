@@ -428,10 +428,14 @@ body {
 			input {
 				width: 100%;
 				border-radius: 0;
-				border: 0;
+				border: 2px solid #e8ebed;
 				color: #424856;
 				font-size: 3em;
 				height: 60px;
+
+				&:focus {
+					border: 2px solid #66AFE9;
+				}
 			}
 
 			button {
@@ -617,4 +621,15 @@ body {
 
 	}
 
+}
+
+.infowindow {
+	font-family: $OS;
+	font-size: 1.4em;
+	color: #424856;
+
+	span {
+		font-weight: 700;
+		font-size: 1.1em;
+	}
 }

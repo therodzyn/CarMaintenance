@@ -75,6 +75,9 @@ APP.Views.GarageAddCar = Backbone.View.extend({
 
         APP.Scripts();
 
+       	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
+        $("body > div:nth-child(2) > nav > ul > li:nth-child(1) > a").attr("class", "active");
+
         this.stickit();
 
         return this;

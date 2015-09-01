@@ -1,11 +1,11 @@
 (function() {
 
-APP.Views.Garage = Backbone.View.extend({
+APP.Views.NewsItem = Backbone.View.extend({
 
     tagName: "div",
     className: "container",
 
-    template: JST["GarageTemplate"],
+    template: JST["NewsItemTemplate"],
 
     initialize: function() {
 
@@ -19,8 +19,7 @@ APP.Views.Garage = Backbone.View.extend({
 
         this.$el.html(html);
 
-        var className = this.model.toJSON().emptyGarage ? "empty-garage" : "garage";
-        this.changeContentClass(className);
+        this.changeContentClass("one-news-site");
 
         $(".content > .container").remove();
 
@@ -29,7 +28,7 @@ APP.Views.Garage = Backbone.View.extend({
        	APP.Scripts();
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
-        $("body > div:nth-child(2) > nav > ul > li:nth-child(1) > a").attr("class", "active");
+        $("body > div:nth-child(2) > nav > ul > li:nth-child(4) > a").attr("class", "active");
 
         return this;
 

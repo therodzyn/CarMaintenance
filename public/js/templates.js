@@ -1,5 +1,9 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["AccountTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<form class=\"form-horizontal\" role=\"form\">\r\n	<h3 class=\"account-header\">O mnie</h3>\r\n		<div class=\"form-group hidden-xs\">\r\n			<div class=\"col-sm-8 col-sm-offset-2 text-center\">\r\n				<div class=\"drop\"><p class=\"desc\">Upuść tutaj avatar<span>(lub kliknij)</span></p></div>\r\n			</div>\r\n		</div>\r\n		<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"name\">Imię i nazwisko:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"text\" class=\"form-control\" id=\"name\" autofocus>\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"sex\">Płeć:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<select class=\"form-control same-styles\" id=\"sex\">\r\n	      			<option selected disabled>Wybierz...</option>\r\n	      			<option value=\"male\">Mężczyzna</option>\r\n	      			<option value=\"female\">Kobieta</option>\r\n	      		</select>\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"birth-year\">Rok urodzenia:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"text\" class=\"form-control\" id=\"birth-year\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-4 col-sm-offset-1 col-xs-12\" for=\"license-year\">Rok uzyskania prawa jazdy:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"text\" class=\"form-control\" id=\"license-year\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"phone\">Nr telefonu:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"text\" class=\"form-control\" id=\"phone\">\r\n		    </div>\r\n	  	</div>\r\n\r\n	  	<div class=\"form-group\">\r\n	  		<div class=\"col-sm-2 col-sm-offset-4 col-xs-12\">\r\n  				<button type=\"button\" class=\"btn btn-success pull-right save-about-btn\">Zapisz</button>\r\n  			</div>\r\n	  	</div>\r\n\r\n		<h3 class=\"account-header\">Zmień dane logowania</h3>\r\n		<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"email\">Adres e-mail:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"text\" class=\"form-control\" id=\"email\" value=\"rodzyn2007@gmail.com\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"old-pass\">Stare hasło:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"password\" class=\"form-control same-styles\" id=\"old-pass\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"new-pass\">Nowe hasło:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"password\" class=\"form-control same-styles\" id=\"new-pass\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n			<label class=\"control-label col-sm-3 col-sm-offset-2 col-xs-12\" for=\"new-pass-confirm\">Potwierdź nowe hasło:</label>\r\n		    <div class=\"col-sm-4 col-xs-12\">\r\n	      		<input type=\"password\" class=\"form-control same-styles\" id=\"new-pass-confirm\">\r\n		    </div>\r\n	  	</div>\r\n	  	<div class=\"form-group\">\r\n	  		<div class=\"col-sm-2 col-sm-offset-4 col-xs-12\">\r\n  				<button type=\"button\" class=\"btn btn-success pull-right save-login-btn\">Zapisz</button>\r\n  			</div>\r\n  			<div class=\"col-sm-2 col-xs-12\">\r\n  				<button type=\"button\" class=\"btn btn-danger pull-left delete-open-modal\">Usuń konto</button>\r\n  			</div>\r\n  		</div>\r\n\r\n</form>";
+},"useData":true});
+
 this["JST"]["GarageAddEditCarTemplate"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "\r\n  	<div class=\"form-group\">\r\n  		<div class=\"col-sm-2 col-sm-offset-5 col-xs-12\">\r\n				<button type=\"submit\" class=\"btn btn-success\">Dodaj</button>\r\n			</div>\r\n  	</div>\r\n\r\n";
 },"3":function(depth0,helpers,partials,data) {
@@ -78,4 +82,34 @@ this["JST"]["GarageTemplate"] = Handlebars.template({"1":function(depth0,helpers
     var stack1;
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.emptyGarage : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "");
+},"useData":true});
+
+this["JST"]["MapTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"row\">\r\n	<div class=\"col-xs-12\">\r\n		<form class=\"form-inline\" role=\"form\" id=\"form-map-search\">\r\n			<div class=\"row\">\r\n				<div class=\"form-group col-sm-8 col-xs-12\">\r\n					<input type=\"text\" class=\"form-control hidden-xs\" id=\"search-input\" placeholder=\"Wyszukaj...\">\r\n					<input type=\"text\" class=\"form-control visible-xs\" id=\"search-input\" placeholder=\"Wyszukaj...\">\r\n				</div>\r\n				<div class=\"form-group col-sm-4 col-xs-12\">\r\n					<button type=\"submit\" class=\"btn btn-success\">Szukaj</button>\r\n				</div>\r\n			</div>\r\n		</form>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n	<div class=\"col-xs-12\">\r\n		<div id=\"map-container\">\r\n\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n<div class=\"row\">\r\n\r\n</div>";
+},"useData":true});
+
+this["JST"]["NewsItemTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"row\">\r\n\r\n	<div class=\"col-lg-8 col-lg-offset-2 text-center\">\r\n\r\n		<div class=\"message\">\r\n\r\n			<div class=\"logo\"><img src=\""
+    + alias3(((helper = (helper = helpers.big_photo_link || (depth0 != null ? depth0.big_photo_link : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"big_photo_link","hash":{},"data":data}) : helper)))
+    + "\" alt=\"\"></div>\r\n			<h3>"
+    + alias3(((helper = (helper = helpers.header || (depth0 != null ? depth0.header : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"header","hash":{},"data":data}) : helper)))
+    + "</h3>\r\n			<p class=\"description\">"
+    + alias3(((helper = (helper = helpers.long_description || (depth0 != null ? depth0.long_description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"long_description","hash":{},"data":data}) : helper)))
+    + "</p>\r\n\r\n		</div>\r\n\r\n	</div>\r\n\r\n</div>";
+},"useData":true});
+
+this["JST"]["NewsTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<a href=\"/news/"
+    + alias3(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"_id","hash":{},"data":data}) : helper)))
+    + "\" class=\"box-link\" pushstate-link>\r\n	<div class=\"well\">\r\n		<div class=\"logo\"><img src=\""
+    + alias3(((helper = (helper = helpers.small_photo_link || (depth0 != null ? depth0.small_photo_link : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"small_photo_link","hash":{},"data":data}) : helper)))
+    + "\" alt=\"\"></div>\r\n		<h4>"
+    + alias3(((helper = (helper = helpers.header || (depth0 != null ? depth0.header : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"header","hash":{},"data":data}) : helper)))
+    + "</h4>\r\n		<p class=\"short-description\">"
+    + alias3(((helper = (helper = helpers.short_description || (depth0 != null ? depth0.short_description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"short_description","hash":{},"data":data}) : helper)))
+    + "</p>\r\n	</div>\r\n</a>";
 },"useData":true});

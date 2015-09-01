@@ -1,8 +1,8 @@
 <header>
 
 	<div class="page-header text-center hidden-xs">
-		<a class="hidden-sm" href="garage.html">car maintenanc<span>e</span></a>
-		<a class="visible-sm" href="garage.html">cm</a>
+		<a class="hidden-sm" href="/garage" pushstate-link>car maintenanc<span>e</span></a>
+		<a class="visible-sm" href="/garage" pushstate-link>cm</a>
 	</div>
 
 	<div class="top">
@@ -15,7 +15,7 @@
 
 				<div class="col-xs-8 visible-xs">
 					<div class="page-header text-center">
-						<a href="garage.html">car maintenanc<span>e</span></a>
+						<a href="/garage" pushstate-link>car maintenanc<span>e</span></a>
 					</div>
 				</div>
 
@@ -31,7 +31,7 @@
 									<button class="avatar btn btn-default dropdown-toggle visible-xs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 									</button>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-										<li><a href="account.html">Moje konto</a></li>
+										<li><a href="/account" pushstate-link>Moje konto</a></li>
 										<li role="separator" class="divider"></li>
 										<li><a href="/logout">Wyloguj</a></li>
 									</ul>
@@ -57,7 +57,7 @@
 		<div class="avatar"></div>
 
 		<div class="profile-name">
-			<a href="empty-garage.html">rodzyn2007@gmail.com</a>
+			<a href="/account" pushstate-link>{{username}}</a>
 		</div>
 	</div>
 
@@ -65,10 +65,10 @@
 		<h2>nawigacja</h2>
 
 		<ul>
-			<li><a href="/garage" class="active"><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
-			<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i>Mapa warsztatów</a></li>
-			<li><a href="database.html"><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
-			<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i>Aktualności</a></li>
+			<li><a href="/garage" class="active" pushstate-link><i class="fa fa-fw fa-car"></i>Mój garaż</a></li>
+			<li><a href="/map" pushstate-link><i class="fa fa-fw fa-map-marker"></i>Mapa warsztatów</a></li>
+			<li><a href="/database" pushstate-link><i class="fa fa-fw fa-database"></i>Baza wiedzy</a></li>
+			<li><a href="/news" pushstate-link><i class="fa fa-fw fa-newspaper-o"></i>Aktualności</a></li>
 		</ul>
 	</nav>
 
@@ -79,10 +79,10 @@
 	<nav>
 
 		<ul>
-			<li><a href="garage.html" class="active"><i class="fa fa-fw fa-car"></i></a></li>
-			<li><a href="map.html"><i class="fa fa-fw fa-map-marker"></i></a></li>
-			<li><a href="database.html"><i class="fa fa-fw fa-database"></i></a></li>
-			<li><a href="news.html"><i class="fa fa-fw fa-newspaper-o"></i></a></li>
+			<li><a href="/garage" pushstate-link class="active"><i class="fa fa-fw fa-car"></i></a></li>
+			<li><a href="/map" pushstate-link><i class="fa fa-fw fa-map-marker"></i></a></li>
+			<li><a href="/database" pushstate-link><i class="fa fa-fw fa-database"></i></a></li>
+			<li><a href="/news" pushstate-link><i class="fa fa-fw fa-newspaper-o"></i></a></li>
 		</ul>
 	</nav>
 
@@ -132,11 +132,23 @@
 <script src="js/App.js"></script>
 
 <script src="js/Models/CarModel.js"></script>
+<script src="js/Models/NewsModel.js"></script>
+<script src="js/Models/UserModel.js"></script>
+
+<script src="js/Collections/NewsCollection.js"></script>
 
 <script src="js/Views/GarageView.js"></script>
 <script src="js/Views/GarageAddCarView.js"></script>
 <script src="js/Views/GarageCarView.js"></script>
 <script src="js/Views/GarageEditCarView.js"></script>
+
+<script src="js/Views/MapView.js"></script>
+
+<script src="js/Views/NewsListView.js"></script>
+<script src="js/Views/NewsListItemView.js"></script>
+<script src="js/Views/NewsItemView.js"></script>
+
+<script src="js/Views/AccountView.js"></script>
 
 <script src="js/Routers/router.js"></script>
 
