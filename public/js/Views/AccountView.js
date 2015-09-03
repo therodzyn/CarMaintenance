@@ -37,6 +37,8 @@ APP.Views.Account = Backbone.View.extend({
 
         APP.Scripts();
 
+        APP.imageUploader.init();
+
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
 
         this.stickit();

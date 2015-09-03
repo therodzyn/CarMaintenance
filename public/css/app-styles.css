@@ -10372,6 +10372,15 @@ body {
   margin-top: 10px;
   font-size: 0.8em;
 }
+.content.add-car form .drop.dragOver {
+  border: 5px dashed #27b6af;
+  color: #27b6af;
+}
+.content.add-car form .drop.dragOver p {
+  font-size: 4em;
+  margin-top: -40px;
+  font-weight: 700;
+}
 .content.add-car form .small-input .row {
   margin-bottom: 10px;
 }
@@ -10497,6 +10506,15 @@ body {
   display: block;
   margin-top: 10px;
   font-size: 0.8em;
+}
+.content.car .container .drop.dragOver {
+  border: 5px dashed #27b6af;
+  color: #27b6af;
+}
+.content.car .container .drop.dragOver p {
+  font-size: 4em;
+  margin-top: -40px;
+  font-weight: 700;
 }
 .content.car .container .car-info {
   background: #fff;

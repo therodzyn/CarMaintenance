@@ -17,6 +17,132 @@
 
 	};
 
+	APP.imageUploader = {
+
+	    addHover: function(e) {
+
+	    	e.preventDefault();
+	    	this.counter++;
+	        this.dropZone.classList.add("dragOver");
+
+	    },
+
+	    removeHover: function(e) {
+
+	    	this.counter--;
+	    	if(this.counter === 0) {
+	        	this.dropZone.classList.remove("dragOver");
+	    	}
+
+	    },
+
+	    cancelDefault: function(e) {
+
+	        e.preventDefault();
+	        return false;
+
+	    },
+
+	    handleDrop: function(e) {
+
+	        e.preventDefault();
+	        e.stopPropagation();
+
+	        this.dropZone.ondrop = null;
+
+	        this.file = e.dataTransfer.files[0];
+
+            if(this.file.type.match("image.*")) {
+                this.addToUploadList();
+       			this.removeHover();
+       			this.sendFiles();
+            } else {
+            	swal(
+	    			{
+	    				title: "Błąd!",
+	    				text: "Próbujesz wysłać niepoprawny format pliku.",
+	    				type: "error",
+	    				confirmButtonColor: "#27B6AF"
+	    			}
+	    		);
+	    		this.removeHover();
+	    		this.init();
+	    		return false;
+            }
+
+	    },
+
+	    addToUploadList: function() {
+
+	        this.formData.append("image", this.file);
+	        this.filesAdded++;
+
+	    },
+
+	    sendFiles: function() {
+
+	        if(this.filesAdded == 0) return;
+
+	        var that = this;
+
+	        $.ajax({
+
+	        	type: "POST",
+	        	url: "account/addAvatar",
+	        	data: this.formData,
+	        	processData: false,
+  				contentType: false,
+	        	success: function(res) {
+	        		swal(
+		    			{
+		    				title: "Dodano avatar!",
+		    				text: "Avatar został dodany.",
+		    				type: "success",
+		    				confirmButtonColor: "#27B6AF"
+		    			}
+		    		);
+	        		that.init();
+	        	},
+	        	error: function(res) {
+	        		swal(
+		    			{
+		    				title: "Błąd!",
+		    				text: "Próbujesz wysłać niepoprawny format pliku.",
+		    				type: "error",
+		    				confirmButtonColor: "#27B6AF"
+		    			}
+		    		);
+		    		that.init();
+	        	}
+
+	        });
+
+	    },
+
+	    init: function() {
+
+	        if(!("draggable" in document.createElement("span")) || !window.FileReader) {
+	            return;
+	        }
+
+	        this.dropZone = document.querySelector(".drop");
+
+	        // informacja po wysłaniu (powodzenie/niepowodzenie)
+	        // this.status = document.querySelector("#status");
+
+	        this.filesAdded = 0;
+	        this.formData = new FormData();
+	        this.counter = 0;
+
+	        this.dropZone.ondragover = this.cancelDefault;
+	        this.dropZone.ondragenter = this.addHover.bind(this);
+	        this.dropZone.ondragleave = this.removeHover.bind(this);
+	        this.dropZone.ondrop = this.handleDrop.bind(this);
+
+	    }
+
+	};
+
 	APP.Scripts = function() {
 
 		var height = $(".content").height() + $("header").height() + 2;

@@ -215,6 +215,17 @@ body {
 					}
 				}
 
+				.drop.dragOver {
+					border: 5px dashed #27b6af;
+					color: #27b6af;
+
+					p {
+						font-size: 4em;
+						margin-top: -40px;
+						font-weight: 700;
+					}
+				}
+
 				.small-input {
 
 					.row {
@@ -379,6 +390,17 @@ body {
 						margin-top: 10px;
 						font-size: 0.8em;
 					}
+				}
+			}
+
+			.drop.dragOver {
+				border: 5px dashed #27b6af;
+				color: #27b6af;
+
+				p {
+					font-size: 4em;
+					margin-top: -40px;
+					font-weight: 700;
 				}
 			}
 

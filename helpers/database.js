@@ -390,6 +390,12 @@ module.exports = {
 
     },
 
+    addAvatar: function(req, res) {
+
+    	res.send("gites");
+
+    },
+
     getDatabaseBrands: function(req, res) {
 
 		dbConnect(req, res, function(req, res, db) {
