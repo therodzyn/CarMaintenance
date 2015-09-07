@@ -10327,6 +10327,14 @@ body {
 .content.add-car form label.long {
   margin-top: -6px;
 }
+.content.add-car form .remind-info {
+  font-size: 1.6em;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+.content.add-car form .remind-info span {
+  font-weight: bold;
+}
 .content.add-car form input[type="radio"] {
   width: 20px;
   height: 20px;
@@ -10357,6 +10365,19 @@ body {
   cursor: pointer;
   margin-bottom: 5px;
 }
+.content.add-car form .drop i {
+  font-size: 30px;
+  color: #f00;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content.add-car form .drop i:hover {
+  color: #700;
+}
 .content.add-car form .drop p {
   font-family: "Open Sans";
   font-weight: 300;
@@ -10365,7 +10386,7 @@ body {
   width: 100%;
   position: absolute;
   top: 50%;
-  margin-top: -26px;
+  margin-top: -10px;
 }
 .content.add-car form .drop p span {
   display: block;
@@ -10378,7 +10399,7 @@ body {
 }
 .content.add-car form .drop.dragOver p {
   font-size: 4em;
-  margin-top: -40px;
+  margin-top: -20px;
   font-weight: 700;
 }
 .content.add-car form .small-input .row {
@@ -10458,7 +10479,7 @@ body {
   color: rgba(255, 255, 255, 0.07);
 }
 .content.garage .empty:hover {
-  background: #222329;
+  opacity: 0.9;
 }
 .content.car > .info {
   height: 70px;
@@ -10491,6 +10512,19 @@ body {
   height: 250px;
   position: relative;
   cursor: pointer;
+}
+.content.car .container .drop i {
+  font-size: 30px;
+  color: #f00;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content.car .container .drop i:hover {
+  color: #700;
 }
 .content.car .container .drop p {
   font-family: "Open Sans";

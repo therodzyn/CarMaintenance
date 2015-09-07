@@ -25,6 +25,14 @@ APP.Views.GarageEditCar = Backbone.View.extend({
 
     	var model = this.model;
 
+    	if(this.model.attributes.check) {
+    		this.checkDate = this.model.attributes.check;
+    	}
+
+    	if(this.model.attributes.insurance) {
+    		this.insuranceDate = this.model.attributes.insurance;
+    	}
+
         this.model.set("newItem", false);
 
         var html = this.template( this.model.toJSON() );
@@ -82,6 +90,10 @@ APP.Views.GarageEditCar = Backbone.View.extend({
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
         $("body > div:nth-child(2) > nav > ul > li:nth-child(1) > a").attr("class", "active");
 
+
+        $("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
+        $("body > div.left-aside.small-nav > nav > ul > li:nth-child(1) > a").attr("class", "active");
+
         this.stickit();
 
         return this;
@@ -119,6 +131,14 @@ APP.Views.GarageEditCar = Backbone.View.extend({
     editUserCar: function(e) {
 
 		e.preventDefault();
+
+		if(this.checkDate != this.model.attributes.check) {
+			this.model.attributes.checkEmail = 0;
+		}
+
+		if(this.insuranceDate != this.model.attributes.insurance) {
+			this.model.attributes.insuranceEmail = 0;
+		}
 
 		var model = this.model;
 
@@ -168,12 +188,6 @@ APP.Views.GarageEditCar = Backbone.View.extend({
     		);
     		model.destroy({wait: true});
     	});
-
-    },
-
-    deleteUserCar: function(e) {
-
-		// this.model.destroy({wait: true});
 
     },
 

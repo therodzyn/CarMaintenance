@@ -4,7 +4,10 @@ var helpers = require("./functions.js"),
     createObjectId = helpers.createObjectId,
     createEmptyObjectId = helpers.createEmptyObjectId,
     isValidId = helpers.isValidId,
-    bcrypt = require("bcrypt-nodejs");
+    sendMail = helpers.sendMail,
+    sendResetPass = require("./sendMail.js").sendMail,
+    bcrypt = require("bcrypt-nodejs"),
+    fs = require("fs");
 
 routes = {
     "/user": "users",
@@ -12,6 +15,97 @@ routes = {
 };
 
 module.exports = {
+
+	getUsers: function(transporter) {
+
+		var MongoClient = require('mongodb').MongoClient,
+			url = 'mongodb://localhost:27017/CarMaintenance',
+			that = this;
+
+		MongoClient.connect(url, function(err, db) {
+
+			db.collection('users').find({}).toArray(function(err, users) {
+
+				if(users) {
+
+					var schedule = require('node-schedule');
+
+					users.forEach(function(user) {
+
+						user.cars.forEach(function(car) {
+
+							var checkDate, remCheckDate, insuranceDate, remInsuranceDate;
+
+							var monthNames = [
+						        "stycznia", "lutego", "marca",
+						        "kwietnia", "maja", "czerwca", "lipca",
+						        "sierpnia", "września", "października",
+						        "listopada", "grudnia"
+						    ];
+
+						    var dateStr = "";
+
+							if(car.check) {
+								checkDate = new Date(car.check.split("-").reverse().join(", ") + ", 12:00:00");
+								remCheckDate = new Date(checkDate);
+								remCheckDate.setMonth(checkDate.getMonth() - 1);
+							}
+
+							if(car.insurance) {
+								insuranceDate = new Date(car.insurance.split("-").reverse().join(", ") + ", 12:00:00");
+								remInsuranceDate = new Date(insuranceDate);
+								remInsuranceDate.setMonth(insuranceDate.getMonth() - 1);
+							}
+
+							if(car.checkEmail == 0 && car.check) {
+
+								var checkEmail = schedule.scheduleJob(remCheckDate, function() {
+
+									dateStr = checkDate.getDate() + " " + monthNames[checkDate.getMonth()].toUpperCase() + " " + checkDate.getFullYear();
+
+									sendMail(transporter, user.email, "CarMaintenance - przypomnienie o przeglądzie", {thing: "Przegląd", checkName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.checkEmail");
+
+								});
+
+							}
+
+							if(car.insuranceEmail == 0 && car.insurance) {
+
+								var insuranceEmail = schedule.scheduleJob(remInsuranceDate, function() {
+
+									dateStr = insuranceDate.getDate() + " " + monthNames[insuranceDate.getMonth()].toUpperCase() + " " + insuranceDate.getFullYear();
+
+									sendMail(transporter, user.email, "CarMaintenance - przypomnienie o ubezpieczeniu", {thing: "Ubezpieczenie", insuranceName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.insuranceEmail");
+
+								});
+
+							}
+
+						});
+
+					});
+
+				}
+
+			});
+
+		});
+
+	},
+
+	setSentEmail: function(id, setField) {
+
+		var MongoClient = require('mongodb').MongoClient,
+			url = 'mongodb://localhost:27017/CarMaintenance';
+
+		var setModifier = { $set: {} };
+		setModifier.$set[setField] = 1;
+
+		MongoClient.connect(url, function(err, db) {
+			db.collection("users").findAndModify({"cars._idCar": createObjectId(id)}, {}, setModifier);
+		});
+
+	},
 
     addUserCar: function(req, res) {
 
@@ -107,7 +201,7 @@ module.exports = {
 
 		dbConnect(req, res, function(req, res, db) {
 
-			db.collection("users").findOne({email: req.session.user}, {_id: 0, cars: 1, emptyGarage: 1}, function(err, cars) {
+			db.collection("users").findOne({email: req.session.user}, {_id: 0, cars: 1, emptyGarage: 1, avatarLink: 1}, function(err, cars) {
 
 				// błąd serwera
 				if(err) {
@@ -151,6 +245,63 @@ module.exports = {
 			});
 
 		});
+
+	},
+
+	addUserCarImage: function(req, res) {
+
+    	var fileInfo = req.file;
+    	var id = req.params.id;
+
+    	dbConnect(req, res, function(req, res, db) {
+
+    		delete req.body.newItem;
+            req.body._idCar = createObjectId(id);
+
+	        db.collection("users").findAndModify({"cars._idCar": req.body._idCar}, {}, { $set: { "cars.$.imageLink": fileInfo.filename } }, function(err, user) {
+
+	            if(err) return handleError(res);
+
+				// fs.unlink('public/img/carImages/' + user.value.avatarLink, function (err) {
+				// 	if (err) throw err;
+				// 	console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
+				// });
+
+	            res.json({"link": fileInfo.filename, "drop": "carImage"});
+
+	            db.close();
+
+	        });
+
+    	});
+
+	},
+
+	deleteUserCarImage: function(req, res) {
+
+    	var id = req.params.id;
+
+    	dbConnect(req, res, function(req, res, db) {
+
+    		delete req.body.newItem;
+            req.body._idCar = createObjectId(id);
+
+	        db.collection("users").findAndModify({"cars._idCar": req.body._idCar}, {}, { $unset: { "cars.$.imageLink": "" } }, function(err, user) {
+
+	            if(err) return handleError(res);
+
+				// fs.unlink('public/img/carImages/' + user.value.avatarLink, function (err) {
+				// 	if (err) throw err;
+				// 	console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
+				// });
+
+	            res.json({"deleted": true, "drop": "carImage"});
+
+	            db.close();
+
+	        });
+
+    	});
 
 	},
 
@@ -243,6 +394,84 @@ module.exports = {
 			return res.json({"error": "Nie podałeś wszystkich danych."});
 
 		}
+
+	},
+
+	resetPassAsk: function(req, res) {
+
+		if(req.body.email) {
+
+			dbConnect(req, res, function(req, res, db) {
+
+				db.collection("users").findOne({email: req.body.email}, function(err, user) {
+
+					if(err) {
+						return handleError(res);
+					}
+
+					// nie znaleziono usera o podanym mailu, lub hasła nie pasują do siebie
+					if(!user) {
+						return res.json({"error": "Nie istnieje użytkownik o podanym adresie e-mail."});
+					}
+
+					var hashCode = "";
+				    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+				    for( var i = 0; i < 12; i++ )
+				        hashCode += possible.charAt(Math.floor(Math.random() * possible.length));
+
+			        db.collection("users").findAndModify({email: req.body.email}, {}, { $set: { hashCode: String(hashCode) } }, function(err, user) {
+
+			            if(err) return handleError(res);
+
+			            sendResetPass(req.body.email, "CarMaintenance - prośba o reset hasła", {hash: hashCode});
+
+			            res.json({"error": "no-errors"});
+
+			        });
+
+				});
+
+			});
+
+		} else {
+
+			return res.json({"error": "Nie podałeś wszystkich danych."});
+
+		}
+
+	},
+
+	resetPass: function(req, res) {
+
+		var hash = req.params.hash;
+
+		var pass = "";
+	    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	    for( var i=0; i < 12; i++ )
+	        pass += possible.charAt(Math.floor(Math.random() * possible.length));
+
+		var newHashPassword = bcrypt.hashSync(pass, bcrypt.genSaltSync(10));
+
+		dbConnect(req, res, function(req, res, db) {
+
+			db.collection("users").findAndModify({"hashCode": String(hash)}, {}, { $set: { password: newHashPassword }, $unset: { hashCode: "" } }, {new: true}, function(err, user) {
+
+				if(err) {
+					return handleError(res);
+				}
+
+				// nie znaleziono usera o podanym mailu, lub hasła nie pasują do siebie
+				if(!user) {
+					return res.json({"error": "Błąd wygenerowanego linku."});
+				}
+
+				sendResetPass(user.value.email, "CarMaintenance - nowe hasło", {hash: pass, reseted: true});
+
+				res.render("passReseted", {layout: "index-layout"});
+
+			});
+
+		});
 
 	},
 
@@ -392,7 +621,51 @@ module.exports = {
 
     addAvatar: function(req, res) {
 
-    	res.send("gites");
+    	var fileInfo = req.file;
+
+    	dbConnect(req, res, function(req, res, db) {
+
+	        db.collection("users").findAndModify({email: req.session.user}, {}, { $set: { avatarLink: fileInfo.filename } }, function(err, user) {
+
+	            if(err) return handleError(res);
+
+	            if(user.value.avatarLink) {
+	            	fs.unlink('public/img/avatars/' + user.value.avatarLink, function (err) {
+						if (err) throw err;
+						console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
+					});
+	            }
+
+	            res.json({"link": fileInfo.filename, "drop": "avatar"});
+
+	            db.close();
+
+	        });
+
+    	});
+
+    },
+
+    deleteAvatar: function(req, res) {
+
+    	dbConnect(req, res, function(req, res, db) {
+
+	        db.collection("users").findAndModify({email: req.session.user}, {}, { $unset: { avatarLink: "" } }, function(err, user) {
+
+	            if(err) return handleError(res);
+
+				fs.unlink('public/img/avatars/' + user.value.avatarLink, function (err) {
+					if (err) throw err;
+					console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
+				});
+
+	            res.json({"deleted": true, "drop": "avatar"});
+
+	            db.close();
+
+	        });
+
+    	});
 
     },
 

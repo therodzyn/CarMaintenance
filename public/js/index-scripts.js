@@ -278,6 +278,13 @@ $(function() {
 					error = $("<h2 class='response-error' style='color: #27b6af; font-size: 20px;'><span>" + "Rejestracja przebiegła pomyślnie. Możesz się zalogować." + "</span></h2>");
 					$(".right-box h2").before(error);
 
+				} else if(this.form.className.split(" ")[0] === "reset-form") {
+
+					$(".sign-in-link").click();
+					$(".response-error").remove();
+					error = $("<h2 class='response-error' style='color: #27b6af; font-size: 20px;'><span>" + "Na podany adres e-mail wysłano wiadomość potwierdzającą reset hasła." + "</span></h2>");
+					$(".right-box h2").before(error);
+
 				} else {
 					window.location.href = "/garage";
 				}
@@ -324,6 +331,8 @@ $(function() {
 			this.regPassword = $(".pass-reg-input");
 			this.regConfirm = $(".confirm-reg-input");
 
+			this.resEmail = $(".email-reset-input");
+
 			// wyzerowanie ostrzeżeń oraz obramowania inputów
 			$(".warning").text("");
 			$(".warning").css({"display": "none"});
@@ -357,6 +366,16 @@ $(function() {
 	                    "confirm": this.regConfirm.val()
 					};
 					url = "/registration";
+					this.sendRequest(data, url);
+
+				}
+
+				if(this.form.className.split(" ")[0] === "reset-form") {
+
+					data = {
+	                    "email": this.resEmail.val()
+					};
+					url = "/resetPass";
 					this.sendRequest(data, url);
 
 				}

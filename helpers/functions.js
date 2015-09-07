@@ -43,7 +43,7 @@ module.exports = {
 
     checkLogin: function(req, res, next) {
 
-        if(req.url === "/login" || req.url === "/registration") {
+        if(req.url === "/login" || req.url === "/registration" || (req.url.indexOf("/resetPass") !== -1)) {
             return next();
         }
 
@@ -67,6 +67,27 @@ module.exports = {
         	}
 
         }
+
+    },
+
+    sendMail: function(transporter, to, subject, context, id, field) {
+
+    	var mailOptions = {
+		    from: 'CarMaintenance <carmaintenancepwsz@gmail.com>', // sender address
+		    to: to, // list of receivers
+		    subject: subject, // Subject line
+			template: 'email',
+			context: context
+		};
+
+		transporter.sendMail(mailOptions, function(error, info){
+		    if(error){
+		        return console.log(error);
+		    }
+
+		    console.log('Message sent: ' + info.response);
+		    require("./database.js").setSentEmail(id, field);
+		});
 
     }
 

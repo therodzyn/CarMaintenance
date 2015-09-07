@@ -2,7 +2,7 @@
 	<h3 class="account-header">O mnie</h3>
 		<div class="form-group hidden-xs">
 			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<div class="drop"><p class="desc">Upuść tutaj avatar<span>(lub kliknij)</span></p></div>
+				<div class="drop"{{#if avatarLink}} style="background: url('img/avatars/{{avatarLink}}') no-repeat left top"><i class="fa fa-times delete-avatar"></i>{{else}}> {{/if}}<p class="desc">Upuść tutaj avatar (64px x 64px)</p></div>
 			</div>
 		</div>
 		<div class="form-group">

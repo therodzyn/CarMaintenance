@@ -66,7 +66,7 @@
 	    			}
 	    		);
 	    		this.removeHover();
-	    		this.init();
+	    		this.init(this.link, this.mainMSG, this.secondMSG, this.deleteLink, this.deleteEl);
 	    		return false;
             }
 
@@ -79,6 +79,51 @@
 
 	    },
 
+	    setNewAvatarLinks: function(res) {
+
+	    	$("body > div:nth-child(2) > div > div.avatar").css({
+	    		"background": "url(img/avatars/" + res.link + ") no-repeat center center"
+	    	});
+	    	$("body > div.content.add-car > div.container > form > div.form-group.hidden-xs > div > div").css({
+	    		"background": "url(img/avatars/" + res.link + ") no-repeat left top"
+	    	});
+	    	var deleteL = $("<i class='fa fa-times'></i>");
+	    	$("body > div.content.add-car > div.container > form > div.form-group.hidden-xs > div > div").append(deleteL);
+
+	    },
+
+	    setNewCarImageLinks: function(res) {
+
+	    	$("body > div.content.car > div.container > div:nth-child(1) > div.col-sm-6.hidden-xs.text-center > div").css({
+	    		"background": "url(img/carImages/" + res.link + ") no-repeat left top",
+	    		"background-size": "cover"
+	    	});
+	    	var deleteL = $("<i class='fa fa-times'></i>");
+	    	$("body > div.content.car > div.container > div:nth-child(1) > div.col-sm-6.hidden-xs.text-center > div").append(deleteL);
+
+	    },
+
+	    deleteAvatarLinks: function() {
+
+    		$("body > div:nth-child(2) > div > div.avatar").css({
+	    		"background": "url(img/avatar64.png) no-repeat center center"
+	    	});
+	    	$("body > div.content.add-car > div.container > form > div.form-group.hidden-xs > div > div").css({
+	    		"background": ""
+	    	});
+	    	$(".fa.fa-times").remove();
+
+	    },
+
+	    deleteCarImageLinks: function() {
+
+	    	$("body > div.content.car > div.container > div:nth-child(1) > div.col-sm-6.hidden-xs.text-center > div").css({
+	    		"background": "none"
+	    	});
+	    	$("body > div.content.car > div.container > div:nth-child(1) > div.col-sm-6.hidden-xs.text-center > div > i").remove();
+
+	    },
+
 	    sendFiles: function() {
 
 	        if(this.filesAdded == 0) return;
@@ -88,20 +133,25 @@
 	        $.ajax({
 
 	        	type: "POST",
-	        	url: "account/addAvatar",
+	        	url: this.link,
 	        	data: this.formData,
 	        	processData: false,
   				contentType: false,
 	        	success: function(res) {
 	        		swal(
 		    			{
-		    				title: "Dodano avatar!",
-		    				text: "Avatar został dodany.",
+		    				title: that.mainMSG,
+		    				text: that.secondMSG,
 		    				type: "success",
 		    				confirmButtonColor: "#27B6AF"
 		    			}
 		    		);
-	        		that.init();
+		    		if(res.drop === "avatar") {
+		    			that.setNewAvatarLinks(res);
+		    		} else {
+		    			that.setNewCarImageLinks(res);
+		    		}
+	        		that.init(that.link, that.mainMSG, that.secondMSG, that.deleteLink, that.deleteEl);
 	        	},
 	        	error: function(res) {
 	        		swal(
@@ -112,14 +162,77 @@
 		    				confirmButtonColor: "#27B6AF"
 		    			}
 		    		);
-		    		that.init();
+		    		that.init(that.link, that.mainMSG, that.secondMSG, that.deleteLink, that.deleteEl);
 	        	}
 
 	        });
 
 	    },
 
-	    init: function() {
+	    handleDeleteImg: function(e) {
+
+	    	e.preventDefault();
+
+	        var that = this;
+
+	    	swal(
+		    	{
+		    		title: "Czy na pewno chcesz usunąć " + that.deleteEl + "?",
+		    		text: "Nie będzie można już odzyskać danych!",
+		    		type: "warning",
+		    		showCancelButton: true,
+		    		confirmButtonColor: "#d9534f",
+		    		confirmButtonText: "Tak, usuń " + that.deleteEl + "!",
+		    		cancelButtonText: "Anuluj",
+		    		closeOnConfirm: false,
+		    		customClass: "no-hover"
+	    	}, function() {
+
+	    		$.ajax({
+
+		        	type: "POST",
+		        	url: that.deleteLink,
+		        	data: {delete: true},
+		        	processData: false,
+	  				contentType: false,
+		        	success: function(res) {
+
+			    		swal(
+			    			{
+			    				title: "Usunięto!",
+			    				text: that.deleteEl.charAt(0).toUpperCase() + that.deleteEl.slice(1) + " został usunięty.",
+			    				type: "success",
+			    				confirmButtonColor: "#27B6AF"
+			    			}
+			    		);
+
+			    		if(res.drop === "avatar") {
+			    			that.deleteAvatarLinks();
+			    		} else {
+			    			that.deleteCarImageLinks();
+			    		}
+			    		that.init(that.link, that.mainMSG, that.secondMSG, that.deleteLink, that.deleteEl);
+
+		        	},
+		        	error: function() {
+
+			    		swal(
+			    			{
+			    				title: "Błąd!",
+			    				text: "Wystąpił błąd po stronie serwera.",
+			    				type: "error"
+			    			}
+			    		);
+
+		        	}
+
+		        });
+
+	    	});
+
+	    },
+
+	    init: function(link, mainMSG, secondMSG, deleteLink, deleteEl) {
 
 	        if(!("draggable" in document.createElement("span")) || !window.FileReader) {
 	            return;
@@ -127,17 +240,27 @@
 
 	        this.dropZone = document.querySelector(".drop");
 
-	        // informacja po wysłaniu (powodzenie/niepowodzenie)
-	        // this.status = document.querySelector("#status");
+	        if(document.querySelector(".fa.fa-times")) {
+	        	this.deleteImg = document.querySelector(".fa.fa-times");
+	        }
 
 	        this.filesAdded = 0;
 	        this.formData = new FormData();
 	        this.counter = 0;
+	        this.link = link;
+	        this.mainMSG = mainMSG;
+	        this.secondMSG = secondMSG;
+	        this.deleteLink = deleteLink;
+	        this.deleteEl = deleteEl;
 
 	        this.dropZone.ondragover = this.cancelDefault;
 	        this.dropZone.ondragenter = this.addHover.bind(this);
 	        this.dropZone.ondragleave = this.removeHover.bind(this);
 	        this.dropZone.ondrop = this.handleDrop.bind(this);
+
+	        if(this.deleteImg) {
+	        	this.deleteImg.onclick = this.handleDeleteImg.bind(this);
+	        }
 
 	    }
 
@@ -191,14 +314,8 @@
 		}
 
 		$(".mini-menu-btn").on("click", function(e) {
-			if($(window).width() > 1199) {
-				e.preventDefault();
-				enableSmallNav(small);
-				small = !small;
-			} else {
-				showNav(show);
-				show = !show;
-			}
+			showNav(show);
+			show = !show;
 		});
 
 	},

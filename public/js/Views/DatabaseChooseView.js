@@ -53,6 +53,9 @@
 	       	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
 	        $("body > div:nth-child(2) > nav > ul > li:nth-child(3) > a").attr("class", "active");
 
+	        $("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
+	        $("body > div.left-aside.small-nav > nav > ul > li:nth-child(3) > a").attr("class", "active");
+
 	        return this;
 
 		},

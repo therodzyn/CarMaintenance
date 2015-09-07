@@ -1,23 +1,18 @@
 var multer = require('multer'),
-	storage = multer.diskStorage({
-		destination: function (req, file, cb) {
-			cb(null, 'public/img/avatars');
-		},
-		filename: function (req, file, cb) {
-			cb(null, req.session.user + "." + file.mimetype.split("/")[1]);
-		}
-	}),
-    upload = multer({ storage: storage });
+    upload = multer({ dest: 'public/img/avatars' });
 
 module.exports = function(app, fns) {
 
 	var login = fns.database.login,
 		logout = fns.database.logout,
 		registration = fns.database.registration,
+		resetPassAsk = fns.database.resetPassAsk,
+		resetPass = fns.database.resetPass,
 		editAccount = fns.database.editAccount,
 		deleteAccount = fns.database.deleteAccount,
 		getAccount = fns.database.getAccount,
-		addAvatar = fns.database.addAvatar;
+		addAvatar = fns.database.addAvatar,
+		deleteAvatar = fns.database.deleteAvatar;
 
 	// Rejestracja użytkownika
 	app.post("/registration", registration);
@@ -25,8 +20,17 @@ module.exports = function(app, fns) {
 	// Logowanie użytkownika
 	app.post("/login", login);
 
+	// Logowanie użytkownika
+	app.post("/resetPass", resetPassAsk);
+
+	// Logowanie użytkownika
+	app.get("/resetPass/:hash", resetPass);
+
 	// Odebranie zdjęcia użytkownika
 	app.post("/account/addAvatar", upload.single("image"), addAvatar);
+
+	// Odebranie zdjęcia użytkownika
+	app.post("/account/deleteAvatar", deleteAvatar);
 
 	// Wylogowanie użytkownika
 	app.get("/logout", logout);

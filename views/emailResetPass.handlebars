@@ -11,7 +11,13 @@
 
 <body>
 	<h1>Witaj,</h1>
-	<p>Przypominamy, że za miesiąc, czyli <b>{{date}}</b> kończy Ci się ważność {{#if checkName}}przeglądu pojazdu <b>{{checkName}}</b>{{else}}ubezpieczenia pojazdu <b>{{insuranceName}}</b>{{/if}} o numerze rejestracyjnym: <b>{{reg}}</b>.</p>
+	{{#if reseted}}
+	<p>Zresetowano hasło. Nowe hasło to:<br>{{hash}}</p>
+	<a href="http://localhost:3000">Przejdź do strony głównej</a>
+	{{else}}
+	<p>Wysłano prośbę o reset hasła dla konta o tym adresie e-mail. Aby je zresetować proszę kliknąć na link:</p>
+	<a href="http://localhost:3000/resetPass/{{hash}}">Zresetuj hasło</a>
+	{{/if}}
 	<p>Pozdrawiamy,<br>CarMaintenance</p>
 </body>
 </html>

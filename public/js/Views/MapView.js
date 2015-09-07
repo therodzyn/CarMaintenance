@@ -23,14 +23,7 @@ APP.Views.Map = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
-        this.makeMap({
-        	center: {
-        		lat: 52.16167,
-        		lng: 19.25041
-        	},
-        	panControl: false,
-			zoom: 6
-        });
+    	this.getGeoData();
 
         APP.Scripts();
 
@@ -38,6 +31,9 @@ APP.Views.Map = Backbone.View.extend({
 
         $("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
         $("body > div:nth-child(2) > nav > ul > li:nth-child(2) > a").attr("class", "active");
+
+        $("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
+        $("body > div.left-aside.small-nav > nav > ul > li:nth-child(2) > a").attr("class", "active");
 
         var mapHeight = $("header").height() + $(".info").height() + $("body > div.content.map > div.container > div:nth-child(1)").height() + 70;
 
@@ -175,6 +171,45 @@ APP.Views.Map = Backbone.View.extend({
     	this.markers = [];
 
 		this.searchBox.addListener('places_changed', this.findPlaces.bind(this));
+
+    },
+
+    getGeoData: function() {
+
+    	var that = this;
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+	            that.makeMap({
+		        	center: {
+		        		lat: position.coords.latitude,
+		        		lng: position.coords.longitude
+		        	},
+		        	panControl: false,
+					zoom: 15
+		        });
+
+		        var marker = new google.maps.Marker({
+					map: that.map,
+					title: "Pozycja pobrana z geolokalizacji.",
+					label: "G",
+					position: {lat: position.coords.latitude, lng: position.coords.longitude}
+				});
+            }.bind(this),
+            function(errorObj) {
+            	that.makeMap({
+		        	center: {
+		        		lat: 52.16167,
+		        		lng: 19.25041
+		        	},
+		        	panControl: false,
+					zoom: 6
+		        });
+            },
+            {
+                enableHighAccuracy: true
+            }
+        );
 
     },
 

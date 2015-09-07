@@ -37,9 +37,10 @@ APP.Views.Account = Backbone.View.extend({
 
         APP.Scripts();
 
-        APP.imageUploader.init();
+        APP.imageUploader.init("account/addAvatar", "Dodano!", "Avatar został dodany.", "account/deleteAvatar", "avatar");
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
+       	$("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
 
         this.stickit();
 

@@ -27,10 +27,14 @@ APP.Views.GarageCar = Backbone.View.extend({
 
        	APP.Scripts();
 
-       	APP.imageUploader.init();
+       	APP.imageUploader.init("garage/car/" + this.model.toJSON()._idCar + "/addImage", "Dodano!", "Zdjęcie pojazdu zostało dodane.", "garage/car/" + this.model.toJSON()._idCar + "/deleteImage", "obrazek pojazdu");
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
         $("body > div:nth-child(2) > nav > ul > li:nth-child(1) > a").attr("class", "active");
+
+
+        $("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
+        $("body > div.left-aside.small-nav > nav > ul > li:nth-child(1) > a").attr("class", "active");
 
         return this;
 

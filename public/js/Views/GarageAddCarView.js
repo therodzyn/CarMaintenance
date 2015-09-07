@@ -78,6 +78,10 @@ APP.Views.GarageAddCar = Backbone.View.extend({
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
         $("body > div:nth-child(2) > nav > ul > li:nth-child(1) > a").attr("class", "active");
 
+
+        $("body > div.left-aside.small-nav > nav > ul > li > a").removeAttr('class');
+        $("body > div.left-aside.small-nav > nav > ul > li:nth-child(1) > a").attr("class", "active");
+
         this.stickit();
 
         return this;
@@ -115,6 +119,9 @@ APP.Views.GarageAddCar = Backbone.View.extend({
     addUserCar: function(e) {
 
 		e.preventDefault();
+
+		this.model.attributes.checkEmail = 0;
+		this.model.attributes.insuranceEmail = 0;
 
 		var model = this.model;
 
