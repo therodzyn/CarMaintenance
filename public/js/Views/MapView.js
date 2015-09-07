@@ -23,6 +23,8 @@ APP.Views.Map = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
+        APP.SetTop("Mapa", "", 70);
+
     	this.getGeoData();
 
         APP.Scripts();

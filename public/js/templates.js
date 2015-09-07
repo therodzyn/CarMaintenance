@@ -17,7 +17,7 @@ this["JST"]["AccountTemplate"] = Handlebars.template({"1":function(depth0,helper
 },"useData":true});
 
 this["JST"]["DatabaseChooseTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"choose-car\">\r\n	<h3>Wybierz samochód:</h3>\r\n	<form class=\"form-horizontal\">\r\n		<div class=\"form-group\">\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"brand-select\">\r\n					<option selected disabled>Wybierz markę...</option>\r\n				</select>\r\n			</div>\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"model-select\">\r\n					<option selected disabled>Wybierz model...</option>\r\n				</select>\r\n			</div>\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"engine-select\">\r\n					<option selected disabled>Wybierz silnik...</option>\r\n				</select>\r\n			</div>\r\n			<div class=\"col-lg-8 col-lg-offset-2 col-xs-12\">\r\n				<button class=\"btn btn-success\" type=\"submit\">Wybierz</button>\r\n			</div>\r\n		</div>\r\n	</form>\r\n</div>";
+    return "<div class=\"choose-car\">\r\n	<h3>Wybierz samochód:</h3>\r\n	<form class=\"form-horizontal\">\r\n		<div class=\"form-group\">\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"brand-select\">\r\n					<option selected disabled>Wybierz markę...</option>\r\n				</select>\r\n			</div>\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"model-select\">\r\n					<option selected disabled>Wybierz model...</option>\r\n				</select>\r\n			</div>\r\n			<div class=\"col-xs-12\">\r\n				<select class=\"form-control\" id=\"engine-select\">\r\n					<option selected disabled>Wybierz silnik...</option>\r\n				</select>\r\n			</div>\r\n		</div>\r\n	</form>\r\n</div>";
 },"useData":true});
 
 this["JST"]["DatabaseInfoTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -153,9 +153,7 @@ this["JST"]["NewsItemTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias3(((helper = (helper = helpers.big_photo_link || (depth0 != null ? depth0.big_photo_link : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"big_photo_link","hash":{},"data":data}) : helper)))
     + "\" alt=\"\"></div>\r\n			<h3>"
     + alias3(((helper = (helper = helpers.header || (depth0 != null ? depth0.header : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"header","hash":{},"data":data}) : helper)))
-    + "</h3>\r\n			<p class=\"description\">"
-    + alias3(((helper = (helper = helpers.long_description || (depth0 != null ? depth0.long_description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"long_description","hash":{},"data":data}) : helper)))
-    + "</p>\r\n\r\n		</div>\r\n\r\n	</div>\r\n\r\n</div>";
+    + "</h3>\r\n			<p class=\"description\"></p>\r\n\r\n		</div>\r\n\r\n	</div>\r\n\r\n</div>";
 },"useData":true});
 
 this["JST"]["NewsTemplate"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

@@ -10636,10 +10636,11 @@ body {
 }
 .content.news .well .logo img {
   max-width: 100%;
+  max-height: 200px;
 }
 .content.news .well h4 {
   font-family: "Open Sans";
-  padding: 15px 0;
+  padding: 25px 0;
   font-weight: bold;
   font-size: 3em;
 }

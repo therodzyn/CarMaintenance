@@ -23,6 +23,7 @@ APP.Views.NewsList = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(containerDiv.append(this.$el));
 
+        APP.SetTop("Aktualności", "", 70);
 
        	APP.Scripts();
 

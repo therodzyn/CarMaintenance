@@ -262,11 +262,6 @@ module.exports = {
 
 	            if(err) return handleError(res);
 
-				// fs.unlink('public/img/carImages/' + user.value.avatarLink, function (err) {
-				// 	if (err) throw err;
-				// 	console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
-				// });
-
 	            res.json({"link": fileInfo.filename, "drop": "carImage"});
 
 	            db.close();
@@ -290,10 +285,22 @@ module.exports = {
 
 	            if(err) return handleError(res);
 
-				// fs.unlink('public/img/carImages/' + user.value.avatarLink, function (err) {
-				// 	if (err) throw err;
-				// 	console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
-				// });
+	            var fileName = "";
+
+	            user.value.cars.forEach(function(car) {
+
+	            	if(String(car._idCar) === String(id)) {
+	            		fileName = car.imageLink;
+	            	}
+
+	            });
+
+	            if(fileName !== "") {
+	            	fs.unlink('public/img/carImages/' + fileName, function (err) {
+						if (err) throw err;
+						console.log('successfully deleted public/img/carImages/' + fileName);
+					});
+	            }
 
 	            res.json({"deleted": true, "drop": "carImage"});
 
@@ -606,6 +613,13 @@ module.exports = {
             db.collection("users").findAndRemove({email: req.session.user}, function(err, user) {
 
                 if(err) return handleError(res);
+
+                if(user.value.avatarLink) {
+                	fs.unlink('public/img/avatars/' + user.value.avatarLink, function (err) {
+						if (err) throw err;
+						console.log('successfully deleted public/img/avatars/' + user.value.avatarLink);
+					});
+                }
 
         		req.session.reset();
 

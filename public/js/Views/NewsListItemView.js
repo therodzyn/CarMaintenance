@@ -3,7 +3,7 @@
 	APP.Views.NewsListItem = Backbone.View.extend({
 
 		tagName: "div",
-		className: "col-sm-6 text-center",
+		className: "col-sm-8 col-sm-offset-2 text-center",
 
 		template: JST["NewsTemplate"],
 

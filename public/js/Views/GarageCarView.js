@@ -25,6 +25,8 @@ APP.Views.GarageCar = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
+        APP.SetTop(this.model.toJSON().brand + " " + this.model.toJSON().model, "", 70);
+
        	APP.Scripts();
 
        	APP.imageUploader.init("garage/car/" + this.model.toJSON()._idCar + "/addImage", "Dodano!", "Zdjęcie pojazdu zostało dodane.", "garage/car/" + this.model.toJSON()._idCar + "/deleteImage", "obrazek pojazdu");

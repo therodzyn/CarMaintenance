@@ -26,6 +26,8 @@ APP.Views.Garage = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
+        APP.SetTop("Mój garaż", "<h3>Witaj w panelu użytkownika Car Maintenance</h3>", 100);
+
        	APP.Scripts();
 
        	if(this.model.toJSON().avatarLink) {

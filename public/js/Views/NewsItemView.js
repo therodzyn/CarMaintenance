@@ -25,6 +25,10 @@ APP.Views.NewsItem = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
+        $(".description").html(this.model.toJSON().long_description);
+
+        APP.SetTop("Aktualności", "", 70);
+
        	APP.Scripts();
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');

@@ -73,6 +73,8 @@ APP.Views.GarageAddCar = Backbone.View.extend({
 
 		});
 
+		APP.SetTop("Dodaj pojazd", "", 70);
+
         APP.Scripts();
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');

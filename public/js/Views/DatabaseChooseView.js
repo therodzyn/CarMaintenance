@@ -48,6 +48,8 @@
 
         	});
 
+        	APP.SetTop("Baza wiedzy", "", 70);
+
 	        APP.Scripts();
 
 	       	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
