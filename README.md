@@ -11,6 +11,11 @@
 ```
 npm install
 ```
+**Import Mongo database (from json folder):**
+```
+mongoimport --db CarMaintenance --collection carsDatabase --file carsDatabase.json --jsonArray
+mongoimport --db CarMaintenance --collection news --file news.json --jsonArray
+```
 
 **URL:**
 ```
@@ -18,6 +23,7 @@ localhost:3000
 ```
 
 ## Releases
++ **6.0.0** - Ready APP
 + **5.0.0** - Backbone - All APP Sites
 + **4.4.0** - Backbone - Account Edition and Delete
 + **4.3.0** - Backbone - News
