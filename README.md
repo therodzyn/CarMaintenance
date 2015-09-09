@@ -9,17 +9,17 @@
 First, please turn on MongoDB daemon process (by mongod command), because a server needs users' data to activate mailer schedule at start.
 
 ## Usage
-**CMD (Terminal) in project's folder:**
+**Download all dependencies from npm:**
 ```
 npm install
 ```
-**Import Mongo database (from json folder):**
+**Import MongoDB database (from /json folder):**
 ```
 mongoimport --db CarMaintenance --collection carsDatabase --file carsDatabase.json --jsonArray
 mongoimport --db CarMaintenance --collection news --file news.json --jsonArray
 ```
 
-**URL:**
+**Port:**
 ```
 localhost:3000
 ```
