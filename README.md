@@ -6,6 +6,8 @@
 + Node.js
 + MongoDB
 
+First, please turn on MongoDB daemon process (by mongod command), because a server needs users' data to activate mailer schedule at start.
+
 ## Usage
 **CMD (Terminal) in project's folder:**
 ```
