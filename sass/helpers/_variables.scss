@@ -1,5 +1,6 @@
 $OS: "Open Sans";
 $montserrat: "Montserrat";
+$pirulenregular: "pirulenregular";
 $colorBordo: #700;
 $colorTurkus: #27b6af;
 
@@ -8,6 +9,17 @@ $nav: 250px;
 
 .clear {
 	clear: both;
+}
+
+@font-face {
+    font-family: 'pirulenregular';
+    src: url('../fonts/f2-webfont.eot');
+    src: url('../fonts/f2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/f2-webfont.woff2') format('woff2'),
+         url('../fonts/f2-webfont.woff') format('woff'),
+         url('../fonts/f2-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @keyframes arrow-anim {

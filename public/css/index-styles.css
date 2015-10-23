@@ -2,6 +2,13 @@
   clear: both;
 }
 
+@font-face {
+  font-family: 'pirulenregular';
+  src: url("../fonts/f2-webfont.eot");
+  src: url("../fonts/f2-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/f2-webfont.woff2") format("woff2"), url("../fonts/f2-webfont.woff") format("woff"), url("../fonts/f2-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 @keyframes arrow-anim {
   0% {
     transform: scale(1);
@@ -8247,6 +8254,14 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #2E9D97;
 }
 
+.form-control[readonly] {
+  background-color: inherit;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
 body {
   font-size: 0.625em;
   font-family: "Open Sans";
@@ -8262,8 +8277,7 @@ header .page-header {
   text-transform: uppercase;
   color: #700;
   padding: 10px 0 15px 0;
-  font-family: "Montserrat";
-  text-decoration: underline;
+  font-family: "pirulenregular";
 }
 header .page-header h1 {
   font-size: 6em;
@@ -8406,7 +8420,7 @@ header .page-header h1 {
   font-size: 6em;
   color: #700;
   font-weight: 700;
-  font-family: "Montserrat";
+  font-family: "pirulenregular";
   text-transform: uppercase;
 }
 
@@ -8419,7 +8433,7 @@ header .page-header h1 {
   }
 
   header .page-header h1 {
-    font-size: 4em;
+    font-size: 3.2em;
   }
 
   .container {
@@ -8496,7 +8510,7 @@ header .page-header h1 {
     font-size: 3.5em;
   }
   .third-subsite footer p {
-    font-size: 3.5em;
+    font-size: 2.5em;
     padding: 20px 0;
   }
 }

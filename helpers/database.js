@@ -32,56 +32,60 @@ module.exports = {
 
 					users.forEach(function(user) {
 
-						user.cars.forEach(function(car) {
+						if(user.cars) {
 
-							var checkDate, remCheckDate, insuranceDate, remInsuranceDate;
+							user.cars.forEach(function(car) {
 
-							var monthNames = [
-						        "stycznia", "lutego", "marca",
-						        "kwietnia", "maja", "czerwca", "lipca",
-						        "sierpnia", "września", "października",
-						        "listopada", "grudnia"
-						    ];
+								var checkDate, remCheckDate, insuranceDate, remInsuranceDate;
 
-						    var dateStr = "";
+								var monthNames = [
+							        "stycznia", "lutego", "marca",
+							        "kwietnia", "maja", "czerwca", "lipca",
+							        "sierpnia", "września", "października",
+							        "listopada", "grudnia"
+							    ];
 
-							if(car.check) {
-								checkDate = new Date(car.check.split("-").reverse().join(", ") + ", 12:00:00");
-								remCheckDate = new Date(checkDate);
-								remCheckDate.setMonth(checkDate.getMonth() - 1);
-							}
+							    var dateStr = "";
 
-							if(car.insurance) {
-								insuranceDate = new Date(car.insurance.split("-").reverse().join(", ") + ", 12:00:00");
-								remInsuranceDate = new Date(insuranceDate);
-								remInsuranceDate.setMonth(insuranceDate.getMonth() - 1);
-							}
+								if(car.check) {
+									checkDate = new Date(car.check.split("-").reverse().join(", ") + ", 12:00:00");
+									remCheckDate = new Date(checkDate);
+									remCheckDate.setMonth(checkDate.getMonth() - 1);
+								}
 
-							if(car.checkEmail == 0 && car.check) {
+								if(car.insurance) {
+									insuranceDate = new Date(car.insurance.split("-").reverse().join(", ") + ", 12:00:00");
+									remInsuranceDate = new Date(insuranceDate);
+									remInsuranceDate.setMonth(insuranceDate.getMonth() - 1);
+								}
 
-								var checkEmail = schedule.scheduleJob(remCheckDate, function() {
+								if(car.checkEmail == 0 && car.check) {
 
-									dateStr = checkDate.getDate() + " " + monthNames[checkDate.getMonth()].toUpperCase() + " " + checkDate.getFullYear();
+									var checkEmail = schedule.scheduleJob(remCheckDate, function() {
 
-									sendMail(transporter, user.email, "CarMaintenance - przypomnienie o przeglądzie", {thing: "Przegląd", checkName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.checkEmail");
+										dateStr = checkDate.getDate() + " " + monthNames[checkDate.getMonth()].toUpperCase() + " " + checkDate.getFullYear();
 
-								});
+										sendMail(transporter, user.email, "CarMaintenance - przypomnienie o przeglądzie", {thing: "Przegląd", checkName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.checkEmail");
 
-							}
+									});
 
-							if(car.insuranceEmail == 0 && car.insurance) {
+								}
 
-								var insuranceEmail = schedule.scheduleJob(remInsuranceDate, function() {
+								if(car.insuranceEmail == 0 && car.insurance) {
 
-									dateStr = insuranceDate.getDate() + " " + monthNames[insuranceDate.getMonth()].toUpperCase() + " " + insuranceDate.getFullYear();
+									var insuranceEmail = schedule.scheduleJob(remInsuranceDate, function() {
 
-									sendMail(transporter, user.email, "CarMaintenance - przypomnienie o ubezpieczeniu", {thing: "Ubezpieczenie", insuranceName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.insuranceEmail");
+										dateStr = insuranceDate.getDate() + " " + monthNames[insuranceDate.getMonth()].toUpperCase() + " " + insuranceDate.getFullYear();
 
-								});
+										sendMail(transporter, user.email, "CarMaintenance - przypomnienie o ubezpieczeniu", {thing: "Ubezpieczenie", insuranceName: (car.brand + " " + car.model).toUpperCase(), reg: car.reg.toUpperCase(), date: dateStr}, car._idCar, "cars.$.insuranceEmail");
 
-							}
+									});
 
-						});
+								}
+
+							});
+
+						}
 
 					});
 

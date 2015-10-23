@@ -15,6 +15,7 @@ APP.Views.Account = Backbone.View.extend({
 
     initialize: function() {
 
+    	Backbone.Validation.bind(this);
     	this.listenToOnce(this.model, "change", this.render);
     	this.listenTo(this.model, "update", this.redirectToGarage);
     	this.listenToOnce(this.model, "destroy", this.redirectToIndex);
@@ -53,7 +54,7 @@ APP.Views.Account = Backbone.View.extend({
     bindings: {
 
     	"#name": "name",
-    	"#sex": "sex",
+    	".tire-kind": "sex",
     	"#birth-year": "birth-year",
     	"#license-year": "license-year",
     	"#phone": "phone",
@@ -75,6 +76,33 @@ APP.Views.Account = Backbone.View.extend({
     editUser: function(e) {
 
 		e.preventDefault();
+
+		var invalidFields = this.model.validate();
+
+		if(invalidFields !== null && invalidFields !== undefined && Object.keys(invalidFields).length > 0) {
+
+			$(".error-info").remove();
+			$(".add-car > .container > form > div div input").css({"border": ""});
+
+			for(var field in invalidFields) {
+				var input = {};
+				if(field === "tire-kind") {
+					input = $("." + field);
+				} else {
+					input = $("#" + field);
+				}
+
+				if(input.is("select")) {
+					input.css({"border": "2px solid #C00"});
+					input.parent().append("<p style='clear: both;'></p><p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold; padding-left: 15px;'>" + invalidFields[field] + "</p>");
+				} else {
+					input.css({"border": "2px solid #C00"});
+					input.after("<p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold;'>" + invalidFields[field] + "</p>");
+				}
+			}
+
+			return;
+		}
 
 		var emailRegEx = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 

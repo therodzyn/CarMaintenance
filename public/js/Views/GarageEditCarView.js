@@ -15,6 +15,7 @@ APP.Views.GarageEditCar = Backbone.View.extend({
 
     initialize: function() {
 
+    	Backbone.Validation.bind(this);
     	this.listenToOnce(this.model, "change", this.render);
     	this.listenToOnce(this.model, "destroy", this.redirectToGarage);
     	this.listenTo(this.model, "update", this.redirectToGarage);
@@ -133,6 +134,35 @@ APP.Views.GarageEditCar = Backbone.View.extend({
     editUserCar: function(e) {
 
 		e.preventDefault();
+
+		var invalidFields = this.model.validate();
+
+		if(invalidFields !== null && invalidFields !== undefined && Object.keys(invalidFields).length > 0) {
+
+			$(".error-info").remove();
+			$(".add-car > .container > form input, .add-car > .container > form select").css({"border": ""});
+
+			for(var field in invalidFields) {
+				var input = {};
+				if(field === "tire-kind") {
+					input = $("." + field);
+				} else {
+					input = $("#" + field);
+				}
+
+				if(input.is("select")) {
+					input.css({"border": "2px solid #C00"});
+					input.parent().append("<p style='clear: both;'></p><p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold; padding-left: 15px;'>" + invalidFields[field] + "</p>");
+				} else if(input.attr("name") === "tire-kind") {
+					input.parent().append("<p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold;'>" + invalidFields[field] + "</p>");
+				} else {
+					input.css({"border": "2px solid #C00"});
+					input.after("<p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold;'>" + invalidFields[field] + "</p>");
+				}
+			}
+
+			return;
+		}
 
 		if(this.checkDate != this.model.attributes.check) {
 			this.model.attributes.checkEmail = 0;
