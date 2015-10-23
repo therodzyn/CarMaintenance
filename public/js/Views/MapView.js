@@ -53,31 +53,6 @@ APP.Views.Map = Backbone.View.extend({
 
     },
 
-    showResult: function(place) {
-
-    	var bootstrapDiv = document.createElement("div");
-    	var wellDiv = document.createElement("div");
-    	var paragraph = document.createElement("p");
-    	var address = place.formatted_address.split(", ");
-
-    	bootstrapDiv.className = "col-sm-6 col-xs-12";
-    	wellDiv.className = "well";
-
-    	$(paragraph).html(
-    		place.name.substring(0, 50) + "<br>" +
-    		address[0] + "<br>" +
-    		address[1] + "<br>" +
-    		"<small>" + "Dzisiaj otwarte: xx:xx - xx:xx" + "</small>"
-      	);
-
-    	var container = $(bootstrapDiv).append($(wellDiv).append(paragraph));
-
-    	$(container).appendTo("body > div.content.map > div.container > div:nth-child(3)");
-
-    	$("body > div.content.map > div.container").height("auto");
-
-    },
-
     findPlaces: function() {
 
 		var that = this;
@@ -101,51 +76,7 @@ APP.Views.Map = Backbone.View.extend({
 
 		this.places.forEach(function(place) {
 
-			var marker = new google.maps.Marker({
-				map: that.map,
-				title: place.name,
-				position: place.geometry.location
-			});
-
-			google.maps.event.addListener(marker, 'click', function() {
-
-				infoWindows.forEach(function(iw) {
-					iw.close();
-				});
-
-				var address = place.formatted_address.split(", ");
-				var content = "";
-
-				var cityFlag = false;
-
-				place.types.forEach(function(type) {
-
-					if(type === "political") {
-						cityFlag = true;
-					}
-
-				});
-
-				if(cityFlag === false) {
-					content = "<p class='infowindow'><span>" + place.name + "</span><br>ul. " + address[0] + "<br>" + address[1] + "<br>" + "</p>";
-				} else {
-					content = "<p class='infowindow'><span>" + place.name + "</span></p>";
-				}
-
-				infowindow = new google.maps.InfoWindow({
-					content: content
-				});
-
-				infowindow.open(that.map, marker);
-
-				infoWindows.push(infowindow);
-
-				// PRZY WPISANIU MIASTA - MA ZNALEŹĆ WARSZTATY (types: political)
-				// POŁĄCZENIE REZULTATÓW Z MARKERAMI
-				// WYZNACZANIE DROGI
-			});
-
-			that.markers.push(marker);
+	        that.findClose(place.geometry.location);
 
 			if (place.geometry.viewport) {
 				that.bounds.union(place.geometry.viewport);
@@ -157,8 +88,7 @@ APP.Views.Map = Backbone.View.extend({
 
 		this.map.fitBounds(this.bounds);
 
-		var zoom = this.map.getZoom();
-		this.map.setZoom(zoom > 15 ? 15 : zoom);
+		this.map.setZoom(14);
 
 	},
 
@@ -169,10 +99,87 @@ APP.Views.Map = Backbone.View.extend({
 
     	this.map = new google.maps.Map(document.getElementById('map-container'), options);
     	this.searchBox = new google.maps.places.SearchBox(this.formInput);
+    	this.infoWindow = new google.maps.InfoWindow();
 
     	this.markers = [];
 
 		this.searchBox.addListener('places_changed', this.findPlaces.bind(this));
+
+    },
+
+    createMarker: function(place) {
+		var that = this;
+
+		var image = {
+			url: place.icon,
+			size: new google.maps.Size(71, 71),
+			origin: new google.maps.Point(0, 0),
+			anchor: new google.maps.Point(17, 34),
+			scaledSize: new google.maps.Size(30, 30)
+		};
+
+		var placeLoc = place.geometry.location;
+		var marker = new google.maps.Marker({
+			map: this.map,
+			position: place.geometry.location,
+			icon: image
+		});
+		this.markers.push(marker);
+
+		var request =  {
+			reference: place.reference
+		};
+
+
+
+		google.maps.event.addListener(marker, 'click', function() {
+
+			var photo = place.photos && place.photos.length > 0 ? "<img style='display: block; margin: 0 auto;' src='" + place.photos[0].getUrl({'maxWidth': 300, 'maxHeight': 150}) + "'>" : "";
+
+			var it = this;
+
+			var content = "";
+			that.service.getDetails(request, function(place, status) {
+				console.log(place);
+				content = "<div style=\"font-family: 'Open Sans'; font-size: 1.3em;\">" +
+					(photo) +
+					(place.name ? "<strong style=\"font-weight: bold;\">" +  place.name + "</strong>" + "<br>" : "") +
+					(place.formatted_address ? "<strong style=\"font-weight: bold;\">Adres:</strong> " + place.formatted_address + "<br>" : "") +
+					(place.formatted_phone_number ? "<strong style=\"font-weight: bold;\">Telefon:</strong> " + place.formatted_phone_number + "<br>" : "") +
+					(place.website ? "<strong style=\"font-weight: bold;\">WWW:</strong> <a target='_blank' href='" + place.website + "'>" + place.website + "</a>" : "") +
+					"</div>";
+
+				that.infoWindow.setContent(content);
+				that.infoWindow.open(that.map, it);
+
+			});
+
+
+		});
+    },
+
+    findClose: function(loc) {
+
+    	var that = this;
+
+    	var request = {
+			location: loc,
+			// radius: '2000',
+			types: ['car_repair', 'car_dealer', 'car_rental'],
+			rankBy: google.maps.places.RankBy.DISTANCE
+		};
+
+		this.service = new google.maps.places.PlacesService(that.map);
+		this.service.nearbySearch(request, function(results, status, pagination) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					that.createMarker(results[i]);
+				}
+				if(pagination.hasNextPage) {
+					pagination.nextPage();
+				}
+			}
+		});
 
     },
 
@@ -188,15 +195,14 @@ APP.Views.Map = Backbone.View.extend({
 		        		lng: position.coords.longitude
 		        	},
 		        	panControl: false,
-					zoom: 15
+					zoom: 14
 		        });
 
-		        var marker = new google.maps.Marker({
-					map: that.map,
-					title: "Pozycja pobrana z geolokalizacji.",
-					label: "G",
-					position: {lat: position.coords.latitude, lng: position.coords.longitude}
-				});
+		        that.findClose({
+	        		lat: position.coords.latitude,
+	        		lng: position.coords.longitude
+	        	});
+
             }.bind(this),
             function(errorObj) {
             	that.makeMap({
