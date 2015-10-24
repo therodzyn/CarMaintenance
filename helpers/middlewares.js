@@ -28,7 +28,10 @@ module.exports = function(app) {
             },
 
             html: function() {
-                if(req.url !== "/" && req.url !== "/login" && req.url !== "/logout" && req.url !== "/garage") {
+
+            	var hashRegEx = /^\/resetPass\/[A-Za-z0-9]+$/;
+
+                if(req.url !== "/" && req.url !== "/login" && req.url !== "/logout" && req.url !== "/garage" && !hashRegEx.test(req.url)) {
                     res.redirect("/");
                 } else {
                     next();
