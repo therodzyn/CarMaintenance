@@ -25,7 +25,7 @@ APP.Views.NewsList = Backbone.View.extend({
 
         APP.SetTop("Aktualności", "", 70);
 
-       	APP.Scripts();
+       	APP.Scripts.init();
 
        	$("body > div:nth-child(2) > nav > ul > li > a").removeAttr('class');
         $("body > div:nth-child(2) > nav > ul > li:nth-child(4) > a").attr("class", "active");

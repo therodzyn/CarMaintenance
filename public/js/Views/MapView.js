@@ -27,7 +27,7 @@ APP.Views.Map = Backbone.View.extend({
 
     	this.getGeoData();
 
-        APP.Scripts();
+        APP.Scripts.init();
 
         $("#search-input").focus();
 

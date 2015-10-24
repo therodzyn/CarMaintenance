@@ -22,6 +22,9 @@ $.fn.pushStateLink = function() {
             e.preventDefault();
 
             Backbone.history.navigate(href, true);
+            if($(".mini-menu-btn").parent().css("display") === "block") {
+            	APP.Scripts.showNav(false);
+            }
         }
 
     });

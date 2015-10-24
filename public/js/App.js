@@ -100,7 +100,7 @@
 					aspectRatio: avatarUpload ? 1 / 1 : previewWidth / previewHeight,
 					preview: ".img-preview",
 					movable: false,
-					zoomable: false,
+					zoomable: true,
 					rotatable: false,
 					scalable: true,
 					background: false
@@ -388,57 +388,62 @@
 
 	},
 
-	APP.Scripts = function() {
+	APP.Scripts = {
 
-		var height = $("body > div.content").height() + $("header").height() + 2;
-		if(height < $(window).height() && $("body > div.content.one-news-site").length === 0) {
-			if($(window).width() > 767) {
-				$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 42);
-			} else {
-				$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 11);
-			}
-		}
+		init: function() {
 
-		var small = true;
-		var show = true;
-
-		// USTAWIĆ RESPONSYWNOŚĆ
-		function enableSmallNav(bool) {
-
-			var nav = bool === true ? 65 : 250;
-
-			if(bool === true) {
-				$(".left-aside").hide();
-				$(".left-aside.small-nav").show().width(nav);
-				$(".page-header > a").text("cm");
-			} else {
-				$(".left-aside").show();
-				$(".left-aside.small-nav").hide();
-				$(".page-header > a").text("car maintenance");
+			var height = $("body > div.content").height() + $("header").height() + 2;
+			if(height < $(window).height() && $("body > div.content.one-news-site").length === 0) {
+				if($(window).width() > 767) {
+					$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 42);
+				} else {
+					$(".content > .container").height( $(window).height() - $("header").height() - $(".info").height() - 11);
+				}
 			}
 
-			$(".small-nav i").css({"margin": 0});
-			$(".content").css({"margin-left": nav});
-			$(".top").css({"padding-left": nav});
-			$(".page-header").width(nav);
+			var small = true;
+			var show = true;
+			var that = this;
 
-		}
+			// USTAWIĆ RESPONSYWNOŚĆ
+			function enableSmallNav(bool) {
 
-		function showNav(bool) {
+				var nav = bool === true ? 65 : 250;
+
+				if(bool === true) {
+					$(".left-aside").hide();
+					$(".left-aside.small-nav").show().width(nav);
+					$(".page-header > a").text("cm");
+				} else {
+					$(".left-aside").show();
+					$(".left-aside.small-nav").hide();
+					$(".page-header > a").text("car maintenance");
+				}
+
+				$(".small-nav i").css({"margin": 0});
+				$(".content").css({"margin-left": nav});
+				$(".top").css({"padding-left": nav});
+				$(".page-header").width(nav);
+
+			}
+
+			if($(window).width() < 1200 && $(window).width() > 767) {
+				enableSmallNav(small);
+			}
+
+			$(".mini-menu-btn").on("click", function(e) {
+				that.showNav(show);
+				show = !show;
+			});
+
+		},
+
+		showNav: function(bool) {
 
 			var display = bool === true ? "block" : "none";
 			$(".left-aside").not(".small-nav").css({"display": display});
 
 		}
-
-		if($(window).width() < 1200 && $(window).width() > 767) {
-			enableSmallNav(small);
-		}
-
-		$(".mini-menu-btn").on("click", function(e) {
-			showNav(show);
-			show = !show;
-		});
 
 	},
 

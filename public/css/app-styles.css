@@ -10984,7 +10984,7 @@ body {
   top: 0;
   left: 15px;
   right: 15px;
-  z-index: 99999999;
+  z-index: 99998;
   text-align: center;
   font-weight: bold;
   padding: 5px 0;
@@ -11190,6 +11190,7 @@ body {
   }
   body header .top .profile .dropdown-menu {
     right: -10px;
+    z-index: 999999;
   }
   body .content {
     top: 60px;
@@ -11365,9 +11366,17 @@ body {
     padding: 3px;
     height: auto;
   }
+  body .content.map p {
+    font-size: 2em;
+    left: 0;
+    right: 0;
+  }
   body .content.map #map-container {
     margin: 0;
     margin-bottom: 5px;
+  }
+  body .content.map #map-container div {
+    font-size: 1.08em !important;
   }
   body .content.map .well {
     margin-bottom: 5px;

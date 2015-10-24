@@ -89,6 +89,7 @@
 
 					.dropdown-menu {
 						right: -10px;
+						z-index: 999999;
 					}
 				}
 			}
@@ -347,10 +348,19 @@
 						height: auto;
 					}
 				}
+				p {
+					font-size: 2em;
+					left: 0;
+					right: 0;
+				}
 
 				#map-container {
 					margin: 0;
 					margin-bottom: 5px;
+
+					div {
+						font-size: 1.08em !important;
+					}
 				}
 
 				.well {

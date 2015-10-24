@@ -13,9 +13,11 @@
 	<h1>Witaj,</h1>
 	{{#if reseted}}
 	<p>Zresetowano hasło. Nowe hasło to:<br>{{hash}}</p>
+	{{!-- <a href="http://89.75.100.190:3000">Przejdź do strony głównej</a> --}}
 	<a href="http://localhost:3000">Przejdź do strony głównej</a>
 	{{else}}
 	<p>Wysłano prośbę o reset hasła dla konta o tym adresie e-mail. Aby je zresetować proszę kliknąć na link:</p>
+	{{!-- <a href="http://89.75.100.190:3000/resetPass/{{hash}}">Zresetuj hasło</a> --}}
 	<a href="http://localhost:3000/resetPass/{{hash}}">Zresetuj hasło</a>
 	{{/if}}
 	<p>Pozdrawiamy,<br>CarMaintenance</p>

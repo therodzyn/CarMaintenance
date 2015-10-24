@@ -38,7 +38,7 @@ APP.Views.Account = Backbone.View.extend({
 
         APP.SetTop("Moje konto", "", 70);
 
-        APP.Scripts();
+        APP.Scripts.init();
 
         APP.imageUploader.init("account/addAvatar", "Dodano!", "Avatar został dodany.", "account/deleteAvatar", "avatar");
 

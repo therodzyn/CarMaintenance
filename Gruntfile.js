@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 		    	},
 
 		      	files: {
-		        	// 'public/css/app-styles.css': 'sass/app.scss'
-		        	'public/css/index-styles.css': 'sass/index.scss'
+		        	'public/css/app-styles.css': 'sass/app.scss'
+		        	// 'public/css/index-styles.css': 'sass/index.scss'
 		    	}
 			}
 
