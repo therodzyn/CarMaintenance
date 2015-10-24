@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 		    	},
 
 		      	files: {
-		        	'public/css/app-styles.css': 'sass/app.scss'
-		        	// 'public/css/index-styles.css': 'sass/index.scss'
+		        	// 'public/css/app-styles.css': 'sass/app.scss'
+		        	'public/css/index-styles.css': 'sass/index.scss'
 		    	}
 			}
 
@@ -37,10 +37,10 @@ module.exports = function(grunt) {
 		watch: {
 
 		 	dist: {
-				// files: ['sass/*.scss', "sass/**/*.scss"],
-				// tasks: ['sass']
-				files: ["templates/*.hbs"],
-				tasks: ['handlebars']
+				files: ['sass/*.scss', "sass/**/*.scss"],
+				tasks: ['sass']
+				// files: ["templates/*.hbs"],
+				// tasks: ['handlebars']
 		 	}
 
 		}

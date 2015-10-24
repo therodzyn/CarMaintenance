@@ -19,4 +19,24 @@ module.exports = function(app) {
 
     app.use(helpers.checkLogin);
 
+    app.use(function(req, res, next) {
+
+        res.format({
+
+            json: function() {
+                next();
+            },
+
+            html: function() {
+                if(req.url !== "/" && req.url !== "/login" && req.url !== "/logout" && req.url !== "/garage") {
+                    res.redirect("/");
+                } else {
+                    next();
+                }
+            }
+
+        });
+
+    });
+
 };

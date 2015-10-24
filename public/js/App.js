@@ -75,7 +75,7 @@
 	        	p.style.minWidth = "45%";
 	        	p.style.float = "left";
 
-	        	var preview = $("<div style='float: right; min-width: 50%; position: relative;'><h2 style='font-size: 1.7em; line-height: normal; margin-top: 0; margin-bottom: 5px; text-align: center;'>Podgląd</h2><div style='width: "+previewWidth+"px; height: "+previewHeight+"px; border: 1px solid #000; overflow: hidden; position:absolute; left: 50%; margin-bottom: 15px; margin-left: -"+ previewWidth/2 +"px' class='img-preview'></div></div><div class='clear'></div>");
+	        	var preview = $("<div style='float: right; min-width: 50%; position: relative;'><h2 style='font-size: 1.7em; line-height: normal; margin-top: 0; margin-bottom: 5px; text-align: center;'>Podgląd</h2><div style='width: "+previewWidth+"px; height: "+previewHeight+"px; border: 1px solid #000; overflow: hidden; position:absolute; left: 50%; margin-bottom: 15px; margin-left: -"+ previewWidth/2 +"px; background: #13161c' class='img-preview'></div></div><div class='clear'></div>");
 	        	$(p).after(preview);
 	        	if(avatarUpload === true) {
 	        		$(".img-preview").css({"border-radius": "50%"});
@@ -104,11 +104,13 @@
 					rotatable: false,
 					scalable: false,
 					background: false,
-					cropBoxResizable: avatarUpload ? false : true
+					cropBoxResizable: avatarUpload ? false : true,
+					dragCrop: avatarUpload ? false : true,
+					strict: avatarUpload ? false : true
 				});
 
 				$("body").one("click", ".sa-button-container button.cropBtn", function(e) {
-					$croppedImage.cropper("getCroppedCanvas").toBlob(function(blob) {
+					$croppedImage.cropper("getCroppedCanvas", {fillColor: "#13161c"}).toBlob(function(blob) {
 						that.formData = new FormData();
 						that.file = blob;
 						that.addToUploadList();

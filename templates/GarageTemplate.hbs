@@ -28,7 +28,7 @@
 
 	{{#each cars}}
 		<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-			<a href="/garage/car/{{_idCar}}" class="empty" pushstate-link {{#if imageLink}} style="background: url('img/carImages/{{imageLink}}') no-repeat center center; background-size: cover; border: 3px solid #2e313a" {{/if}}>
+			<a href="/garage/car/{{_idCar}}" class="empty" pushstate-link {{#if imageLink}} style="background: linear-gradient(rgba(46, 49, 58, 0.7), rgba(46, 49, 58, 0.7)), url('img/carImages/{{imageLink}}') no-repeat center center; background-size: cover; border: 3px solid #2e313a" {{/if}}>
 				<p>{{brand}} {{model}}</p>
 				<p class="reg">{{reg}}</p>
 				{{#if imageLink}}

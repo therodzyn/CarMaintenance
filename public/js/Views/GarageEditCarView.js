@@ -46,44 +46,20 @@ APP.Views.GarageEditCar = Backbone.View.extend({
 
         APP.Regions.infoDiv.after(this.$el);
 
-        var options = {
-        	dateInputNode: this.$("#check"),
-        	modules: {
-        		footer: false,
-				icon: false,
-        		clear: false
-        	},
-        	dateFormat: {
-			    separator: "-",
-			    format: ["DD" , "MM" , "YYYY"]
-        	}
-        };
+		var opts = {
+		    format: 'dd-mm-yyyy',
+			autoclose: true,
+			language: "pl",
+			orientation: "top left",
+			todayHighlight: true
+		};
 
-         var options2 = {
-        	dateInputNode: this.$("#insurance"),
-        	modules: {
-        		footer: false,
-				icon: false,
-        		clear: false
-        	},
-        	dateFormat: {
-			    separator: "-",
-			    format: ["DD" , "MM" , "YYYY"]
-        	}
-        };
-		var instance = new BeatPicker(options);
-		var instance2 = new BeatPicker(options2);
-
-		instance.on("change", function(o) {
-
-			model.set("check", o.string);
-
+		$("#check").datepicker(opts).on("changeDate", function(e) {
+			model.set("check", e.currentTarget.value);
 		});
 
-		instance2.on("change", function(o) {
-
-			model.set("insurance", o.string);
-
+		$("#insurance").datepicker(opts).on("changeDate", function(e) {
+			model.set("insurance", e.currentTarget.value);
 		});
 
 		APP.SetTop("Edytuj pojazd", "", 70);

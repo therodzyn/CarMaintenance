@@ -169,14 +169,20 @@ APP.Views.Map = Backbone.View.extend({
 			rankBy: google.maps.places.RankBy.DISTANCE
 		};
 
+		var $loadBar = $("body > div.content.map > div.container > div:nth-child(2) > div > p");
+		$loadBar.fadeIn(500);
+
 		this.service = new google.maps.places.PlacesService(that.map);
 		this.service.nearbySearch(request, function(results, status, pagination) {
 			if (status == google.maps.places.PlacesServiceStatus.OK) {
+
 				for (var i = 0; i < results.length; i++) {
 					that.createMarker(results[i]);
 				}
 				if(pagination.hasNextPage) {
 					pagination.nextPage();
+				} else {
+					$loadBar.fadeOut(1000);
 				}
 			}
 		});
