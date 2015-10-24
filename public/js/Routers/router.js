@@ -100,12 +100,13 @@ APP.Routers.Router = Backbone.Router.extend({
     	var chooseView = new APP.Views.DatabaseChoose();
     	APP.showMainView(chooseView);
 
-    	var randomID = Math.floor((Math.random() * 10) + 1);
+    	var randomID = Math.floor((Math.random() * 12) + 1);
 
-    	var model = new APP.Models.DatabaseItem({"_id": randomID});
-    	var itemView = new APP.Views.DatabaseItem({model: model});
-
-    	model.fetch();
+    	setTimeout(function() {
+			var model = new APP.Models.DatabaseItem({"_id": randomID});
+	    	var itemView = new APP.Views.DatabaseItem({model: model});
+	    	model.fetch();
+    	}, 10);
 
     }
 
