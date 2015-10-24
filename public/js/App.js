@@ -88,29 +88,39 @@
 	        	var $croppedImage = $(".sweet-alert.imgModal > p > img");
 
 	    		$croppedImage.cropper({
-	    			built: function() {
-	    				var sizes = $(this).cropper("getImageData");
-	    				if(avatarUpload === true) {
-	    					$(this).cropper("setCropBoxData", {"width": 64, "height": 64});
-	    				}
-	    				if(sizes.naturalWidth < sizes.width && sizes.naturalHeight < sizes.height) {
-    						$(this).cropper("setCanvasData", {"width": sizes.naturalWidth, "height": sizes.naturalHeight});
-    					}
-	    			},
-	    			aspectRatio: avatarUpload ? 1 / 1 : previewWidth / previewHeight,
+					built: function() {
+						var sizes = $(this).cropper("getImageData");
+						if(avatarUpload === true) {
+							$(this).cropper("setCropBoxData", {"width": 64, "height": 64});
+						}
+						if(sizes.naturalWidth < sizes.width && sizes.naturalHeight < sizes.height) {
+							$(this).cropper("setCanvasData", {"width": sizes.naturalWidth, "height": sizes.naturalHeight});
+						}
+					},
+					aspectRatio: avatarUpload ? 1 / 1 : previewWidth / previewHeight,
 					preview: ".img-preview",
 					movable: false,
 					zoomable: false,
 					rotatable: false,
-					scalable: false,
-					background: false,
-					cropBoxResizable: avatarUpload ? false : true,
-					dragCrop: avatarUpload ? false : true,
-					strict: avatarUpload ? false : true
+					scalable: true,
+					background: false
 				});
 
 				$("body").one("click", ".sa-button-container button.cropBtn", function(e) {
-					$croppedImage.cropper("getCroppedCanvas", {fillColor: "#13161c"}).toBlob(function(blob) {
+
+					var croppedParams = {};
+					if(avatarUpload) {
+						croppedParams = {
+							fillColor: "#13161c",
+							width: 64,
+							height: 64
+						};
+					} else {
+						croppedParams = {
+							fillColor: "#13161c"
+						};
+					}
+					$croppedImage.cropper("getCroppedCanvas", croppedParams).toBlob(function(blob) {
 						that.formData = new FormData();
 						that.file = blob;
 						that.addToUploadList();
@@ -217,8 +227,6 @@
 	        if(this.filesAdded == 0) return;
 
 	        var that = this;
-
-	        console.log(APP.ViewsInstances);
 
 	        $.ajax({
 
