@@ -25,11 +25,11 @@ APP.Views.Map = Backbone.View.extend({
 
         APP.SetTop("Mapa", "", 70);
 
-        if($(window).width() < 769) {
-        	$("#map-container").html("<h1 style='font-size: 20px; font-weight: bold; margin-top: 20px; text-align: center;'>Proszę korzystać z mapy na urządzeniu z większym ekranem.</h1>");
-        } else {
+        // if($(window).width() < 769) {
+        // 	$("#map-container").html("<h1 style='font-size: 20px; font-weight: bold; margin-top: 20px; text-align: center;'>Proszę korzystać z mapy na urządzeniu z większym ekranem.</h1>");
+        // } else {
         	this.getGeoData();
-        }
+        // }
 
 
         APP.Scripts.init();
@@ -100,7 +100,7 @@ APP.Views.Map = Backbone.View.extend({
     makeMap: function(options) {
 
     	this.form = document.getElementById("form-map-search");
-    	this.formInput = document.getElementById("search-input");
+		this.formInput = document.getElementById("search-input");
 
     	this.map = new google.maps.Map(document.getElementById('map-container'), options);
     	this.searchBox = new google.maps.places.SearchBox(this.formInput);
