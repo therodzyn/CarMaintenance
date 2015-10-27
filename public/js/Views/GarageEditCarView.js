@@ -10,7 +10,8 @@ APP.Views.GarageEditCar = Backbone.View.extend({
     events: {
     	"submit form": "editUserCar",
     	"click .delete-btn": "showDeleteMessage",
-    	"click .delete-car-btn": "deleteUserCar"
+    	"click .delete-car-btn": "deleteUserCar",
+    	"blur form input, form select": "checkInputValue"
     },
 
     initialize: function() {
@@ -104,6 +105,76 @@ APP.Views.GarageEditCar = Backbone.View.extend({
     	var content = $(".content")[0];
         content.classList.remove(content.classList.item(1));
         content.classList.add(name);
+
+    },
+
+    checkInputValue: function(e) {
+
+    	var id = e.currentTarget.id;
+    	if($(e.currentTarget).attr("type") === "radio") {
+    		id = e.currentTarget.classList[0];
+    	}
+
+    	var invalidFields = this.model.validate();
+
+    	if(invalidFields !== null && invalidFields !== undefined && Object.keys(invalidFields).length > 0) {
+
+    		var err = false;
+	    	Object.keys(invalidFields).forEach(function(key) {
+
+    			if(key === id) {
+    				err = true;
+    				var input = {};
+    				if($(e.currentTarget).attr("type") === "radio") {
+    					input = $("." + key);
+    				} else {
+    					input = $("#" + key);
+    				}
+    				input.css({"border": "2px solid #C00"});
+
+					if(e.currentTarget.localName === "select") {
+						if(input.parent().children(".error-info").length < 1) {
+							input.parent().append("<p style='clear: both;'></p><p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold; padding-left: 15px;'>" + invalidFields[key] + "</p>");
+						}
+					} else if($(e.currentTarget).attr("type") === "radio") {
+						if(input.parent().children(".error-info").length === 0) {
+							input.parent().append("<p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold;'>" + invalidFields[key] + "</p>");
+						}
+
+					} else {
+						if(input.next(".error-info").length === 0) {
+    						input.after("<p class='error-info' style='color: #C00; font-size: 1.6em; font-weight: bold;'>" + invalidFields[key] + "</p>");
+    					}
+					}
+
+    			}
+    		});
+
+    		if(err === false) {
+				if($(e.currentTarget).attr("type") === "radio") {
+					input = $("." + id);
+					if(input.siblings(".error-info").length > 0)
+						input.siblings(".error-info").remove();
+				} else if(e.currentTarget.localName === "select") {
+					input = $("#" + id);
+					input.css({"border": ""});
+					if(input.parent().children(".error-info").length > 0)
+						if(/^.+width.+$/.test(id)) {
+							input.parent().children(".error-info:nth-child(7)").remove();
+						}
+						else {
+							input.parent().children(".error-info:nth-child(9)").remove();
+						}
+				} else {
+					input = $("#" + id);
+					input.css({"border": ""});
+					if(input.next(".error-info").length > 0)
+						input.next(".error-info").remove();
+				}
+
+    		}
+
+    	}
 
     },
 
